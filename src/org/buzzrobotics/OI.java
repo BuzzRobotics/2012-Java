@@ -9,8 +9,8 @@ import org.buzzrobotics.commands.ShiftDown;
 import org.buzzrobotics.commands.LightOn;
 import org.buzzrobotics.commands.LightOff;
 import org.buzzrobotics.commands.ToggleLight;
-import org.buzzrobotics.commands.goCompletelyCrazy;
 import org.buzzrobotics.commandgroups.whip;
+
 
 /*
  * Operator Interface
@@ -62,8 +62,6 @@ public class OI {
         rbutton1.whenPressed(new ShiftDown());
         rbutton1.whenReleased(new ShiftUp());
         rbutton2.whenPressed(new ToggleLight()); 
-        rbutton6.whenPressed(new whip()); 
-
     }
     /*
      * getRightStick

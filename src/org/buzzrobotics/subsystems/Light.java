@@ -30,7 +30,6 @@ public class Light extends Subsystem {
      * @author Kyle Deane
      */
     public void on() {
-        System.out.println("I whip my hair back and forth...");
         SmartDashboard.putString("Light", "I WHIP MY HAIR BACK AND FORTH!");
         relay_light.set(Relay.Value.kForward);
     }
@@ -40,7 +39,6 @@ public class Light extends Subsystem {
      * @author Kyle Deane
      */
     public void off() {
-        System.out.println("I do not whip my hair back and forth...");
         SmartDashboard.putString("Light", "Off");
         relay_light.set(Relay.Value.kOff);
     }

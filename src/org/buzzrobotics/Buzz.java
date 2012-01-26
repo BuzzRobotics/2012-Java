@@ -13,9 +13,13 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.buzzrobotics.commands.CommandBase;
 import org.buzzrobotics.commands.Hybrid;
 import org.buzzrobotics.commands.DriveWithJoystick;
+import org.buzzrobotics.commands.AutoMode1;
+import org.buzzrobotics.commandgroups.whip;
 import org.buzzrobotics.subsystems.DriveTrain;
 
 /**
@@ -28,8 +32,11 @@ import org.buzzrobotics.subsystems.DriveTrain;
 public class Buzz extends IterativeRobot {
 
     Command Hybrid;
+    SendableChooser autoChooser;
     Command DriveWithJoystick;
+    Command AutonomousCommand;
     Compressor RobotCompressor;
+    
 
     /**
      * This function is run when the robot is first started up and should be
@@ -41,7 +48,7 @@ public class Buzz extends IterativeRobot {
         // instantiate the command used for the autonomous period
         Hybrid = new Hybrid();
         DriveWithJoystick = new DriveWithJoystick();
-
+        NetworkTable.initialize();
         // Initialize all subsystems
         CommandBase.init();
         
@@ -50,18 +57,26 @@ public class Buzz extends IterativeRobot {
         
         //Initialize SmartDashboard, and put currently running tasks in there!
         SmartDashboard.putData("SchedulerData", Scheduler.getInstance());
+        
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Kinect", new Hybrid());
+        autoChooser.addObject("Autonomous", new whip());
+        SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
+        
     }
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        Hybrid.start();
+       AutonomousCommand = (Command) autoChooser.getSelected();
     }
 
     /**
      * This function is called periodically during autonomous
      */
+    
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+         
+        AutonomousCommand.start();
     }
 
     public void teleopInit() {
@@ -73,6 +88,7 @@ public class Buzz extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        updateDashboard();
         //DriveWithJoystick.start();
     }
     
@@ -81,5 +97,8 @@ public class Buzz extends IterativeRobot {
     }
     public void disabledPeriodic() {
         
+    }
+    public void updateDashboard(){
+        SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor().get());
     }
 }

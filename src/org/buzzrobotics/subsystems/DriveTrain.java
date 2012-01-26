@@ -9,18 +9,19 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.DriveWithJoystick;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
  * @author Kyle Deane
  */
 public class DriveTrain extends Subsystem {
     RobotDrive drive;
-    Encoder robotDriveEncoder;
-    
+    Encoder rightDriveEncoder;
+    Encoder leftDriveEncoder;
     public DriveTrain() {
         drive = new RobotDrive(RobotMap.driveRight1, RobotMap.driveRight2, RobotMap.driveLeft1, RobotMap.driveLeft2);
-        robotDriveEncoder = new Encoder(2, 3);
+        rightDriveEncoder = new Encoder(RobotMap.encRightDrive1, RobotMap.encRightDrive2);
+        leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
     }
     
     public void initDefaultCommand() {
@@ -55,15 +56,27 @@ public class DriveTrain extends Subsystem {
     public void drive(double speed, double turn){
         drive.drive(speed, turn);
     }
+    public Encoder getLeftEncoder(){
+        return rightDriveEncoder;
+    }
     
+    public Encoder getRightEncoder(){
+        return rightDriveEncoder;
+    }
     public void getEncoderCounts(){
-        double encoderCounts;
-        robotDriveEncoder.start();
-        encoderCounts = robotDriveEncoder.getDistance();
+        double encoderCountsL;
+        double encoderCountsR;
+        rightDriveEncoder.start();
+        leftDriveEncoder.start();
+        encoderCountsR = rightDriveEncoder.getDistance();
+        encoderCountsL = leftDriveEncoder.getDistance();
+        SmartDashboard.putDouble("RightEncoder", encoderCountsR);
+        SmartDashboard.putDouble("LeftEncoder", encoderCountsL);
         //System.out.println(encoderCounts);
     }
     public void resetEncoder(){
-        robotDriveEncoder.reset();
+        rightDriveEncoder.reset();
+        leftDriveEncoder.reset();
         System.out.println("Encoder(s) reset.");
     }
 }

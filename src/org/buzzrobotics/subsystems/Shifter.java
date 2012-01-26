@@ -6,6 +6,7 @@ package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.RobotMap;
 
 /**
@@ -24,11 +25,11 @@ public class Shifter extends Subsystem {
     }
     
     public void up() {
-        System.out.println("Shifted Reverse");
+        SmartDashboard.putString("Shifter", "High");
         robotSolenoidShifter.set(DoubleSolenoid.Value.kForward);
     }
     public void down() {
-        System.out.println("Shifted Forward");
+        SmartDashboard.putString("Shifter", "Low");
        robotSolenoidShifter.set(DoubleSolenoid.Value.kReverse);
     }
 }

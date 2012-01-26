@@ -60,5 +60,10 @@ public class RobotMap {
         public static int opticalSensorPWM = 4;
         public static int TurretPot = 1;
         public static int turretMotor = 5;
-            
+        
+        public static final int
+            encRightDrive1 = 2,
+            encRightDrive2 = 3,
+            encLeftDrive1 = 5,
+            encLeftDrive2 = 6;
 }
