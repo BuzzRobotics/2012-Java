@@ -63,7 +63,6 @@ public class OI {
         rbutton1.whenReleased(new ShiftUp());
         rbutton2.whenPressed(new ToggleLight()); 
         rbutton6.whenPressed(new whip()); 
-        rbutton8.whileHeld(new goCompletelyCrazy());
         
     }
     /*
