@@ -24,6 +24,7 @@ public class DriveWithJoystick extends CommandBase {
         sensitivity = (oi.getRightZ() + 1)/2 + 0.2; 
                 if (sensitivity > 1.0){
                     sensitivity = 1.0;
+                    double kyle = 2;
                 }
         drivetrain.arcadeDrive( oi.getRightX() * sensitivity, oi.getRightY() * sensitivity);
         drivetrain.getEncoderCounts();
