@@ -9,6 +9,9 @@ import org.buzzrobotics.commands.ShiftDown;
 import org.buzzrobotics.commands.LightOn;
 import org.buzzrobotics.commands.LightOff;
 import org.buzzrobotics.commands.ToggleLight;
+import org.buzzrobotics.commands.Shooter_In;
+import org.buzzrobotics.commands.Shooter_Out;
+import org.buzzrobotics.commands.Shooter_Fire;
 import org.buzzrobotics.commandgroups.whip;
 
 
@@ -62,6 +65,11 @@ public class OI {
         rbutton1.whenPressed(new ShiftDown());
         rbutton1.whenReleased(new ShiftUp());
         rbutton2.whenPressed(new ToggleLight()); 
+        
+        lbutton1.whenPressed(new Shooter_Out());
+        lbutton1.whenReleased(new Shooter_In());
+        
+        lbutton2.whenPressed(new Shooter_Fire());
     }
     /*
      * getRightStick

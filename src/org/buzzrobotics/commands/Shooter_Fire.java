@@ -1,18 +1,19 @@
 /*
- * Go Completely Crazy
- * Drives bot around in circles
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
 package org.buzzrobotics.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
- * @author Kyle Deane
+ * @author buzz5
  */
-public class goCompletelyCrazy extends CommandBase {
+public class Shooter_Fire extends CommandBase {
     
-    public goCompletelyCrazy() {
-        requires(drivetrain);
+    public Shooter_Fire() {
+        requires(shooter);
     }
 
     // Called just before this Command runs the first time
@@ -21,14 +22,14 @@ public class goCompletelyCrazy extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
-        drivetrain.drive(1.0, 1.0);
-        
+        shooter.out();
+        Timer.delay(.5);
+        shooter.in();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

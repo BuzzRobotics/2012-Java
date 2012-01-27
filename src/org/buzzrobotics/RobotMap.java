@@ -34,6 +34,16 @@ public class RobotMap {
          public static final int
             solenoidShifterDeployPort = 1,   //High Gear
             solenoidShifterRetractPort = 2;    //Low Gear  
+         
+         /*
+         * SuperShifter Ports
+         * Used on Solenoid Board
+         * solenoidShifterDeployPort - High Gear
+         * solenoidShifterRetractPort - Low Gear
+         */
+         public static final int
+            solenoidShooterExtend = 3,   //High Gear
+            solenoidShooterRetract = 4;    //Low Gear  
          /*
          * Compressor Ports
          * compresserPWM - Compressor Spike RELAY port
