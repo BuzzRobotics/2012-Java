@@ -36,10 +36,10 @@ public class RobotMap {
             solenoidShifterRetractPort = 2;    //Low Gear  
          
          /*
-         * SuperShifter Ports
+         * Solenoid Shooter
          * Used on Solenoid Board
-         * solenoidShifterDeployPort - High Gear
-         * solenoidShifterRetractPort - Low Gear
+         * solenoidShooterExtend - Extends to propel ball.
+         * solenoidShooterRetract - Retracts to be loaded again.
          */
          public static final int
             solenoidShooterExtend = 3,   //High Gear

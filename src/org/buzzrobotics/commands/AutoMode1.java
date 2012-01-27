@@ -32,7 +32,7 @@ public class AutoMode1 extends CommandBase {
         }
         
         if (m_autoPeriodicLoops == 2 * 20) {
-            drivetrain.drive(-1,0);
+            drivetrain.drive(-1,2);
         }
         if (m_autoPeriodicLoops == 3 * 20) {
             light.on();
@@ -49,7 +49,7 @@ public class AutoMode1 extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
