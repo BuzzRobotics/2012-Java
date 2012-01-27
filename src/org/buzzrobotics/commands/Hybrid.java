@@ -31,6 +31,7 @@ public class Hybrid extends CommandBase {
     public Hybrid() {
         requires(drivetrain);
         requires(light);
+        requires(shifter);
         kinect = Kinect.getInstance();
         
         
@@ -85,7 +86,12 @@ public class Hybrid extends CommandBase {
                 rightLegAngle = AngleXY(kinect.getSkeleton().GetHipRight(), kinect.getSkeleton().GetAnkleRight(), false);
                 buttons[2] = leftLegAngle > LEG_OUT;
                 buttons[3] = rightLegAngle > LEG_OUT;
-
+                if (buttons[2]){
+                    shifter.up();
+                }
+                if (buttons[3]){ 
+                    shifter.down();
+                }
                 /* Calculate the leg angle in the YZ plane and use them to set the Leg Forward and Leg Back buttons */
                 leftLegYZ = AngleYZ(kinect.getSkeleton().GetHipLeft(), kinect.getSkeleton().GetAnkleLeft(), false);
                 rightLegYZ = AngleYZ(kinect.getSkeleton().GetHipRight(), kinect.getSkeleton().GetAnkleRight(), false);
