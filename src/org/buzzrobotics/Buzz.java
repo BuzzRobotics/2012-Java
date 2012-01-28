@@ -61,6 +61,7 @@ public class Buzz extends IterativeRobot {
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Kinect", new Hybrid());
         autoChooser.addObject("Autonomous", new whip());
+        autoChooser.addObject("Test1", new AutoMode1());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
     }
@@ -100,5 +101,6 @@ public class Buzz extends IterativeRobot {
     }
     public void updateDashboard(){
         SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor().get());
+        SmartDashboard.putDouble("Gyroscope: ", CommandBase.gyro.getGyroAngle());
     }
 }

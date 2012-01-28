@@ -12,6 +12,7 @@ import org.buzzrobotics.commands.ToggleLight;
 import org.buzzrobotics.commands.Shooter_In;
 import org.buzzrobotics.commands.Shooter_Out;
 import org.buzzrobotics.commands.Shooter_Fire;
+import org.buzzrobotics.commands.BalanceBot;
 import org.buzzrobotics.commandgroups.whip;
 
 
@@ -65,7 +66,7 @@ public class OI {
         rbutton1.whenPressed(new ShiftDown());
         rbutton1.whenReleased(new ShiftUp());
         rbutton2.whenPressed(new ToggleLight()); 
-        
+        rbutton7.whileHeld(new BalanceBot());
         lbutton1.whenPressed(new Shooter_Out());
         lbutton1.whenReleased(new Shooter_In());
         

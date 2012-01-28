@@ -16,12 +16,11 @@ import org.buzzrobotics.RobotMap;
 public class Shifter extends Subsystem {
     DoubleSolenoid robotSolenoidShifter;
     public Shifter() {   
-        robotSolenoidShifter = new DoubleSolenoid(1, RobotMap.solenoidShifterDeployPort, RobotMap.solenoidShifterRetractPort);
+        robotSolenoidShifter = new DoubleSolenoid(1, RobotMap.solenoidShifterDeploy, RobotMap.solenoidShifterRetract);
     }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
     
     public void up() {

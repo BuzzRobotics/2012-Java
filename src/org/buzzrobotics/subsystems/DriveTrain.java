@@ -19,7 +19,7 @@ public class DriveTrain extends Subsystem {
     Encoder rightDriveEncoder;
     Encoder leftDriveEncoder;
     public DriveTrain() {
-        drive = new RobotDrive(RobotMap.driveRight1, RobotMap.driveRight2, RobotMap.driveLeft1, RobotMap.driveLeft2);
+        drive = new RobotDrive(RobotMap.driveRight1, RobotMap.driveLeft1);
         rightDriveEncoder = new Encoder(RobotMap.encRightDrive1, RobotMap.encRightDrive2);
         leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
     }
