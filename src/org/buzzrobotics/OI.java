@@ -13,6 +13,7 @@ import org.buzzrobotics.commands.Shooter_In;
 import org.buzzrobotics.commands.Shooter_Out;
 import org.buzzrobotics.commands.Shooter_Fire;
 import org.buzzrobotics.commands.BalanceBot;
+import org.buzzrobotics.commands.ResetGyro;
 import org.buzzrobotics.commandgroups.whip;
 
 
@@ -67,6 +68,7 @@ public class OI {
         rbutton1.whenReleased(new ShiftUp());
         rbutton2.whenPressed(new ToggleLight()); 
         rbutton7.whileHeld(new BalanceBot());
+        rbutton6.whenPressed(new ResetGyro());
         lbutton1.whenPressed(new Shooter_Out());
         lbutton1.whenReleased(new Shooter_In());
         

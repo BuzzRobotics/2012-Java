@@ -6,10 +6,11 @@ import org.buzzrobotics.OI;
 import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.subsystems.Light;
 import org.buzzrobotics.subsystems.Shifter;
-import org.buzzrobotics.subsystems.Turret;
 import org.buzzrobotics.subsystems.irSensor;
 import org.buzzrobotics.subsystems.Gyroscope;
 import org.buzzrobotics.subsystems.Shooter;
+import org.buzzrobotics.subsystems.ShooterAngle;
+import org.buzzrobotics.subsystems.RollerArm;
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
@@ -24,10 +25,12 @@ public abstract class CommandBase extends Command {
     public static DriveTrain drivetrain = new DriveTrain();
     public static Light light = new Light();
     public static Shifter shifter = new Shifter();
-    public static Turret turret = new Turret();
     public static irSensor ir = new irSensor();
     public static Gyroscope gyro = new Gyroscope();
     public static Shooter shooter = new Shooter();
+    public static ShooterAngle shooterangle = new ShooterAngle();
+    public static RollerArm rollerarm = new RollerArm();
+    //public static ShooterAngle shooterangle = new ShooterAngle();
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
         // will), constructing it during the construction of CommandBase (from
@@ -38,9 +41,7 @@ public abstract class CommandBase extends Command {
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(drivetrain);
-        SmartDashboard.putData(light);
-        SmartDashboard.putData(turret);
-     
+        SmartDashboard.putData(light);     
     }
 
     public CommandBase(String name) {

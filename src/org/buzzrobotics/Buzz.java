@@ -21,6 +21,7 @@ import org.buzzrobotics.commands.DriveWithJoystick;
 import org.buzzrobotics.commands.AutoMode1;
 import org.buzzrobotics.commandgroups.whip;
 import org.buzzrobotics.subsystems.DriveTrain;
+import org.buzzrobotics.commands.Shooter_Angle;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,7 +34,9 @@ public class Buzz extends IterativeRobot {
 
     Command Hybrid;
     SendableChooser autoChooser;
+    SendableChooser ShooterLimit;
     Command DriveWithJoystick;
+    Command ShooterAngle;
     Command AutonomousCommand;
     Compressor RobotCompressor;
     
@@ -64,6 +67,14 @@ public class Buzz extends IterativeRobot {
         autoChooser.addObject("Test1", new AutoMode1());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
+        ShooterLimit = new SendableChooser();
+        ShooterLimit.addDefault("5", new Shooter_Angle(5));
+        ShooterLimit.addObject("4", new Shooter_Angle(4));
+        ShooterLimit.addObject("3", new Shooter_Angle(3));
+        ShooterLimit.addObject("2", new Shooter_Angle(2));
+        ShooterLimit.addObject("1", new Shooter_Angle(1));
+        SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
+        
     }
 
     public void autonomousInit() {
@@ -82,6 +93,7 @@ public class Buzz extends IterativeRobot {
 
     public void teleopInit() {
 		Hybrid.cancel();
+                //ShooterAngle = (Command) ShooterLimit.getSelected();
     }
 
     /**
@@ -91,6 +103,8 @@ public class Buzz extends IterativeRobot {
         Scheduler.getInstance().run();
         updateDashboard();
         //DriveWithJoystick.start();
+        ShooterAngle = (Command) ShooterLimit.getSelected();
+        ShooterAngle.start();
     }
     
     public void disabledInit() {
@@ -102,5 +116,6 @@ public class Buzz extends IterativeRobot {
     public void updateDashboard(){
         SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor().get());
         SmartDashboard.putDouble("Gyroscope: ", CommandBase.gyro.getGyroAngle());
+        SmartDashboard.putDouble("LimitPot: ", CommandBase.shooterangle.returnPot());
     }
 }

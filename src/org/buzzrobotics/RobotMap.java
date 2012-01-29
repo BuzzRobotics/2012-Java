@@ -46,6 +46,8 @@ public class RobotMap {
          public static final int
             solenoidShooterExtend = 3,   //High Gear
             solenoidShooterRetract = 4;    //Low Gear  
+         
+         
          /*
          * Compressor Ports
          * compresserPWM - Compressor Spike RELAY port. Digital Sidecar Relay PORT 8
@@ -90,17 +92,25 @@ public class RobotMap {
          * TurretPot
          * Analog Slice port 1
          */
-        public static int TurretPot = 3;
+   
+        
+        
+        public static int ShooterPot = 3;
+        public static int ShooterAngleMotor = 5;
         /*
          * Turret Motor
          */
-        public static int turretMotor = 5;
         
         /*
          * Gyroscope Port
          * On Analog Input
          */
         public static int gyroPort = 1;
+        
+        public static int rollerArmPWM = 3;
+        public static int rollerPWM = 4;
+        
+        public static int rollerArmPotPort = 4;
         
         
         

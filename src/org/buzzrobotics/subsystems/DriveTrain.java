@@ -63,7 +63,7 @@ public class DriveTrain extends Subsystem {
     public Encoder getRightEncoder(){
         return rightDriveEncoder;
     }
-    public void getEncoderCounts(){
+    public double getEncoderCounts(){
         double encoderCountsL;
         double encoderCountsR;
         rightDriveEncoder.start();
@@ -72,6 +72,7 @@ public class DriveTrain extends Subsystem {
         encoderCountsL = leftDriveEncoder.getDistance();
         SmartDashboard.putDouble("RightEncoder", encoderCountsR);
         SmartDashboard.putDouble("LeftEncoder", encoderCountsL);
+        return rightDriveEncoder.get();
         //System.out.println(encoderCounts);
     }
     public void resetEncoder(){
