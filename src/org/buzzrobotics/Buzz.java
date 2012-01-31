@@ -19,7 +19,9 @@ import org.buzzrobotics.commands.CommandBase;
 import org.buzzrobotics.commands.Hybrid;
 import org.buzzrobotics.commands.DriveWithJoystick;
 import org.buzzrobotics.commands.AutoMode1;
+import org.buzzrobotics.commands.Nothing;
 import org.buzzrobotics.commandgroups.whip;
+import org.buzzrobotics.commandgroups.AutoMode;
 import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.commands.Shooter_Angle;
 
@@ -38,6 +40,7 @@ public class Buzz extends IterativeRobot {
     Command DriveWithJoystick;
     Command ShooterAngle;
     Command AutonomousCommand;
+    Command Nothing;
     Compressor RobotCompressor;
     
 
@@ -65,6 +68,8 @@ public class Buzz extends IterativeRobot {
         autoChooser.addDefault("Kinect", new Hybrid());
         autoChooser.addObject("Autonomous", new whip());
         autoChooser.addObject("Test1", new AutoMode1());
+        autoChooser.addObject("AutoMode", new AutoMode());
+        autoChooser.addObject("Sit On My Lazy But", new Nothing());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
         ShooterLimit = new SendableChooser();
