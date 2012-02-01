@@ -22,8 +22,10 @@ import org.buzzrobotics.commands.AutoMode1;
 import org.buzzrobotics.commands.Nothing;
 import org.buzzrobotics.commandgroups.whip;
 import org.buzzrobotics.commandgroups.AutoMode;
+import org.buzzrobotics.OI;
 import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.commands.Shooter_Angle;
+import org.buzzrobotics.commands.Delay;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,9 +39,11 @@ public class Buzz extends IterativeRobot {
     Command Hybrid;
     SendableChooser autoChooser;
     SendableChooser ShooterLimit;
+    SendableChooser YaledChooser;
     Command DriveWithJoystick;
     Command ShooterAngle;
     Command AutonomousCommand;
+    Command YaledCommand;
     Command Nothing;
     Compressor RobotCompressor;
     
@@ -68,7 +72,7 @@ public class Buzz extends IterativeRobot {
         autoChooser.addDefault("Kinect", new Hybrid());
         autoChooser.addObject("Autonomous", new whip());
         autoChooser.addObject("Test1", new AutoMode1());
-        autoChooser.addObject("AutoMode", new AutoMode());
+        autoChooser.addObject("AutoMode", new AutoMode(5));
         autoChooser.addObject("Sit On My Lazy But", new Nothing());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
@@ -80,10 +84,16 @@ public class Buzz extends IterativeRobot {
         ShooterLimit.addObject("1", new Shooter_Angle(1));
         SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
         
+        YaledChooser = new SendableChooser();
+        YaledChooser.addDefault("5", new Delay(5));
+        SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
+        
     }
 
     public void autonomousInit() {
+       
        AutonomousCommand = (Command) autoChooser.getSelected();
+       //YaledCommand = (Command) YaledChooser.getSelected();
     }
 
     /**
@@ -92,12 +102,12 @@ public class Buzz extends IterativeRobot {
     
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-         
         AutonomousCommand.start();
     }
 
     public void teleopInit() {
 		Hybrid.cancel();
+                //AutonomousCommand.cancel();
                 //ShooterAngle = (Command) ShooterLimit.getSelected();
     }
 
@@ -122,5 +132,6 @@ public class Buzz extends IterativeRobot {
         SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor().get());
         SmartDashboard.putDouble("Gyroscope: ", CommandBase.gyro.getGyroAngle());
         SmartDashboard.putDouble("LimitPot: ", CommandBase.shooterangle.returnPot());
+        
     }
 }

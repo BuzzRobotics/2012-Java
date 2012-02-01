@@ -15,14 +15,19 @@ import org.buzzrobotics.commands.TurnOnRollers;
 import org.buzzrobotics.commands.TurnOffRollers;
 import org.buzzrobotics.commands.PickupArmRaise;
 import org.buzzrobotics.commands.PickupArmLower;
+import org.buzzrobotics.commands.Delay;
 
 /**
  *
  * @author buzz5
  */
 public class AutoMode extends CommandGroup {
-    
-    public AutoMode() {
+        public int m_delay;
+    public AutoMode(int delay) {
+        m_delay = delay;
+        System.out.println("Delay Start");
+        addSequential(new Delay(m_delay));
+        System.out.println("Delay End");
         addSequential(new Shooter_Fire());  //Shoot one of the two balls we have
         addSequential(new Shooter_Fire());  //Shoot the other ball
         addSequential(new DriveToEncoderCount(-1, 0, 5000));    //Drive over to the ramp

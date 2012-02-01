@@ -15,6 +15,8 @@ import org.buzzrobotics.commands.Shooter_Fire;
 import org.buzzrobotics.commands.BalanceBot;
 import org.buzzrobotics.commands.ResetGyro;
 import org.buzzrobotics.commandgroups.whip;
+import org.buzzrobotics.commands.TurnOnRollers;
+import org.buzzrobotics.commands.*;
 
 
 /*
@@ -53,7 +55,10 @@ public class OI {
            rbutton5 = new JoystickButton(rightJoy, 5),
            rbutton6 = new JoystickButton(rightJoy, 6),
            rbutton7 = new JoystickButton(rightJoy, 7),
-           rbutton8 = new JoystickButton(rightJoy, 8);
+           rbutton8 = new JoystickButton(rightJoy, 8),
+           rbuttonUp = new JoystickButton(rightJoy, 128),
+           rbuttonDn = new JoystickButton(rightJoy, 132);
+    
     /**
      * Bind the press of each button to a specific command or command group.
      * 
@@ -66,13 +71,19 @@ public class OI {
     public OI() {
         rbutton1.whenPressed(new ShiftDown());
         rbutton1.whenReleased(new ShiftUp());
-        rbutton2.whenPressed(new ToggleLight()); 
-        rbutton7.whileHeld(new BalanceBot());
-        rbutton6.whenPressed(new ResetGyro());
         lbutton1.whenPressed(new Shooter_Out());
         lbutton1.whenReleased(new Shooter_In());
-        
+        rbutton2.whenPressed(new ToggleLight()); 
         lbutton2.whenPressed(new Shooter_Fire());
+        rbutton3.whenPressed(new PickupArmLower());
+        lbutton4.whenPressed(new TurnOnRollers());
+        lbutton5.whenPressed(new TurnOffRollers());
+        rbutton6.whenPressed(new ResetGyro());
+        rbutton7.whileHeld(new BalanceBot());
+        rbuttonUp.whenPressed(new LightOn());
+        rbuttonDn.whenPressed(new LightOff());
+        // LATCH INSTEAD rbutton4.whenPressed(new PickupArmRaise());
+        
     }
     /*
      * getRightStick
@@ -114,6 +125,13 @@ public class OI {
      public double getRightY() {
         return rightJoy.getY();
     }
+     public double getRightTwist() {
+         System.out.println(rightJoy.getAxis(Joystick.AxisType.kTwist));
+         return rightJoy.getAxis(Joystick.AxisType.kTwist);
+     }
+     public double getRightHat() {
+         return rightJoy.getAxis(Joystick.AxisType.kNumAxis);
+     }
     /**
      * @return The value of the right joystick X axis.
      * @author Kyle Deane
@@ -127,7 +145,7 @@ public class OI {
      * @author Kyle Deane
      */
     public double getRightZ() {
-        return rightJoy.getZ();
+        return rightJoy.getAxis(Joystick.AxisType.kZ);
     }
     /**
      * @return The value of the left joystick Z axis.
