@@ -6,13 +6,12 @@ package org.buzzrobotics.commands;
 
 /**
  *
- * @author buzz5
+ * @author Kyle Deane
  */
-public class TurnOnRollers extends CommandBase {
+public class Shift_Up extends CommandBase {
     
-    public TurnOnRollers() {
-        // Use requires() here to declare subsystem dependencies
-        requires(rollerarm);
+    public Shift_Up() {
+        requires(shifter);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +20,7 @@ public class TurnOnRollers extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.turnOnRollers();
+        shifter.up();
     }
 
     // Make this return true when this Command no longer needs to run execute()

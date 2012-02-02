@@ -112,6 +112,9 @@ public class RobotMap {
         
         public static int rollerArmPotPort = 4;
         
+        public static int camerax = 9;
+        public static int cameray = 10;
+        
         
         
 }

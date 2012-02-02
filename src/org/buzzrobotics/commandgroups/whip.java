@@ -2,8 +2,8 @@ package org.buzzrobotics.commandgroups;
 import edu.wpi.first.wpilibj.Timer;
 import org.buzzrobotics.commands.LightOn;
 import org.buzzrobotics.commands.LightOff;
-import org.buzzrobotics.commands.ShiftDown;
-import org.buzzrobotics.commands.ShiftUp;
+import org.buzzrobotics.commands.Shift_Down;
+import org.buzzrobotics.commands.Shift_Up;
 import org.buzzrobotics.commands.Drive;
 import org.buzzrobotics.subsystems.Light;
         
@@ -19,9 +19,9 @@ public class whip extends CommandGroup {
      */
     public whip() {
         addSequential(new Drive(1, 0, 3));
-        addSequential(new ShiftDown());
+        addSequential(new Shift_Down());
         addSequential(new LightOn());
-        addSequential(new ShiftUp());
+        addSequential(new Shift_Up());
         addSequential(new Drive(1, 0, 3));
         addSequential(new LightOff());
         

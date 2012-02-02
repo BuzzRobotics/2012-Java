@@ -1,16 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
  *
  * @author Kyle Deane
  */
-public class ShiftUp extends CommandBase {
+public class Shift_Down extends CommandBase {
     
-    public ShiftUp() {
+    public Shift_Down() {
         requires(shifter);
     }
 
@@ -20,7 +16,7 @@ public class ShiftUp extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shifter.up();
+        shifter.down();
     }
 
     // Make this return true when this Command no longer needs to run execute()

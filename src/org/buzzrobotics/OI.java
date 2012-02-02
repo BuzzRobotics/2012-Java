@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
-import org.buzzrobotics.commands.ShiftUp;
-import org.buzzrobotics.commands.ShiftDown;
+import org.buzzrobotics.commands.Shift_Up;
+import org.buzzrobotics.commands.Shift_Down;
 import org.buzzrobotics.commands.LightOn;
 import org.buzzrobotics.commands.LightOff;
 import org.buzzrobotics.commands.ToggleLight;
@@ -56,8 +56,10 @@ public class OI {
            rbutton6 = new JoystickButton(rightJoy, 6),
            rbutton7 = new JoystickButton(rightJoy, 7),
            rbutton8 = new JoystickButton(rightJoy, 8),
-           rbuttonUp = new JoystickButton(rightJoy, 128),
-           rbuttonDn = new JoystickButton(rightJoy, 132);
+            rbutton9 = new JoystickButton(rightJoy, 9),
+            rbutton10 = new JoystickButton(rightJoy, 10),
+            rbutton11 = new JoystickButton(rightJoy, 11),
+            rbutton12 = new JoystickButton(rightJoy, 12);
     
     /**
      * Bind the press of each button to a specific command or command group.
@@ -69,19 +71,26 @@ public class OI {
      * @author Kyle Deane
      */
     public OI() {
-        rbutton1.whenPressed(new ShiftDown());
-        rbutton1.whenReleased(new ShiftUp());
+        rbutton1.whenPressed(new Shift_Down());
+        rbutton1.whenReleased(new Shift_Up());
         lbutton1.whenPressed(new Shooter_Out());
         lbutton1.whenReleased(new Shooter_In());
         rbutton2.whenPressed(new ToggleLight()); 
-        lbutton2.whenPressed(new Shooter_Fire());
-        rbutton3.whenPressed(new PickupArmLower());
+      //  rbutton2.whenPressed(new Shooter_Fire());
+        lbutton3.whenPressed(new PickupArmRaise());
+        lbutton2.whenPressed(new PickupArmLower());
+        
         lbutton4.whenPressed(new TurnOnRollers());
         lbutton5.whenPressed(new TurnOffRollers());
+        
         rbutton6.whenPressed(new ResetGyro());
         rbutton7.whileHeld(new BalanceBot());
-        rbuttonUp.whenPressed(new LightOn());
-        rbuttonDn.whenPressed(new LightOff());
+        rbutton11.whenPressed(new AdjustCameraX(1));
+        rbutton10.whenPressed(new AdjustCameraY(1));
+        rbutton12.whenPressed(new AdjustCameraX(-1));
+        rbutton9.whenPressed(new AdjustCameraY(-1));
+        rbutton8.whenPressed(new AdjustCamera(0.5, 0.5));
+                
         // LATCH INSTEAD rbutton4.whenPressed(new PickupArmRaise());
         
     }
@@ -125,13 +134,18 @@ public class OI {
      public double getRightY() {
         return rightJoy.getY();
     }
+     
      public double getRightTwist() {
-         System.out.println(rightJoy.getAxis(Joystick.AxisType.kTwist));
-         return rightJoy.getAxis(Joystick.AxisType.kTwist);
+         System.out.println(rightJoy.getTwist());
+         return rightJoy.getTwist();
      }
-     public double getRightHat() {
-         return rightJoy.getAxis(Joystick.AxisType.kNumAxis);
+     public double getRightHatX() {
+         return rightJoy.getRawAxis(5);
      }
+     public double getRightHatY() {
+         return rightJoy.getRawAxis(6);
+     }
+     
     /**
      * @return The value of the right joystick X axis.
      * @author Kyle Deane
@@ -145,7 +159,7 @@ public class OI {
      * @author Kyle Deane
      */
     public double getRightZ() {
-        return rightJoy.getAxis(Joystick.AxisType.kZ);
+        return rightJoy.getRawAxis(4);
     }
     /**
      * @return The value of the left joystick Z axis.

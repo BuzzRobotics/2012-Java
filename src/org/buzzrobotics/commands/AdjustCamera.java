@@ -1,13 +1,21 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.buzzrobotics.commands;
 
 /**
  *
- * @author Kyle Deane
+ * @author buzz5
  */
-public class ShiftDown extends CommandBase {
-    
-    public ShiftDown() {
-        requires(shifter);
+public class AdjustCamera extends CommandBase {
+    public double m_x = 1;
+    public double m_y = 1;
+    public AdjustCamera(double x, double y) {
+        // Use requires() here to declare subsystem dependencies
+        requires(camera);
+        m_x = x;
+        m_y = y;
     }
 
     // Called just before this Command runs the first time
@@ -16,7 +24,7 @@ public class ShiftDown extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shifter.down();
+        camera.setCamera(m_x, m_y);
     }
 
     // Make this return true when this Command no longer needs to run execute()

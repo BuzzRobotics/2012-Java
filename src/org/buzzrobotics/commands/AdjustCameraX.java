@@ -8,11 +8,12 @@ package org.buzzrobotics.commands;
  *
  * @author buzz5
  */
-public class TurnOnRollers extends CommandBase {
-    
-    public TurnOnRollers() {
+public class AdjustCameraX extends CommandBase {
+    public double m_x = 1;
+    public AdjustCameraX(double x) {
         // Use requires() here to declare subsystem dependencies
-        requires(rollerarm);
+        requires(camera);
+        m_x = x;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +22,7 @@ public class TurnOnRollers extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.turnOnRollers();
+        camera.setCameraX(m_x);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -22,13 +22,18 @@ public class PickupArmRaise extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    public void execute() {
         rollerarm.raise();
+        double rollerarmpot = rollerarm.getPotVoltage();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (rollerarm.getPotVoltage() >= rollerArmPotRaiseLimit);
+        if (rollerarm.getPotVoltage() >= rollerArmPotRaiseLimit){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     // Called once after isFinished returns true

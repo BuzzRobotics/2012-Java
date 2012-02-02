@@ -14,7 +14,7 @@ public class PickupArmLower extends CommandBase {
     
     public PickupArmLower() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +28,7 @@ public class PickupArmLower extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (rollerarm.getPotVoltage() >= rollerArmPotLowerLimit);
+        return (rollerarm.getPotVoltage() <= rollerArmPotLowerLimit);
     }
 
     // Called once after isFinished returns true
