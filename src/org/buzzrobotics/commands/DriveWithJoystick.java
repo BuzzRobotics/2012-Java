@@ -28,7 +28,6 @@ public class DriveWithJoystick extends CommandBase {
                     sensitivity = 1.0;
                 }
         drivetrain.arcadeDrive( oi.getRightX() * sensitivity, oi.getRightY() * sensitivity);
-        drivetrain.getEncoderCounts();
         
 //            if (oi.getRightTwist() < -0.10 || oi.getRightTwist() > 0.10){
 //                drivetrain.drive(oi.getRightTwist(), turn);

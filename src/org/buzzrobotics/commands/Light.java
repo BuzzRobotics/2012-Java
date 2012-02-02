@@ -6,35 +6,31 @@ package org.buzzrobotics.commands;
 
 /**
  *
- * @author buzz5
+ * @author Kyle Deane
  */
-public class DriveToEncoderCount extends CommandBase {
-    public double m_speed;
-    public double m_turn;
-    public double m_countDestination;
-    public DriveToEncoderCount(double speed, double turn, double countDestination) {
-        m_speed = speed;
-        m_turn = turn;
-        m_countDestination = countDestination;
-        requires(drivetrain);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+public class Light extends CommandBase {
+    boolean lighton = false;
+    public Light(boolean on) {
+        requires(light);
+        lighton = on;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        drivetrain.resetEncoder();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drivetrain.drive(m_speed, m_turn);
-        
+        if (lighton) {
+            light.on();
+        }else{
+            light.off();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (drivetrain.getEncoderCounts() >= m_countDestination);
+        return true;
     }
 
     // Called once after isFinished returns true

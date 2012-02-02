@@ -14,20 +14,19 @@ public class BalanceBot extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(drivetrain);
-        requires(gyro);
         requires(shifter);
     }
     double Kp = 0.03;
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        gyro.reset();
+       // gyro.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         shifter.down();
-        double angle = gyro.getGyroAngle();
+        double angle = drivetrain.getGyroAngle();
         if (angle > 1){
             drivetrain.drive(0.2, 1.0);
         }else if (angle < -1){

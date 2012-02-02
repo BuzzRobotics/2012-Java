@@ -2,16 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.buzzrobotics.commands;
-
+package org.buzzrobotics.autonomous;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import org.buzzrobotics.commands.CommandBase;
 /**
  *
  * @author Kyle Deane
  */
-public class LightOn extends CommandBase {
+public class AutonConfig extends CommandBase {
     
-    public LightOn() {
-        requires(light);
+    public AutonConfig() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -20,12 +22,11 @@ public class LightOn extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        light.on();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

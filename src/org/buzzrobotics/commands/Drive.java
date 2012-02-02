@@ -1,18 +1,22 @@
-/*
- * Go Completely Crazy
- * Drives bot around in circles
- */
 package org.buzzrobotics.commands;
-
-
-/**
- *
+/*
+ * @param speed how fast the robot should go
+ * @param turn how much turn the bot should have. 0 is straight.
+ * @param timeout 
  * @author Kyle Deane
  */
 public class Drive extends CommandBase {
     public double m_timeout;
     public double m_speed;
     public double m_turn;
+    /*
+     * Drive - drives the specified speed with the specified turn for the specified time
+     * @param speed the speed the wheels turn 
+     * @param turn how much turn goes on that side.
+     * @param timeout how long to drive for
+     * 
+     * @author Kyle Deane
+     */
     public Drive(double speed, double turn, double timeout) {
         m_timeout = timeout;
         m_speed = speed;

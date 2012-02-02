@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.buzzrobotics.commands.CommandBase;
 import org.buzzrobotics.commands.Hybrid;
 import org.buzzrobotics.commands.DriveWithJoystick;
-import org.buzzrobotics.commands.AutoMode1;
+import org.buzzrobotics.autonomous.AutoMode1;
 import org.buzzrobotics.commands.Nothing;
 import org.buzzrobotics.commandgroups.whip;
 import org.buzzrobotics.commandgroups.AutoMode;
@@ -130,7 +130,7 @@ public class Buzz extends IterativeRobot {
     }
     public void updateDashboard(){
         SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor().get());
-        SmartDashboard.putDouble("Gyroscope: ", CommandBase.gyro.getGyroAngle());
+        SmartDashboard.putDouble("Gyroscope: ", CommandBase.drivetrain.getGyroAngle());
         SmartDashboard.putDouble("LimitPot: ", CommandBase.shooterangle.returnPot());
         
     }

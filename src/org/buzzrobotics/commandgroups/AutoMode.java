@@ -10,7 +10,7 @@ import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.commands.Shooter_Fire;
 import org.buzzrobotics.commands.Drive;
-import org.buzzrobotics.commands.DriveToEncoderCount;
+import org.buzzrobotics.commands.AutonDrive;
 import org.buzzrobotics.commands.TurnOnRollers;
 import org.buzzrobotics.commands.TurnOffRollers;
 import org.buzzrobotics.commands.PickupArmRaise;
@@ -30,13 +30,13 @@ public class AutoMode extends CommandGroup {
         System.out.println("Delay End");
         addSequential(new Shooter_Fire());  //Shoot one of the two balls we have
         addSequential(new Shooter_Fire());  //Shoot the other ball
-        addSequential(new DriveToEncoderCount(-1, 0, 5000));    //Drive over to the ramp
+        addSequential(new AutonDrive(13));    //Drive over to the ramp
         addSequential(new PickupArmLower()); //Drop the pickup arm to lower the ramp
         addSequential(new TurnOnRollers());     //Turn on Rollers
         Timer.delay(3);                     //???
         addSequential(new TurnOffRollers());    //Turn off the rollers
         addParallel(new PickupArmRaise());                      //Raise the pickup arm...
-        addSequential(new DriveToEncoderCount(1, 0, -5000));    //...while we drive back to the key
+        addSequential(new AutonDrive(-23));    //...while we drive back to the key
         addSequential(new Shooter_Fire());  //Fire
         addSequential(new Shooter_Fire());  //Fire again
         addSequential(new Drive(0, 0, 15)); //Wait around for 15 seconds

@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.DriveWithJoystick;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendablePIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -18,14 +22,64 @@ public class DriveTrain extends Subsystem {
     RobotDrive drive;
     Encoder rightDriveEncoder;
     Encoder leftDriveEncoder;
+    Gyro gyro;
+    
+    private int forward;
+    final int WHEEL_RADIUS = 3;
+    final double CIRCUMFERENCE = 2 * Math.PI * WHEEL_RADIUS;
+    final int ENCODER_CODES_PER_REV = 360;
+    final double DISTANCE_PER_PULSE = CIRCUMFERENCE / ENCODER_CODES_PER_REV;
+    
+    double Kp = 0.035;
+    double Ki = 0.0005;
+    double Kd = 1.0;
+    SendablePIDController controller;
     public DriveTrain() {
+        setForward();
         drive = new RobotDrive(RobotMap.driveRight1, RobotMap.driveLeft1);
         rightDriveEncoder = new Encoder(RobotMap.encRightDrive1, RobotMap.encRightDrive2);
         leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
+        leftDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
+        rightDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
+        
+        gyro = new Gyro(RobotMap.gyroPort);
+        gyro.setSensitivity(0.007);
+        
+        controller = new SendablePIDController(Kp, Ki, Kd, gyro, new PIDOutput() {
+
+            public void pidWrite(double output) {
+                arcadeDrive(forward, -output);
+            }
+        }, 0.005);
+    }
+    public void initController() {
+        controller.setSetpoint(0);
+        controller.enable();
     }
     
+    public void endController() {
+        controller.disable();
+    }
+
+    public void driveStraight() {
+        controller.setSetpoint(0);  // Go straight
+    }
+
     public void initDefaultCommand() {
          setDefaultCommand(new DriveWithJoystick());
+    }
+    public Command getDefaultCommand(){
+        return super.getDefaultCommand();
+    }
+    
+    /*
+     * Gyroscope Functions
+     */
+    public double getGyroAngle(){
+        return gyro.getAngle();
+    }
+    public void resetGyro(){
+        gyro.reset();
     }
     
     /**
@@ -35,7 +89,7 @@ public class DriveTrain extends Subsystem {
      * @param Yaxis The Y-Axis of the Joystick.
      */
     public void arcadeDrive(double Xaxis, double Yaxis) {
-        drive.arcadeDrive(Xaxis, Yaxis, false);
+        drive.arcadeDrive(Xaxis, Yaxis, true);
     }
     /**
      * Implements the Tank Drive capability of the drivetrain.
@@ -56,28 +110,35 @@ public class DriveTrain extends Subsystem {
     public void drive(double speed, double turn){
         drive.drive(speed, turn);
     }
-    public Encoder getLeftEncoder(){
-        return rightDriveEncoder;
+  
+
+    /**
+     * Calculate average distance of the two encoders.  
+     * @return Average of the distances (inches) read by each encoder since they were last reset.
+     */
+    public double getAvgDistance() {
+
+        return (rightDriveEncoder.getDistance() + leftDriveEncoder.getDistance()) / 2.0;
+
     }
     
-    public Encoder getRightEncoder(){
-        return rightDriveEncoder;
-    }
-    public double getEncoderCounts(){
-        double encoderCountsL;
-        double encoderCountsR;
-        rightDriveEncoder.start();
-        leftDriveEncoder.start();
-        encoderCountsR = rightDriveEncoder.getDistance();
-        encoderCountsL = leftDriveEncoder.getDistance();
-        SmartDashboard.putDouble("RightEncoder", encoderCountsR);
-        SmartDashboard.putDouble("LeftEncoder", encoderCountsL);
-        return rightDriveEncoder.get();
-        //System.out.println(encoderCounts);
-    }
-    public void resetEncoder(){
+    /**
+     * Reset both encoders's tick, distance, etc. count to zero
+     */
+    public void resetEncoders() {
         rightDriveEncoder.reset();
         leftDriveEncoder.reset();
-        System.out.println("Encoder(s) reset.");
     }
+
+    
+    /* Defines direction for autonomus as forwards */
+    public final void setForward(){
+        forward = -1;
+    }
+
+    /* Defines direction for autonomus as backwards */
+    public final void setBackwards(){
+        forward = 1;
+    }
+    
 }

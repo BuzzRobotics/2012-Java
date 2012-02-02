@@ -7,7 +7,6 @@ import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.subsystems.Light;
 import org.buzzrobotics.subsystems.Shifter;
 import org.buzzrobotics.subsystems.irSensor;
-import org.buzzrobotics.subsystems.Gyroscope;
 import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.ShooterAngle;
 import org.buzzrobotics.subsystems.RollerArm;
@@ -27,7 +26,6 @@ public abstract class CommandBase extends Command {
     public static Light light = new Light();
     public static Shifter shifter = new Shifter();
     public static irSensor ir = new irSensor();
-    public static Gyroscope gyro = new Gyroscope();
     public static Shooter shooter = new Shooter();
     public static ShooterAngle shooterangle = new ShooterAngle();
     public static RollerArm rollerarm = new RollerArm();
