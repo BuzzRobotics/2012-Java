@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Jaguar;
 import org.buzzrobotics.RobotMap;
 import edu.wpi.first.wpilibj.AnalogChannel;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 
 /**
@@ -18,33 +19,30 @@ public class RollerArm extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     Jaguar rollers;
-    Jaguar rollerArm;
-    AnalogChannel rollerArmPot;
-    double rollerArmMax = 1.5;
-    double rollerArmMin = 1;
+    DoubleSolenoid rollerArm;
+    
     public RollerArm(){
-        rollerArm = new Jaguar(RobotMap.rollerArmPWM);
+        rollerArm = new DoubleSolenoid(RobotMap.rollerArmSolenoidDeploy, RobotMap.rollerArmSolenoidRetract);
         rollers = new Jaguar(RobotMap.rollerPWM);
-        rollerArmPot = new AnalogChannel(RobotMap.rollerArmPotPort);
 }
     public void lower(){
         
-            rollerArm.set(-1);
+            rollerArm.set(DoubleSolenoid.Value.kReverse);
         
 }
     public void raise(){
         
-            rollerArm.set(1);
+            rollerArm.set(DoubleSolenoid.Value.kForward);
         
     }
-    public void turnOnRollers(){
-        rollers.set(-1);
+    public void off(){
+        rollerArm.set(DoubleSolenoid.Value.kOff);
     }
-    public void turnOffRollers(){
-        rollers.set(0);
+    public void turnOnRollers(int direction){
+        rollers.set(direction);
     }
-    public double getPotVoltage(){
-        return rollerArmPot.getVoltage();
+    public void turnOffRollers(int direction){
+        rollers.set(direction);
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

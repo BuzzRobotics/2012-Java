@@ -79,16 +79,20 @@ public class OI {
         lbutton3.whenPressed(new PickupArmRaise());
         lbutton2.whenPressed(new PickupArmLower());
         
-        lbutton4.whenPressed(new TurnOnRollers());
-        lbutton5.whenPressed(new TurnOffRollers());
+        lbutton4.whenPressed(new TurnOnRollers(-1));
+        lbutton5.whenPressed(new TurnOnRollers(0));
+        
+        lbutton6.whenPressed(new Shooter_Angle(1));
+        lbutton7.whenPressed(new Shooter_Angle(3));
+        lbutton8.whenPressed(new Shooter_Angle(5));       
         
         rbutton6.whenPressed(new ResetGyro());
         rbutton7.whileHeld(new BalanceBot());
-        rbutton11.whenPressed(new AdjustCameraX(1));
-        rbutton10.whenPressed(new AdjustCameraY(1));
-        rbutton12.whenPressed(new AdjustCameraX(-1));
-        rbutton9.whenPressed(new AdjustCameraY(-1));
-        rbutton8.whenPressed(new AdjustCamera(0.5, 0.5));
+        
+        rbutton10.whenPressed(new AdjustCamera(0.4, 0));
+        rbutton11.whenPressed(new AdjustCamera(0.7,1));
+        
+        rbutton5.whenPressed(new MoveBallFeeder());
                 
         // LATCH INSTEAD rbutton4.whenPressed(new PickupArmRaise());
         

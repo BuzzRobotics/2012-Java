@@ -6,12 +6,10 @@ package org.buzzrobotics.commands;
 
 /**
  *
- * @author buzz5
+ * @author PETER
  */
 public class PickupArmLower extends CommandBase {
-        
-        int rollerArmPotLowerLimit = 1;
-    
+      
     public PickupArmLower() {
         // Use requires() here to declare subsystem dependencies
         
@@ -28,7 +26,7 @@ public class PickupArmLower extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (rollerarm.getPotVoltage() <= rollerArmPotLowerLimit);
+       return true;
     }
 
     // Called once after isFinished returns true

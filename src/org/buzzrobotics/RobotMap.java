@@ -107,7 +107,9 @@ public class RobotMap {
          */
         public static int gyroPort = 1;
         
-        public static int rollerArmPWM = 3;
+        public static int rollerArmSolenoidDeploy = 5;
+        public static int rollerArmSolenoidRetract = 6;
+        
         public static int rollerPWM = 4;
         
         public static int rollerArmPotPort = 4;

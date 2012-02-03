@@ -76,23 +76,24 @@ public class Buzz extends IterativeRobot {
         autoChooser.addObject("Sit On My Lazy But", new Nothing());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
-        ShooterLimit = new SendableChooser();
-        ShooterLimit.addDefault("5", new Shooter_Angle(5));
-        ShooterLimit.addObject("4", new Shooter_Angle(4));
-        ShooterLimit.addObject("3", new Shooter_Angle(3));
-        ShooterLimit.addObject("2", new Shooter_Angle(2));
-        ShooterLimit.addObject("1", new Shooter_Angle(1));
-        SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
+//        ShooterLimit = new SendableChooser();
+//        ShooterLimit.addDefault("5", new Shooter_Angle(5));
+//        ShooterLimit.addObject("4", new Shooter_Angle(4));
+//        ShooterLimit.addObject("3", new Shooter_Angle(3));
+//        ShooterLimit.addObject("2", new Shooter_Angle(2));
+//        ShooterLimit.addObject("1", new Shooter_Angle(1));
+//        SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
         
         YaledChooser = new SendableChooser();
         YaledChooser.addDefault("5", new Delay(5));
-        SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
+        //SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
         
     }
 
     public void autonomousInit() {
        
        AutonomousCommand = (Command) autoChooser.getSelected();
+       AutonomousCommand.start();
        //YaledCommand = (Command) YaledChooser.getSelected();
     }
 
@@ -101,8 +102,9 @@ public class Buzz extends IterativeRobot {
      */
     
     public void autonomousPeriodic() {
+        
         Scheduler.getInstance().run();
-        AutonomousCommand.start();
+        
     }
 
     public void teleopInit() {
@@ -118,8 +120,8 @@ public class Buzz extends IterativeRobot {
         Scheduler.getInstance().run();
         updateDashboard();
         //DriveWithJoystick.start();
-        ShooterAngle = (Command) ShooterLimit.getSelected();
-        ShooterAngle.start();
+//        ShooterAngle = (Command) ShooterLimit.getSelected();
+        //ShooterAngle.start();
     }
     
     public void disabledInit() {

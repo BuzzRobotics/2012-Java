@@ -30,6 +30,7 @@ public class Shooter_Angle extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+//        shooterangle.disable();
         return false;
     }
 

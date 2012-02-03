@@ -15,7 +15,8 @@ public class AutoMode1 extends CommandGroup {
     
     public AutoMode1() {
         addSequential(new Light(true));
-        addSequential(new AutonDrive(10));
+        addSequential(new Drive(1, 1, 10));
+        addSequential(new Light(false));
        // add
         // Add Commands here:
         // e.g. addSequential(new Command1());

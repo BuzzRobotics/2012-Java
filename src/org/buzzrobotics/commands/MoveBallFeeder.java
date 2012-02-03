@@ -8,26 +8,20 @@ package org.buzzrobotics.commands;
  *
  * @author buzz5
  */
-public class TurnOnRollers extends CommandBase {
-    public int m_direction;
-    public TurnOnRollers(int direction) {
+public class MoveBallFeeder extends CommandBase {
+    
+    public MoveBallFeeder() {
         // Use requires() here to declare subsystem dependencies
-        requires(rollerarm);
-        direction = m_direction;
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        if(m_direction == 0){
-            m_direction = 1;
-        }else{
-            m_direction = 0;
-        }
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.turnOnRollers(m_direction);
+        ballfeeder.driveUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()

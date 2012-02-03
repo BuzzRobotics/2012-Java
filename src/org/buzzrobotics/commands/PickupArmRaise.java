@@ -10,11 +10,8 @@ package org.buzzrobotics.commands;
  */
 public class PickupArmRaise extends CommandBase {
         
-        int rollerArmPotRaiseLimit = 4;
-    
     public PickupArmRaise() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -24,16 +21,11 @@ public class PickupArmRaise extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     public void execute() {
         rollerarm.raise();
-        double rollerarmpot = rollerarm.getPotVoltage();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (rollerarm.getPotVoltage() >= rollerArmPotRaiseLimit){
-            return true;
-        }else{
-            return false;
-        }
+        return true;
     }
 
     // Called once after isFinished returns true

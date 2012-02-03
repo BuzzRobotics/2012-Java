@@ -44,7 +44,6 @@ public class Hybrid extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
        double leftAxis = 0;
         double rightAxis = 0;
         double leftAngle, rightAngle, headAngle, rightLegAngle, leftLegAngle, rightLegYZ, leftLegYZ;
