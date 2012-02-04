@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Jaguar;
 import org.buzzrobotics.RobotMap;
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -26,12 +27,12 @@ public class RollerArm extends Subsystem {
         rollers = new Jaguar(RobotMap.rollerPWM);
 }
     public void lower(){
-        
+        SmartDashboard.putString("RollerArm", "Down");
             rollerArm.set(DoubleSolenoid.Value.kReverse);
         
 }
     public void raise(){
-        
+        SmartDashboard.putString("RollerArm", "Up");
             rollerArm.set(DoubleSolenoid.Value.kForward);
         
     }
@@ -39,9 +40,18 @@ public class RollerArm extends Subsystem {
         rollerArm.set(DoubleSolenoid.Value.kOff);
     }
     public void turnOnRollers(int direction){
+        SmartDashboard.putString("Rollers", "On");
+        if (direction > 0){
+            SmartDashboard.putString("Roller Direction", "Forward");
+        }else if (direction < 0){
+            SmartDashboard.putString("Roller Direction", "Reverse");
+        }else if (direction == 0){
+            SmartDashboard.putString("Roller Direction", "Off");
+        }
         rollers.set(direction);
     }
     public void turnOffRollers(){
+        SmartDashboard.putString("Rollers", "Off");
         rollers.set(0);
     }
     public void initDefaultCommand() {
