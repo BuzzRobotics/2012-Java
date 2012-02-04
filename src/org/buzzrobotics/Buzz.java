@@ -21,7 +21,7 @@ import org.buzzrobotics.commands.DriveWithJoystick;
 import org.buzzrobotics.autonomous.AutoMode1;
 import org.buzzrobotics.commands.Nothing;
 import org.buzzrobotics.commandgroups.whip;
-import org.buzzrobotics.commandgroups.AutoMode;
+import org.buzzrobotics.autonomous.AutoMode;
 import org.buzzrobotics.OI;
 import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.commands.Shooter_Angle;
