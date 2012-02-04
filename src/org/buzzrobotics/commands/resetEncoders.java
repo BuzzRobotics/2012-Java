@@ -6,37 +6,27 @@ package org.buzzrobotics.commands;
 
 /**
  *
- * @author Kyle Deane
+ * @author buzz5
  */
-public class DriveWithJoystick extends CommandBase {
-    public double sensitivity;
-    public double turn;
-    public DriveWithJoystick() {
-        requires(drivetrain);
+public class resetEncoders extends CommandBase {
+    
+    public resetEncoders() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //drivetrain.arcadeDrive(0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        sensitivity = (oi.getRightZ() + 1)/2 + 0.2; 
-                if (sensitivity > 1.0){
-                    sensitivity = 1.0;
-                }
-        drivetrain.arcadeDrive( oi.getRightX() * sensitivity, oi.getRightY() * sensitivity);
-        
-//            if (oi.getRightTwist() < -0.10 || oi.getRightTwist() > 0.10){
-//                drivetrain.drive(oi.getRightTwist(), turn);
-//            }
-        
+        drivetrain.resetEncoders();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

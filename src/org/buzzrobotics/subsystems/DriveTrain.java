@@ -25,9 +25,9 @@ public class DriveTrain extends Subsystem {
     Gyro gyro;
     
     private int forward;
-    final int WHEEL_RADIUS = 3;
+    final int WHEEL_RADIUS = 4;
     final double CIRCUMFERENCE = 2 * Math.PI * WHEEL_RADIUS;
-    final int ENCODER_CODES_PER_REV = 360;
+    final int ENCODER_CODES_PER_REV = 128;
     final double DISTANCE_PER_PULSE = CIRCUMFERENCE / ENCODER_CODES_PER_REV;
     
     double Kp = 0.035;
@@ -41,7 +41,8 @@ public class DriveTrain extends Subsystem {
         leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
         leftDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
-        
+        leftDriveEncoder.start();
+        rightDriveEncoder.start();
         gyro = new Gyro(RobotMap.gyroPort);
         gyro.setSensitivity(0.007);
         
@@ -117,11 +118,18 @@ public class DriveTrain extends Subsystem {
      * @return Average of the distances (inches) read by each encoder since they were last reset.
      */
     public double getAvgDistance() {
-
-        return (rightDriveEncoder.getDistance() + leftDriveEncoder.getDistance()) / 2.0;
+        double avgDistance = (rightDriveEncoder.getDistance() + leftDriveEncoder.getDistance()) / 2.0;
+        return avgDistance;
 
     }
     
+    public double getLeftDistance(){
+        return leftDriveEncoder.getDistance();
+    }
+    
+    public double getRightDistance(){
+        return rightDriveEncoder.getDistance();
+    }
     /**
      * Reset both encoders's tick, distance, etc. count to zero
      */

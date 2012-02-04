@@ -31,6 +31,7 @@ public class AutoMode extends CommandGroup {
         addSequential(new Shooter_Fire());  //Shoot one of the two balls we have
         addSequential(new Shooter_Fire());  //Shoot the other ball
         addSequential(new AutonDrive(13));    //Drive over to the ramp
+        
         addSequential(new PickupArmLower()); //Drop the pickup arm to lower the ramp
         addSequential(new TurnOnRollers(1));     //Turn on Rollers
         Timer.delay(3);                     //???

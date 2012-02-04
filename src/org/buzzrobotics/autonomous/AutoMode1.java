@@ -14,8 +14,9 @@ import org.buzzrobotics.commands.*;
 public class AutoMode1 extends CommandGroup {
     
     public AutoMode1() {
+        addSequential(new resetEncoders());
         addSequential(new Light(true));
-        addSequential(new Drive(1, 1, 10));
+        addSequential(new AutonDrive(20));
         addSequential(new Light(false));
        // add
         // Add Commands here:
