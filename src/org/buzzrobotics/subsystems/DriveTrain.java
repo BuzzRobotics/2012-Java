@@ -41,7 +41,8 @@ public class DriveTrain extends Subsystem {
         leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
         leftDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
-        
+        rightDriveEncoder.start();
+        leftDriveEncoder.start();
         gyro = new Gyro(RobotMap.gyroPort);
         gyro.setSensitivity(0.007);
         
@@ -120,6 +121,14 @@ public class DriveTrain extends Subsystem {
 
         return (rightDriveEncoder.getDistance() + leftDriveEncoder.getDistance()) / 2.0;
 
+    }
+    
+    public double getRightEncoder(){
+        return rightDriveEncoder.getDistance();
+    }
+    
+    public double getLeftEncoder(){
+        return leftDriveEncoder.getDistance();
     }
     
     /**

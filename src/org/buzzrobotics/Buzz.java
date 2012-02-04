@@ -132,13 +132,23 @@ public class Buzz extends IterativeRobot {
         
     }
     public void updateDashboard(){
-        SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor());
+       
         SmartDashboard.putDouble("Gyroscope: ", CommandBase.drivetrain.getGyroAngle());
         SmartDashboard.putDouble("LimitPot: ", CommandBase.shooterangle.returnPot());
-        SmartDashboard.putBoolean("Top IR Sensor: ", CommandBase.ir.getTopIRSensor());
-        SmartDashboard.putBoolean("Middle IR Sensor: ", CommandBase.ir.getMiddleIRSensor());
-        SmartDashboard.putBoolean("Bottom IR Sensor: ", CommandBase.ir.getBottomIRSensor());
-        SmartDashboard.putBoolean("Feeder IR Sensor: ", CommandBase.ir.getFeederIRSensor());
+        
+        SmartDashboard.putDouble("Encoder Average: ", CommandBase.drivetrain.getAvgDistance());
+        SmartDashboard.putDouble("Left Encoder: ", CommandBase.drivetrain.getLeftEncoder());
+        SmartDashboard.putDouble("Right Encoder: ", CommandBase.drivetrain.getRightEncoder());
+       
+        SmartDashboard.putBoolean("IR Sensor - Top: ", CommandBase.ir.getTopIRSensor());
+        SmartDashboard.putBoolean("IR Sensor - Middle: ", CommandBase.ir.getMiddleIRSensor());
+        SmartDashboard.putBoolean("IR Sensor - Bottom: ", CommandBase.ir.getBottomIRSensor());
+        SmartDashboard.putBoolean("IR Sensor - Feeder:", CommandBase.ir.getFeederIRSensor());
+        
+        
+        SmartDashboard.putBoolean("Floor IR Sensor - 1:", CommandBase.ir.getFloor1IRSensor());
+        SmartDashboard.putBoolean("Floor IR Sensor - 2:", CommandBase.ir.getFloor2IRSensor());
+        SmartDashboard.putBoolean("Floor IR Sensor - 3:", CommandBase.ir.getFloor3IRSensor());
     }
 }
 

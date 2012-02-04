@@ -86,11 +86,14 @@ public class RobotMap {
          * @param Relay cable slot for the lights on BreadBoard
          */
         public final static int lightrelay = 1;
-        public static int opticalSensorPWM = 6;
         public static int top_opticalSensorPWM = 7;
         public static int middle_opticalSensorPWM = 8;
         public static int bottom_opticalSensorPWM = 9;
-        public static int feeder_opticalSensorPWM = 10;
+        public static int feeder_opticalSensorPWM = 6;
+        
+        public static int floor1_opticalSensor = 12;
+        public static int floor2_opticalSensor = 13;
+        public static int floor3_opticalSensor = 14;
         
         /*
          * TurretPot
