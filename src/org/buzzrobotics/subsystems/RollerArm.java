@@ -41,8 +41,8 @@ public class RollerArm extends Subsystem {
     public void turnOnRollers(int direction){
         rollers.set(direction);
     }
-    public void turnOffRollers(int direction){
-        rollers.set(direction);
+    public void turnOffRollers(){
+        rollers.set(0);
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

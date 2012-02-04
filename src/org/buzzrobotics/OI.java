@@ -4,18 +4,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
-import org.buzzrobotics.commands.Shift_Up;
-import org.buzzrobotics.commands.Shift_Down;
-import org.buzzrobotics.commands.Light;
-import org.buzzrobotics.commands.ToggleLight;
-import org.buzzrobotics.commands.Shooter_In;
-import org.buzzrobotics.commands.Shooter_Out;
-import org.buzzrobotics.commands.Shooter_Fire;
-import org.buzzrobotics.commands.BalanceBot;
-import org.buzzrobotics.commands.ResetGyro;
-import org.buzzrobotics.commandgroups.whip;
-import org.buzzrobotics.commands.TurnOnRollers;
 import org.buzzrobotics.commands.*;
+import org.buzzrobotics.subsystems.BallFeeder;
 
 
 /*
@@ -80,7 +70,7 @@ public class OI {
         lbutton2.whenPressed(new PickupArmLower());
         
         lbutton4.whenPressed(new TurnOnRollers(-1));
-        lbutton5.whenPressed(new TurnOnRollers(0));
+        lbutton5.whenPressed(new TurnOffRollers());
         
         lbutton6.whenPressed(new Shooter_Angle(1));
         lbutton7.whenPressed(new Shooter_Angle(3));
@@ -92,7 +82,9 @@ public class OI {
         rbutton10.whenPressed(new AdjustCamera(0.4, 0));
         rbutton11.whenPressed(new AdjustCamera(0.7,1));
         
-        rbutton5.whenPressed(new MoveBallFeeder());
+        rbutton5.whenPressed(new MoveBallFeeder(1));
+        rbutton5.whenReleased(new MoveBallFeeder(0));
+        rbutton8.whenPressed(new AutoBallLoad());
                 
         // LATCH INSTEAD rbutton4.whenPressed(new PickupArmRaise());
         

@@ -6,28 +6,31 @@ package org.buzzrobotics.commands;
 
 /**
  *
- * @author buzz5
+ * @author BUZZWS1
  */
-public class TurnOnRollers extends CommandBase {
-    public int m_direction;
-    public TurnOnRollers(int direction) {
+public class AutoBallLoad extends CommandBase {
+    
+    public AutoBallLoad() {
         // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(ballfeeder);
         requires(rollerarm);
-        direction = m_direction;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//        if(m_direction == 0){
-//            m_direction = 1;
-//        }else{
-//            m_direction = 0;
-//        }
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.turnOnRollers(m_direction);
+        rollerarm.turnOnRollers(-1);     //Turn on feeder and rollers
+        ballfeeder.driveUp();
+        
+        if(!ir.getTopIRSensor() && !ir.getMiddleIRSensor() && !ir.getBottomIRSensor()){ //If there are three balls already then don't pick up more
+        System.out.println("Zach is amazing and the ir sensors are false :)");
+        ballfeeder.stop();
+        rollerarm.turnOnRollers(0);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

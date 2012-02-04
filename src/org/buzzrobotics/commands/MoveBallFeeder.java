@@ -9,10 +9,11 @@ package org.buzzrobotics.commands;
  * @author buzz5
  */
 public class MoveBallFeeder extends CommandBase {
-    
-    public MoveBallFeeder() {
+        public int state;
+    public MoveBallFeeder(int m_state) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        state = m_state;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +22,13 @@ public class MoveBallFeeder extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        ballfeeder.driveUp();
+        if(state == 1){
+            ballfeeder.driveUp();
+        }else if(state == -1){
+            ballfeeder.driveDown();
+    }else{
+            ballfeeder.stop();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

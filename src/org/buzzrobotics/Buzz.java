@@ -70,9 +70,9 @@ public class Buzz extends IterativeRobot {
         
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Kinect", new Hybrid());
-        autoChooser.addObject("Autonomous (Whip)", new whip());
-        autoChooser.addObject("AutoMode1", new AutoMode1());
-        autoChooser.addObject("AutoMode(delay 5)", new AutoMode(5));
+        autoChooser.addObject("Autonomous", new whip());
+        autoChooser.addObject("Test1", new AutoMode1());
+        autoChooser.addObject("AutoMode", new AutoMode(5));
         autoChooser.addObject("Sit On My Lazy But", new Nothing());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
@@ -102,7 +102,7 @@ public class Buzz extends IterativeRobot {
      */
     
     public void autonomousPeriodic() {
-        updateDashboard();
+        
         Scheduler.getInstance().run();
         
     }
@@ -110,7 +110,6 @@ public class Buzz extends IterativeRobot {
     public void teleopInit() {
 		Hybrid.cancel();
                 //AutonomousCommand.cancel();
-                //Autonomous.
                 //ShooterAngle = (Command) ShooterLimit.getSelected();
     }
 
@@ -120,6 +119,7 @@ public class Buzz extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         updateDashboard();
+        System.out.print(this);
         //DriveWithJoystick.start();
 //        ShooterAngle = (Command) ShooterLimit.getSelected();
         //ShooterAngle.start();
@@ -132,12 +132,13 @@ public class Buzz extends IterativeRobot {
         
     }
     public void updateDashboard(){
-        SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor().get());
+        SmartDashboard.putBoolean("Infrared Sensor Value: ", CommandBase.ir.getIRSensor());
         SmartDashboard.putDouble("Gyroscope: ", CommandBase.drivetrain.getGyroAngle());
-        SmartDashboard.putDouble("DriveTrainEncoders (AVG): ", CommandBase.drivetrain.getAvgDistance());
-        SmartDashboard.putDouble("Left Encoder: ", CommandBase.drivetrain.getLeftDistance());
-        SmartDashboard.putDouble("Right Encoder: ", CommandBase.drivetrain.getRightDistance());
         SmartDashboard.putDouble("LimitPot: ", CommandBase.shooterangle.returnPot());
-        
+        SmartDashboard.putBoolean("Top IR Sensor: ", CommandBase.ir.getTopIRSensor());
+        SmartDashboard.putBoolean("Middle IR Sensor: ", CommandBase.ir.getMiddleIRSensor());
+        SmartDashboard.putBoolean("Bottom IR Sensor: ", CommandBase.ir.getBottomIRSensor());
+        SmartDashboard.putBoolean("Feeder IR Sensor: ", CommandBase.ir.getFeederIRSensor());
     }
 }
+

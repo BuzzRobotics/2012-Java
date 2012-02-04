@@ -87,6 +87,10 @@ public class RobotMap {
          */
         public final static int lightrelay = 1;
         public static int opticalSensorPWM = 6;
+        public static int top_opticalSensorPWM = 7;
+        public static int middle_opticalSensorPWM = 8;
+        public static int bottom_opticalSensorPWM = 9;
+        public static int feeder_opticalSensorPWM = 10;
         
         /*
          * TurretPot
