@@ -12,6 +12,7 @@ import org.buzzrobotics.subsystems.ShooterAngle;
 import org.buzzrobotics.subsystems.RollerArm;
 import org.buzzrobotics.subsystems.Camera;
 import org.buzzrobotics.subsystems.BallFeeder;
+import org.buzzrobotics.subsystems.FloorLight;
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
@@ -32,6 +33,7 @@ public abstract class CommandBase extends Command {
     public static RollerArm rollerarm = new RollerArm();
     public static Camera camera = new Camera();
     public static BallFeeder ballfeeder = new BallFeeder();
+    public static FloorLight floorlight = new FloorLight();
     //public static ShooterAngle shooterangle = new ShooterAngle();
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

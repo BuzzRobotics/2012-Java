@@ -31,6 +31,11 @@ public class DriveWithJoystick extends CommandBase {
 //            if (oi.getRightTwist() < -0.10 || oi.getRightTwist() > 0.10){
 //                drivetrain.drive(oi.getRightTwist(), turn);
 //            }
+        if(ir.getFloor1IRSensor() && ir.getFloor2IRSensor() && ir.getFloor3IRSensor()){
+            floorlight.turnOnLight();
+        }else{
+            floorlight.turnOffLight();
+        }
         
     }
 
