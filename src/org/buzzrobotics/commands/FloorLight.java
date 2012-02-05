@@ -1,14 +1,18 @@
 package org.buzzrobotics.commands;
 
 /**
+ * @Param on TRUE OR FALSE
+ * True is ON and FALSE is off.
  * Turns On Floor Light
  * ????? What is this for?
  * @author Peter Polis
+ * @author Kyle Deane
  */
-public class TurnOnFloorLight extends CommandBase {
-    
-    public TurnOnFloorLight() {
-        
+
+public class FloorLight extends CommandBase {
+    public boolean light_on = false;
+    public FloorLight(boolean on) {
+        light_on = on;
     }
 
     // Called just before this Command runs the first time
@@ -17,7 +21,12 @@ public class TurnOnFloorLight extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        floorlight.turnOnLight();
+        if (light_on){
+            floorlight.turnOnLight();
+        }else{
+            floorlight.turnOffLight();
+        }
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
