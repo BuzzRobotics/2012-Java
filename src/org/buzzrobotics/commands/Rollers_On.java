@@ -1,16 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Turns rollers on.
+ * @author Peter Polis
  */
-public class TurnOnRollers extends CommandBase {
+public class Rollers_On extends CommandBase {
     public int m_direction;
-    public TurnOnRollers(int direction) {
+    public Rollers_On(int direction) {
         // Use requires() here to declare subsystem dependencies
         requires(rollerarm);
         direction = m_direction;

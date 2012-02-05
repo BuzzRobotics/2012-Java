@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -26,14 +22,26 @@ public class Camera extends Subsystem {
     public void initDefaultCommand() {
          //setDefaultCommand(new AdjustCamera(0, 0));
     }
-    
+    /*
+     * Sets the Camera Position using X and Y axis
+     * @param x Pan camera
+     * @param y tilt camera
+     */
     public void setCamera(double x, double y) {
         cameraX.setPosition(x);
         cameraY.setPosition(y);
     }
+    /*
+     * Sets camera's x position.
+     * @param x pan camera
+     */
     public void setCameraX(double x) {
         cameraX.setPosition(x);
     }
+    /*
+     * Sets canera's Y position
+     * @param y tilt camera
+     */
     public void setCameraY(double y) {
         cameraY.setPosition(y);
     }

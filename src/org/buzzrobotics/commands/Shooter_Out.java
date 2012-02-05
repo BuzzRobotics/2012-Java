@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Deploys the Shooter Piston
+ * @author Kyle Deane
  */
 public class Shooter_Out extends CommandBase {
     

@@ -78,22 +78,33 @@ public class RobotMap {
             encRightDrive1 = 2,
             encRightDrive2 = 3,
             encLeftDrive1 = 4,
-            encLeftDrive2 = 5
-                ;
+            encLeftDrive2 = 5;
         /*
          * Light Relay
          * @param I whip my hair back and forth!
          * @param Relay cable slot for the lights on BreadBoard
          */
         public final static int lightrelay = 1;
-        public static int top_opticalSensorPWM = 7;
-        public static int middle_opticalSensorPWM = 8;
-        public static int bottom_opticalSensorPWM = 9;
-        public static int feeder_opticalSensorPWM = 6;
         
-        public static int floor1_opticalSensor = 12;
-        public static int floor2_opticalSensor = 13;
-        public static int floor3_opticalSensor = 14;
+        /*
+         * Optical Sensors
+         * 6 - 9 : Old style SINGLE optical sensors.
+         */
+        public static final int
+                feeder_opticalSensorPWM = 6,
+                top_opticalSensorPWM = 7,
+                middle_opticalSensorPWM = 8,
+                bottom_opticalSensorPWM = 9;
+        
+        /*
+         * Floor Optical Sensors
+         * Ports Mapped
+         */
+        public static final int
+                floor1_opticalSensor = 12,
+                floor2_opticalSensor = 13,
+                floor3_opticalSensor = 14;
+
         
         /*
          * TurretPot
@@ -118,9 +129,12 @@ public class RobotMap {
         public static int rollerArmSolenoidRetract = 6;
         
         public static int rollerPWM = 4;
+        //public static int rollerArmPotPort = 4;
         
-        public static int rollerArmPotPort = 4;
-        
+        /*
+         * Camera Servo Ports
+         * Used on PWM of Digital Sidecar
+         */
         public static int camerax = 9;
         public static int cameray = 10;
         

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogChannel;
@@ -14,8 +10,9 @@ import org.buzzrobotics.commands.CommandBase;
 import org.buzzrobotics.commands.Shooter_Angle;
 
 /**
- *
- * @author buzz5
+ * Shooter Angle
+ * Uses screw (Controlled by Moter and POT) to limit how far the shooter catapult can go.
+ * @author Kyle Deane
  */
 public class ShooterAngle extends PIDSubsystem {
 
@@ -25,7 +22,6 @@ public class ShooterAngle extends PIDSubsystem {
     
     AnalogChannel ShooterPot;
     SpeedController ShooterAngleMotor;
-    // Initialize your subsystem here
     public ShooterAngle() {
         super("ShooterAngle", Kp, Ki, Kd);
         ShooterAngleMotor = new Jaguar(RobotMap.ShooterAngleMotor);
@@ -55,6 +51,7 @@ public class ShooterAngle extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         ShooterAngleMotor.set(-output);
     }
+    
     public double returnPot(){
        return ShooterPot.getVoltage();
     }

@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.Timer;
 import org.buzzrobotics.RobotMap;
 
 /**
- * Hybrid code for Autonomous mode. Should automaticly be called, if not, move this code to "Autonomous Periodic". 
- * 
+ * Hybrid code for Autonomous mode. Should automagically be called, if not, move this code to "Autonomous Periodic". 
+ * Drives with the Kinect
  * @author Kyle Deane
  */
 public class Hybrid extends CommandBase {

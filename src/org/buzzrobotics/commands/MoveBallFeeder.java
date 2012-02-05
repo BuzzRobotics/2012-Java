@@ -1,18 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
  *
- * @author buzz5
+ * @author Peter Polis
  */
 public class MoveBallFeeder extends CommandBase {
-        public int state;
+    public int state;
+        
     public MoveBallFeeder(int m_state) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         state = m_state;
     }
 

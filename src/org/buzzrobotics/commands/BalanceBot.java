@@ -1,18 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Balances Robot using Gyroscope (For Now). Would like to implement Accelerometer.
+ * @author Kyle Deane
  */
 public class BalanceBot extends CommandBase {
     
     public BalanceBot() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(drivetrain);
         requires(shifter);
     }

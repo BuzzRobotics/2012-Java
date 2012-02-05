@@ -1,33 +1,37 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Jaguar;
 
 /**
- *
- * @author buzz5
+ * Ball Feeder Subsystem.
+ * @author Peter Polis
  */
 public class BallFeeder extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+
     Jaguar ballFeederJaguar;
     
     public BallFeeder(){
         ballFeederJaguar = new Jaguar(6);
     }
 
+    /*
+     * Drives the Ball Feeder Reverse.
+     */
     public void driveUp(){
         ballFeederJaguar.set(-1);
     }
     
+    /*
+     * Drives the Ball Feeder Forward.
+     */
     public void driveDown(){
         ballFeederJaguar.set(1);
     }
     
+    /*
+     * Stops the ball feeder 
+     */
     public void stop(){
         ballFeederJaguar.set(0);
     }

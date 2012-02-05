@@ -1,17 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author PETER
+ * Lowers Pickup Arm
+ * @author Peter Polis
  */
 public class PickupArmLower extends CommandBase {
       
     public PickupArmLower() {
-        // Use requires() here to declare subsystem dependencies
         
     }
 

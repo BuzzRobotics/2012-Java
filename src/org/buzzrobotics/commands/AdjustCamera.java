@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Adjusts Camera according to the x and y parameters.
  * @author buzz5
  */
 public class AdjustCamera extends CommandBase {

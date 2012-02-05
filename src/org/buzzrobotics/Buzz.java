@@ -1,8 +1,8 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) FIRST 2008. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
+/* Copyright (c) Buzz Robotics 2012. All Rights Reserved.                     */
+/* Kyle Deane | Peter Polis | Zach Boyer                                      */
+/* Along with the Mentors Bob Atiyeh, Art, Jeff, and MadDog                   */
+/* Lets WIN at the 2012 Rebound Rumble Game!!!                                */
 /*----------------------------------------------------------------------------*/
 
 package org.buzzrobotics;
@@ -107,6 +107,7 @@ public class Buzz extends IterativeRobot {
         
     }
 
+    
     public void teleopInit() {
 		Hybrid.cancel();
                 //AutonomousCommand.cancel();

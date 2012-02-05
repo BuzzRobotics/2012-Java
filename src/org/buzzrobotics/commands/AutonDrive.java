@@ -1,19 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.buzzrobotics.commands;
 import org.buzzrobotics.commands.CommandBase;
 /**
- *
- * @author English
+ * Drives Autonomously, straight, to the amount of inches the encoder spins.
+ * This is AMAZING. Drives straight using GYROSCOPE.
+ * @author Kyle Deane
  */
 public class AutonDrive extends CommandBase{
 
     private double inches_to_travel;
     public AutonDrive(double inches) {
-        // Use requires() here to declare subsystem dependencies
         requires(drivetrain);
         inches_to_travel = inches;
     }

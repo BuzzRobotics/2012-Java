@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
- * @author buzz5
+ * Fires Shooter
+ * @author Kyle Deane
  */
 public class Shooter_Fire extends CommandBase {
     

@@ -69,8 +69,8 @@ public class OI {
         lbutton3.whenPressed(new PickupArmRaise());
         lbutton2.whenPressed(new PickupArmLower());
         
-        lbutton4.whenPressed(new TurnOnRollers(-1));
-        lbutton5.whenPressed(new TurnOffRollers());
+        lbutton4.whenPressed(new Rollers_On(-1));
+        lbutton5.whenPressed(new Rollers_Off());
         
         lbutton6.whenPressed(new Shooter_Angle(1));
         lbutton7.whenPressed(new Shooter_Angle(3));
@@ -108,6 +108,7 @@ public class OI {
 //    public Joystick getLeftStick() {
 //        return leftJoy;
 //    }
+    
     /**
      * @return The value of the left joystick Y axis.
      * @author Kyle Deane
@@ -115,6 +116,7 @@ public class OI {
     public double getLeftY() {
         return leftJoy.getY();
     }
+    
     /**
      * @return The value of the left joystick X axis
      * @author Kyle Deane
@@ -122,6 +124,7 @@ public class OI {
     public double getLeftX() {
         return leftJoy.getX();
     }
+    
     /**
      * @return The value of the right joystick Y axis.
      * @author Kyle Deane
@@ -129,17 +132,6 @@ public class OI {
      public double getRightY() {
         return rightJoy.getY();
     }
-     
-     public double getRightTwist() {
-         System.out.println(rightJoy.getTwist());
-         return rightJoy.getTwist();
-     }
-     public double getRightHatX() {
-         return rightJoy.getRawAxis(5);
-     }
-     public double getRightHatY() {
-         return rightJoy.getRawAxis(6);
-     }
      
     /**
      * @return The value of the right joystick X axis.
@@ -154,7 +146,7 @@ public class OI {
      * @author Kyle Deane
      */
     public double getRightZ() {
-        return rightJoy.getRawAxis(4);
+        return rightJoy.getZ();
     }
     /**
      * @return The value of the left joystick Z axis.

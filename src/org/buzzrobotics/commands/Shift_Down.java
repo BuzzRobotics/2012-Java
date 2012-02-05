@@ -1,7 +1,7 @@
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Shifts the system DOWN.
  * @author Kyle Deane
  */
 public class Shift_Down extends CommandBase {

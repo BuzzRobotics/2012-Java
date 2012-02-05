@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * NOBODY TOUCH ANY OF THIS CODE! (UNLESS IT'S AN EXTREME EMERGENCY)
+ * THIS IS PROPERTY OF KYLE. IT IS VERY FRAGILE!
  */
 package org.buzzrobotics.subsystems;
 
@@ -25,24 +25,35 @@ public class DriveTrain extends Subsystem {
     Gyro gyro;
     
     private int forward;
+    /*
+     * Define Variables
+     */
     final int WHEEL_RADIUS = 3;
     final double CIRCUMFERENCE = 2 * Math.PI * WHEEL_RADIUS;
     final int ENCODER_CODES_PER_REV = 360;
     final double DISTANCE_PER_PULSE = CIRCUMFERENCE / ENCODER_CODES_PER_REV;
     
+    /*
+     * Define PID Variables
+     */
     double Kp = 0.035;
     double Ki = 0.0005;
     double Kd = 1.0;
+    
     SendablePIDController controller;
+    
     public DriveTrain() {
         setForward();
+        
         drive = new RobotDrive(RobotMap.driveRight1, RobotMap.driveLeft1);
+        
         rightDriveEncoder = new Encoder(RobotMap.encRightDrive1, RobotMap.encRightDrive2);
         leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
         leftDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.start();
         leftDriveEncoder.start();
+        
         gyro = new Gyro(RobotMap.gyroPort);
         gyro.setSensitivity(0.007);
         
@@ -52,35 +63,6 @@ public class DriveTrain extends Subsystem {
                 arcadeDrive(forward, -output);
             }
         }, 0.005);
-    }
-    public void initController() {
-        controller.setSetpoint(0);
-        controller.enable();
-    }
-    
-    public void endController() {
-        controller.disable();
-    }
-
-    public void driveStraight() {
-        controller.setSetpoint(0);  // Go straight
-    }
-
-    public void initDefaultCommand() {
-         setDefaultCommand(new DriveWithJoystick());
-    }
-    public Command getDefaultCommand(){
-        return super.getDefaultCommand();
-    }
-    
-    /*
-     * Gyroscope Functions
-     */
-    public double getGyroAngle(){
-        return gyro.getAngle();
-    }
-    public void resetGyro(){
-        gyro.reset();
     }
     
     /**
@@ -112,6 +94,27 @@ public class DriveTrain extends Subsystem {
         drive.drive(speed, turn);
     }
   
+    /*
+     * Initializes PID Controller for Driving with Gyroscope.
+     */
+    public void initController() {
+        controller.setSetpoint(0);
+        controller.enable();
+    }
+    
+    /*
+     * Cancells the controller for driving with Gyro. 
+     */
+    public void endController() {
+        controller.disable();
+    }
+    
+    /*
+    * Drives straight using gyroscope as PID input.
+    */
+    public void driveStraight() {
+        controller.setSetpoint(0);  // Go straight
+    }
 
     /**
      * Calculate average distance of the two encoders.  
@@ -123,10 +126,18 @@ public class DriveTrain extends Subsystem {
 
     }
     
+    /*
+     * getRightEncoder  
+     * @return the distance value of the right encoder
+     */
     public double getRightEncoder(){
         return rightDriveEncoder.getDistance();
     }
     
+     /*
+     * getLeftEncoder  
+     * @return the distance value of the left encoder
+     */
     public double getLeftEncoder(){
         return leftDriveEncoder.getDistance();
     }
@@ -148,6 +159,28 @@ public class DriveTrain extends Subsystem {
     /* Defines direction for autonomus as backwards */
     public final void setBackwards(){
         forward = 1;
+    }
+    
+    /*
+     * Gyroscope Functions
+     *
+     */
+    public double getGyroAngle(){
+        return gyro.getAngle();
+    }
+    public void resetGyro(){
+        gyro.reset();
+    }
+    
+    /*
+     * Required Command Based Functions
+     */
+    
+    public void initDefaultCommand() {
+         setDefaultCommand(new DriveWithJoystick());
+    }
+    public Command getDefaultCommand(){
+        return super.getDefaultCommand();
     }
     
 }

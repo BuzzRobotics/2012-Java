@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -9,12 +5,11 @@ import edu.wpi.first.wpilibj.Relay;
 import org.buzzrobotics.RobotMap;
 
 /**
- *
- * @author buzz5
+ * Floor Light
+ * Shows that we are on KEY.
+ * @author Peter Polis
  */
 public class FloorLight extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     Relay floor_light;
     public FloorLight(){
         floor_light = new Relay(2);

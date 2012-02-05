@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -10,6 +6,8 @@ import org.buzzrobotics.commands.*;
 /**
  *
  * @author Kyle Deane
+ * Autonomous Mode 1
+ * 
  */
 public class AutoMode1 extends CommandGroup {
     

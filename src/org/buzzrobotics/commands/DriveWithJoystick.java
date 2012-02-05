@@ -1,16 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Drives with Joystick. Always called during Teleop and should never be ended.
+ * VERY IMPORTANT!
  * @author Kyle Deane
  */
 public class DriveWithJoystick extends CommandBase {
     public double sensitivity;
     public double turn;
+    
     public DriveWithJoystick() {
         requires(drivetrain);
     }

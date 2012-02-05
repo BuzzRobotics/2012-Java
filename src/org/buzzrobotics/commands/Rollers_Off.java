@@ -1,18 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Turns off Rollers
+ * @author Peter Polis
  */
-public class TurnOffRollers extends CommandBase {
+public class Rollers_Off extends CommandBase {
     
-    public TurnOffRollers() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public Rollers_Off() {
     }
 
     // Called just before this Command runs the first time

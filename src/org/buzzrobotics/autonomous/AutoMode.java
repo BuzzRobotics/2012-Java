@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -11,8 +7,8 @@ import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.commands.Shooter_Fire;
 import org.buzzrobotics.commands.Drive;
 import org.buzzrobotics.commands.AutonDrive;
-import org.buzzrobotics.commands.TurnOnRollers;
-import org.buzzrobotics.commands.TurnOffRollers;
+import org.buzzrobotics.commands.Rollers_On;
+import org.buzzrobotics.commands.Rollers_Off;
 import org.buzzrobotics.commands.PickupArmRaise;
 import org.buzzrobotics.commands.PickupArmLower;
 import org.buzzrobotics.commands.Delay;
@@ -33,9 +29,9 @@ public class AutoMode extends CommandGroup {
         addSequential(new AutonDrive(13));    //Drive over to the ramp
         
         addSequential(new PickupArmLower()); //Drop the pickup arm to lower the ramp
-        addSequential(new TurnOnRollers(1));     //Turn on Rollers
+        addSequential(new Rollers_On(1));     //Turn on Rollers
         Timer.delay(3);                     //???
-        addSequential(new TurnOffRollers());    //Turn off the rollers
+        addSequential(new Rollers_Off());    //Turn off the rollers
         addParallel(new PickupArmRaise());                      //Raise the pickup arm...
         addSequential(new AutonDrive(-23));    //...while we drive back to the key
         addSequential(new Shooter_Fire());  //Fire

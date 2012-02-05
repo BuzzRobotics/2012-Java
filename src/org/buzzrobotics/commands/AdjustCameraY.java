@@ -1,17 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Adjusts Camera's Y axis. (On Motor Mount)
+ * @author Kyle Deane
  */
 public class AdjustCameraY extends CommandBase {
     public double m_y = 1;
     public AdjustCameraY(double y) {
-        // Use requires() here to declare subsystem dependencies
         requires(camera);
         m_y = y;
     }

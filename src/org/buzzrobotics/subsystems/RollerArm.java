@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -13,8 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
- *
- * @author buzz5
+ * Roller Arm
+ * @author Peter Polis
  */
 public class RollerArm extends Subsystem {
     // Put methods for controlling this subsystem
@@ -26,19 +22,34 @@ public class RollerArm extends Subsystem {
         rollerArm = new DoubleSolenoid(RobotMap.rollerArmSolenoidDeploy, RobotMap.rollerArmSolenoidRetract);
         rollers = new Jaguar(RobotMap.rollerPWM);
 }
+    /*
+     * Lower Roller Arm
+     */
     public void lower(){
         SmartDashboard.putString("RollerArm", "Down");
             rollerArm.set(DoubleSolenoid.Value.kReverse);
         
 }
+    
+    /*
+     * Raise Roller Arm
+     */
     public void raise(){
         SmartDashboard.putString("RollerArm", "Up");
             rollerArm.set(DoubleSolenoid.Value.kForward);
         
     }
+    /*
+     * Turn Off Solenoid?
+     */
     public void off(){
         rollerArm.set(DoubleSolenoid.Value.kOff);
     }
+    
+    /*
+     * Turn on Rollers
+     * @param Direction
+     */
     public void turnOnRollers(int direction){
         SmartDashboard.putString("Rollers", "On");
         if (direction > 0){
@@ -50,10 +61,16 @@ public class RollerArm extends Subsystem {
         }
         rollers.set(direction);
     }
+    
+    /*
+     * Turn Off Rolers
+     */
     public void turnOffRollers(){
         SmartDashboard.putString("Rollers", "Off");
         rollers.set(0);
     }
+    
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

@@ -1,14 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
- * @author buzz5
+ * Auto Mode 0 - Does Nothing.
+ * @author Kyle Deane
+ * @author Peter Polis
+ * @author Zachary Boyer
  */
 public class Nothing extends CommandBase {
     int m_autoPeriodicLoops;

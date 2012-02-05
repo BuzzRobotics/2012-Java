@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.RobotMap;
 
 /**
- *
+ * Shifter Subsystem
+ * Exactly what a BEAUTIFUL subsystem should look like (:
  * @author Kyle Deane
  */
 public class Shifter extends Subsystem {

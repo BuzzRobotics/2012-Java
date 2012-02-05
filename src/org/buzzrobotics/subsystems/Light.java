@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
@@ -10,7 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.RobotMap;
 
 /**
- *
+ * I Whip my Hair Back and Forth!
  * @author Kyle Deane
  */
 public class Light extends Subsystem {
@@ -18,7 +14,9 @@ public class Light extends Subsystem {
     // here. Call these from Commands.
     Relay relay_light;
     public Light() {   
+        SmartDashboard.putString("Light", "Off");
         relay_light = new Relay(RobotMap.lightrelay);
+        
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -30,7 +28,7 @@ public class Light extends Subsystem {
      * @author Kyle Deane
      */
     public void on() {
-        SmartDashboard.putString("Light", "I WHIP MY HAIR BACK AND FORTH!");
+        SmartDashboard.putString("Light", "On");
         relay_light.set(Relay.Value.kForward);
     }
     

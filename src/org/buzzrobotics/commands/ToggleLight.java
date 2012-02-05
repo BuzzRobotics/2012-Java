@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Toggles Light. If it's currently on, turn it off. If it's off, turn it on.
+ * @author Kyle Deane
  */
 public class ToggleLight extends CommandBase {
     public boolean lightswitch = false;

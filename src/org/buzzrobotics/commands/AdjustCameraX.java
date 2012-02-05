@@ -1,17 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
-/**
- *
- * @author buzz5
+/*
+ * Adjusts camera X
+ * @author Kyle Deane
  */
 public class AdjustCameraX extends CommandBase {
     public double m_x = 1;
     public AdjustCameraX(double x) {
-        // Use requires() here to declare subsystem dependencies
         requires(camera);
         m_x = x;
     }

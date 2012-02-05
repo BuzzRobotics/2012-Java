@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Shifts Up
  * @author Kyle Deane
  */
 public class Shift_Up extends CommandBase {

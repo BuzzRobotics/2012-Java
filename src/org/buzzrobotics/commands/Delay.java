@@ -1,21 +1,17 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.buzzrobotics.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
- * @author buzz5
+ * (Attempted to) Implement a nice delay pattern here. It obviously didn't work well. :)
+ * @author Peter Polis
+ * @author Kyle Deane
  */
 public class Delay extends CommandBase {
     public double m_yaledTime;
     public Delay(int yaled) {
         m_yaledTime = yaled;
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time

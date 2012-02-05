@@ -1,15 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Controls the Light. Takes the parameter. True is on, false is off.sss
  * @author Kyle Deane
  */
+
 public class Light extends CommandBase {
     boolean lighton = false;
+    
     public Light(boolean on) {
         requires(light);
         lighton = on;

@@ -1,18 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Turns On Floor Light
+ * ????? What is this for?
+ * @author Peter Polis
  */
 public class TurnOnFloorLight extends CommandBase {
     
     public TurnOnFloorLight() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        
     }
 
     // Called just before this Command runs the first time

@@ -1,18 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Use either a button (or a mode) on the SmartDashboard to adjust the screw on the shooter.
+ * @author Kyle Deane
  */
 public class Shooter_Angle extends CommandBase {
     public double m_setpoint;
     public Shooter_Angle(int setpoint) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(shooterangle);
         m_setpoint = setpoint;
     }

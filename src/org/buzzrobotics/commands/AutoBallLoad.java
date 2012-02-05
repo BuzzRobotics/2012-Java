@@ -1,18 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Autonomously Loads Balls.
  * @author BUZZWS1
  */
 public class AutoBallLoad extends CommandBase {
     
     public AutoBallLoad() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(ballfeeder);
         requires(rollerarm);
     }
@@ -27,7 +21,6 @@ public class AutoBallLoad extends CommandBase {
         ballfeeder.driveUp();
         
         if(!ir.getTopIRSensor() && !ir.getMiddleIRSensor() && !ir.getBottomIRSensor()){ //If there are three balls already then don't pick up more
-        System.out.println("Zach is amazing and the ir sensors are false :)");
         ballfeeder.stop();
         rollerarm.turnOnRollers(0);
         }
