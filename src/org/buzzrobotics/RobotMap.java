@@ -138,6 +138,6 @@ public class RobotMap {
         public static int camerax = 9;
         public static int cameray = 10;
         
-        
+        public static int FloorLightRelayPort = 2;
         
 }

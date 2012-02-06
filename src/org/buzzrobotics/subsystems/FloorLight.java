@@ -12,7 +12,7 @@ import org.buzzrobotics.RobotMap;
 public class FloorLight extends Subsystem {
     Relay floor_light;
     public FloorLight(){
-        floor_light = new Relay(2);
+        floor_light = new Relay(RobotMap.FloorLightRelayPort);
     }
     
     public void turnOnLight(){
@@ -20,7 +20,7 @@ public class FloorLight extends Subsystem {
     }
     
     public void turnOffLight(){
-        floor_light.set(Relay.Value.kReverse);
+        floor_light.set(Relay.Value.kOff);
     }
     
     public void initDefaultCommand() {
