@@ -136,6 +136,9 @@ public class Buzz extends IterativeRobot {
        
         SmartDashboard.putDouble("Gyroscope: ", CommandBase.drivetrain.getGyroAngle());
         SmartDashboard.putDouble("LimitPot: ", CommandBase.shooterangle.returnPot());
+
+        SmartDashboard.putDouble("Accelerometer X: ", CommandBase.drivetrain.getAccelX());
+        SmartDashboard.putDouble("Accelerometer Y: ", CommandBase.drivetrain.getAccelY());
         
         SmartDashboard.putDouble("Encoder Average: ", CommandBase.drivetrain.getAvgDistance());
         SmartDashboard.putDouble("Left Encoder: ", CommandBase.drivetrain.getLeftEncoder());

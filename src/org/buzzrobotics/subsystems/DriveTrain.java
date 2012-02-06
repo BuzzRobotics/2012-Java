@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendablePIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.ADXL345_I2C;
 
 /**
  * @author Kyle Deane
@@ -23,6 +24,7 @@ public class DriveTrain extends Subsystem {
     Encoder rightDriveEncoder;
     Encoder leftDriveEncoder;
     Gyro gyro;
+    ADXL345_I2C accelerometer;
     
     private int forward;
     /*
@@ -53,6 +55,8 @@ public class DriveTrain extends Subsystem {
         rightDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.start();
         leftDriveEncoder.start();
+        
+        accelerometer = new ADXL345_I2C(1, ADXL345_I2C.DataFormat_Range.k16G);
         
         gyro = new Gyro(RobotMap.gyroPort);
         gyro.setSensitivity(0.007);
@@ -170,6 +174,20 @@ public class DriveTrain extends Subsystem {
     }
     public void resetGyro(){
         gyro.reset();
+    }
+    /*
+     * getAccelX
+     * @return the Accelerometer's X Axis
+     */
+    public double getAccelX(){
+        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
+    }
+    /*
+     * getAccelY
+     * @return the Accelerometer's Y Axis
+     */
+    public double getAccelY(){
+        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kY);
     }
     
     /*
