@@ -22,8 +22,8 @@ public class Delay extends CommandBase {
     protected void execute() {
         System.out.println("Start Delay");
         Timer.delay(m_yaledTime);
-        m_yaledTime = 0;
-        System.out.println("End");
+        //m_yaledTime = 0;
+        System.out.println("End Delay");
     }
 
     // Make this return true when this Command no longer needs to run execute()

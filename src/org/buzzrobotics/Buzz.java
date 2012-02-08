@@ -69,12 +69,12 @@ public class Buzz extends IterativeRobot {
         SmartDashboard.putData("SchedulerData", Scheduler.getInstance());
         
         autoChooser = new SendableChooser();
-        autoChooser.addDefault("Kinect", new Hybrid());
-        autoChooser.addObject("Autonomous", new whip());
-        autoChooser.addObject("Test1", new AutoMode1());
         autoChooser.addObject("AutoMode", new AutoMode(5));
-        autoChooser.addObject("Sit On My Lazy But", new Nothing());
-        SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
+        autoChooser.addDefault("Hybrid", new Hybrid());
+        autoChooser.addObject("whip", new whip());
+        autoChooser.addObject("Automode1", new AutoMode1());
+        autoChooser.addObject("Nothing", new Nothing());
+        SmartDashboard.putData("autoChooser", autoChooser);
         
 //        ShooterLimit = new SendableChooser();
 //        ShooterLimit.addDefault("5", new Shooter_Angle(5));
