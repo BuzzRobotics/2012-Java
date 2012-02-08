@@ -69,10 +69,12 @@ public class Buzz extends IterativeRobot {
         SmartDashboard.putData("SchedulerData", Scheduler.getInstance());
         
         autoChooser = new SendableChooser();
-        autoChooser.addObject("AutoMode", new AutoMode(5));
+        autoChooser.addObject("Shoot 2 then Drive to Bridge, 5 Sec Delay", new AutoMode(5));
+        autoChooser.addObject("Shoot 2 then Drive to Bridge, 3 Sec Delay", new AutoMode(3));
+        autoChooser.addObject("Shoot 2 then Drive to Bridge, No Delay", new AutoMode(0));
         autoChooser.addDefault("Hybrid", new Hybrid());
-        autoChooser.addObject("whip", new whip());
-        autoChooser.addObject("Automode1", new AutoMode1());
+        //autoChooser.addObject("whip", new whip());
+        //autoChooser.addObject("Automode1", new AutoMode1());
         autoChooser.addObject("Nothing", new Nothing());
         SmartDashboard.putData("autoChooser", autoChooser);
         
