@@ -23,6 +23,7 @@ import org.buzzrobotics.commands.Nothing;
 import org.buzzrobotics.commandgroups.whip;
 import org.buzzrobotics.autonomous.AutoMode;
 import org.buzzrobotics.OI;
+import org.buzzrobotics.autonomous.AutoMode2;
 import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.commands.Shooter_Angle;
 import org.buzzrobotics.commands.Delay;
@@ -69,10 +70,11 @@ public class Buzz extends IterativeRobot {
         SmartDashboard.putData("SchedulerData", Scheduler.getInstance());
         
         autoChooser = new SendableChooser();
-        autoChooser.addObject("Shoot 2 then Drive to Bridge, 5 Sec Delay", new AutoMode(5));
+        autoChooser.addDefault("Shoot 2 then Drive to Bridge, 5 Sec Delay", new AutoMode(5));
         autoChooser.addObject("Shoot 2 then Drive to Bridge, 3 Sec Delay", new AutoMode(3));
         autoChooser.addObject("Shoot 2 then Drive to Bridge, No Delay", new AutoMode(0));
-        autoChooser.addDefault("Hybrid", new Hybrid());
+        autoChooser.addObject("Hybrid", new Hybrid());
+        autoChooser.addObject("Shoot, drive, then turn 90", new AutoMode2(0));
         //autoChooser.addObject("whip", new whip());
         //autoChooser.addObject("Automode1", new AutoMode1());
         autoChooser.addObject("Nothing", new Nothing());

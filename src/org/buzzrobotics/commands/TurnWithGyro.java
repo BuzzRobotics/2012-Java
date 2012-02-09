@@ -11,28 +11,37 @@ import edu.wpi.first.wpilibj.RobotDrive;
  * @author buzz5
  */
 public class TurnWithGyro extends CommandBase {
-    
-    public TurnWithGyro() {
+    public int m_degrees;
+    public TurnWithGyro(int degrees) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+           m_degrees = degrees; 
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        drivetrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         drivetrain.drive(0, 0.2);
+        System.out.println("Degrees: " + drivetrain.getGyroAngle() + ". Goal!: " + m_degrees);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if(drivetrain.getGyroAngle() >= m_degrees){
+            return true;
+        }else{
+            return false;
+        }
     }
+
 
     // Called once after isFinished returns true
     protected void end() {
+        drivetrain.drive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

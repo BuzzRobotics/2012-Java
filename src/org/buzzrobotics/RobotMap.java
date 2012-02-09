@@ -8,7 +8,7 @@ package org.buzzrobotics;
  * 
  * @author Kyle Deane
  * @author Pete Polis
- * @author Zach ISAWESOME
+ * @author Zach Boyer
  * @author Buzz Robotics
  */
 public class RobotMap {
@@ -95,6 +95,7 @@ public class RobotMap {
                 top_opticalSensorPWM = 7,
                 middle_opticalSensorPWM = 8,
                 bottom_opticalSensorPWM = 9;
+         public static final int loadSensorPWM = 10;
         
         /*
          * Floor Optical Sensors

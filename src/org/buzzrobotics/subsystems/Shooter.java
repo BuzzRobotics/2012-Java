@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.RobotMap;
+import edu.wpi.first.wpilibj.Jaguar;
 
 /**
  *
@@ -11,8 +12,10 @@ import org.buzzrobotics.RobotMap;
  */
 public class Shooter extends Subsystem {
     DoubleSolenoid robotShooter;
+    Jaguar loadMotor;
     public Shooter(){
         robotShooter = new DoubleSolenoid(1, RobotMap.solenoidShooterExtend, RobotMap.solenoidShooterRetract);
+        loadMotor = new Jaguar(3);
     }
     
     public void initDefaultCommand() {
@@ -34,4 +37,13 @@ public class Shooter extends Subsystem {
         robotShooter.set(DoubleSolenoid.Value.kForward);
     }
     
+    public void load(){
+        loadMotor.set(-.5);
+    }
+    public void stopload(){
+        loadMotor.set(0);
+   
+    }
 }
+
+

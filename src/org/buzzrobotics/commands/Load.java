@@ -1,12 +1,18 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.buzzrobotics.commands;
 
 /**
- * Turns off Rollers
- * @author Peter Polis
+ *
+ * @author buzz5
  */
-public class Rollers_Off extends CommandBase {
+public class Load extends CommandBase {
     
-    public Rollers_Off() {
+    public Load() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -15,17 +21,21 @@ public class Rollers_Off extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.turnOffRollers();
-        ballfeeder.stop();
+        shooter.load();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+         if (ir.getLoadSensor()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        
     }
 
     // Called when another command which requires one or more of the same

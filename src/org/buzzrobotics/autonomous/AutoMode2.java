@@ -15,6 +15,7 @@ import org.buzzrobotics.commands.Rollers_Off;
 import org.buzzrobotics.commands.PickupArmRaise;
 import org.buzzrobotics.commands.PickupArmLower;
 import org.buzzrobotics.commands.Delay;
+import org.buzzrobotics.commands.TurnWithGyro;
 
 /**
  *
@@ -28,6 +29,16 @@ public class AutoMode2 extends CommandGroup {
         addSequential(new Delay(m_delay));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         addSequential(new AutonDrive(13));             //Drive over to the ramp
+        addSequential(new TurnWithGyro(90));
+        addSequential(new AutonDrive(20));
+        addSequential(new TurnWithGyro(270));
+        addSequential(new PickupArmLower());
+        addSequential(new Rollers_On(-1));
+        addSequential(new Delay(2));
+        addSequential(new Rollers_Off());
+        addSequential(new PickupArmRaise());
+        addSequential(new Shooter_Fire());
+        
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
