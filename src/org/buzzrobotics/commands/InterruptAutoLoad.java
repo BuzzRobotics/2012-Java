@@ -22,9 +22,10 @@ public class InterruptAutoLoad extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        ballfeeder.stop();
-        rollerarm.off();
+    public void execute() {
+//        ballfeeder.stop();
+//        rollerarm.off();
+          oi.autoBallLoad.cancel();
     }
 
     // Make this return true when this Command no longer needs to run execute()

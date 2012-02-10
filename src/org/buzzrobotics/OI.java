@@ -21,6 +21,7 @@ public class OI {
      * Left Joystick
      * @author Kyle Deane
      */
+    public AutoBallLoad autoBallLoad;
     Joystick leftJoy = new Joystick(2);
     Button lbutton1 = new JoystickButton(leftJoy, 1),
            lbutton2 = new JoystickButton(leftJoy, 2),
@@ -85,7 +86,7 @@ public class OI {
         
         rbutton5.whenPressed(new MoveBallFeeder(1));
         rbutton5.whenReleased(new MoveBallFeeder(0));
-        rbutton8.whenPressed(new AutoBallLoad());
+        rbutton8.whenPressed(autoBallLoad = new AutoBallLoad());
         
         lbutton11.whenPressed(new InterruptAutoLoad());
                 

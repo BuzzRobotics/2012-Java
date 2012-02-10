@@ -9,6 +9,7 @@ public class AutoBallLoad extends CommandBase {
     public AutoBallLoad() {
         //requires(ballfeeder);
         //requires(rollerarm);
+        setInterruptible(true);
     }
 
     // Called just before this Command runs the first time
