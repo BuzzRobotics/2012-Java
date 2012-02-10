@@ -25,17 +25,25 @@ public class TurnWithGyro extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drivetrain.drive(0, 0.2);
-        System.out.println("Degrees: " + drivetrain.getGyroAngle() + ". Goal!: " + m_degrees);
+        if(m_degrees <= 180){
+            drivetrain.drive(0, 0.2);
+        }else{
+            drivetrain.drive(0, -0.2);
+        }    
+        
+            
+            
+            System.out.println("Degrees: " + drivetrain.getGyroAngle() + ". Goal!: " + m_degrees);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(drivetrain.getGyroAngle() >= m_degrees){
-            return true;
-        }else{
-            return false;
-        }
+            if(      drivetrain.getGyroAngle() >= (m_degrees - 1) && 
+                    (drivetrain.getGyroAngle() <= (m_degrees + 1)) ){
+                return true;
+            }else{
+                return false;
+            }
     }
 
 

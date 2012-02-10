@@ -5,17 +5,9 @@
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.buzzrobotics.commands.*;
 import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.DriveTrain;
-import org.buzzrobotics.commands.Shooter_Fire;
-import org.buzzrobotics.commands.Drive;
-import org.buzzrobotics.commands.AutonDrive;
-import org.buzzrobotics.commands.Rollers_On;
-import org.buzzrobotics.commands.Rollers_Off;
-import org.buzzrobotics.commands.PickupArmRaise;
-import org.buzzrobotics.commands.PickupArmLower;
-import org.buzzrobotics.commands.Delay;
-import org.buzzrobotics.commands.TurnWithGyro;
 
 /**
  *
@@ -37,6 +29,10 @@ public class AutoMode2 extends CommandGroup {
         addSequential(new Delay(2));
         addSequential(new Rollers_Off());
         addSequential(new PickupArmRaise());
+      //addSequential(new SomeCameraTargetingThing());
+        addSequential(new Load());
+        addSequential(new Shooter_Fire());
+        addSequential(new Load());
         addSequential(new Shooter_Fire());
         
         // Add Commands here:

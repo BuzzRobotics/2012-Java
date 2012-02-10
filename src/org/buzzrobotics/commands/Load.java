@@ -10,6 +10,8 @@ package org.buzzrobotics.commands;
  */
 public class Load extends CommandBase {
     
+        public double shooterTimeOut = 0.5;
+    
     public Load() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -17,6 +19,7 @@ public class Load extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        setTimeout(shooterTimeOut);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,11 +29,12 @@ public class Load extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-         if (ir.getLoadSensor()){
-            return true;
-        }else{
-            return false;
-        }
+        return isTimedOut();
+//         if (ir.getLoadSensor()){
+//            return true;
+//        }else{
+//            return false;
+//        }
     }
 
     // Called once after isFinished returns true

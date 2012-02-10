@@ -30,6 +30,7 @@ public class OI {
            lbutton6 = new JoystickButton(leftJoy, 6),
            lbutton7 = new JoystickButton(leftJoy, 7),
            lbutton8 = new JoystickButton(leftJoy, 8);
+    Button lbutton11 = new JoystickButton(leftJoy, 11);
     
     /*
      * Joystick 2 Button Definitions
@@ -85,6 +86,8 @@ public class OI {
         rbutton5.whenPressed(new MoveBallFeeder(1));
         rbutton5.whenReleased(new MoveBallFeeder(0));
         rbutton8.whenPressed(new AutoBallLoad());
+        
+        lbutton11.whenPressed(new InterruptAutoLoad());
                 
         // LATCH INSTEAD rbutton4.whenPressed(new PickupArmRaise());
         

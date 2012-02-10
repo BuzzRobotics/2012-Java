@@ -1,16 +1,9 @@
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.buzzrobotics.commands.*;
 import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.DriveTrain;
-import org.buzzrobotics.commands.Shooter_Fire;
-import org.buzzrobotics.commands.Drive;
-import org.buzzrobotics.commands.AutonDrive;
-import org.buzzrobotics.commands.Rollers_On;
-import org.buzzrobotics.commands.Rollers_Off;
-import org.buzzrobotics.commands.PickupArmRaise;
-import org.buzzrobotics.commands.PickupArmLower;
-import org.buzzrobotics.commands.Delay;
 
 /**
  *
@@ -22,6 +15,7 @@ public class AutoMode extends CommandGroup {
         m_delay = delay;
         addSequential(new Delay(m_delay));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
+        addSequential(new Load());
         addSequential(new Shooter_Fire());             //Shoot the other ball
         addSequential(new AutonDrive(13));             //Drive over to the ramp
         addSequential(new PickupArmLower());           //Drop the pickup arm to lower the ramp
@@ -30,7 +24,9 @@ public class AutoMode extends CommandGroup {
         addSequential(new Rollers_Off());              //Turn off the rollers
         addSequential(new PickupArmRaise());           //Raise the pickup arm...
         addSequential(new AutonDrive(-23));            //...while we drive back to the key
+        addSequential(new Load());
         addSequential(new Shooter_Fire());             //Fire
+        addSequential(new Load());
         addSequential(new Shooter_Fire());             //Fire again
         addSequential(new Drive(0, 0, 10));            //Wait around for 15 seconds
         

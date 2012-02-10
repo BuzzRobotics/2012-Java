@@ -141,4 +141,6 @@ public class RobotMap {
         
         public static int FloorLightRelayPort = 2;
         
+        public static int loadMotorPWM = 3;
+        
 }

@@ -8,9 +8,15 @@ import org.buzzrobotics.commands.CommandBase;
 public class AutonDrive extends CommandBase{
 
     private double inches_to_travel;
+    public double direction;
     public AutonDrive(double inches) {
         requires(drivetrain);
         inches_to_travel = inches;
+        if (inches > 0){
+            drivetrain.setForward();
+        }else if (inches < 0){
+            drivetrain.setBackwards();
+        }
     }
 
     // Called just before this Command runs the first time

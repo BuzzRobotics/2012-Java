@@ -15,7 +15,7 @@ public class Shooter extends Subsystem {
     Jaguar loadMotor;
     public Shooter(){
         robotShooter = new DoubleSolenoid(1, RobotMap.solenoidShooterExtend, RobotMap.solenoidShooterRetract);
-        loadMotor = new Jaguar(3);
+        loadMotor = new Jaguar(RobotMap.loadMotorPWM);  //3
     }
     
     public void initDefaultCommand() {

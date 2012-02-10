@@ -1,14 +1,20 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.buzzrobotics.commands;
 
 /**
- * Autonomously Loads Balls.
- * @author BUZZWS1
+ *
+ * @author buzz5
  */
-public class AutoBallLoad extends CommandBase {
+public class InterruptAutoLoad extends CommandBase {
     
-    public AutoBallLoad() {
-        //requires(ballfeeder);
-        //requires(rollerarm);
+    public InterruptAutoLoad() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(ballfeeder);
+        requires(rollerarm);
     }
 
     // Called just before this Command runs the first time
@@ -17,22 +23,17 @@ public class AutoBallLoad extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-            rollerarm.turnOnRollers(-1);     //Turn on feeder and rollers
-            ballfeeder.driveUp();
+        ballfeeder.stop();
+        rollerarm.off();
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() { 
-        if (ir.getTopIRSensor() && ir.getMiddleIRSensor() && ir.getBottomIRSensor()){
-            return true;
-        }else{
-            return false;
-        }
+    protected boolean isFinished() {
+        return true;
     }
+
     // Called once after isFinished returns true
     protected void end() {
-        rollerarm.turnOffRollers();
-        ballfeeder.stop();
     }
 
     // Called when another command which requires one or more of the same
