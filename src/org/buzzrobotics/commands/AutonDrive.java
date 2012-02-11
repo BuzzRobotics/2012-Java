@@ -27,7 +27,6 @@ public class AutonDrive extends CommandBase{
     // Called repeatedly when this Command is scheduled to run
     public void execute(){
         drivetrain.driveStraight();
-        System.out.println(drivetrain.getAvgDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()

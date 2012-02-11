@@ -17,6 +17,8 @@ public class RollerArm extends Subsystem {
     // here. Call these from Commands.
     Jaguar rollers;
     DoubleSolenoid rollerArm;
+    public double rollerdirection = 0;
+    public boolean rollerstatus;
     
     public RollerArm(){
         rollerArm = new DoubleSolenoid(RobotMap.rollerArmSolenoidDeploy, RobotMap.rollerArmSolenoidRetract);
@@ -26,7 +28,8 @@ public class RollerArm extends Subsystem {
      * Lower Roller Arm
      */
     public void lower(){
-        SmartDashboard.putString("RollerArm", "Down");
+        rollerstatus = true;
+        
             rollerArm.set(DoubleSolenoid.Value.kReverse);
         
 }
@@ -35,7 +38,7 @@ public class RollerArm extends Subsystem {
      * Raise Roller Arm
      */
     public void raise(){
-        SmartDashboard.putString("RollerArm", "Up");
+        rollerstatus = false;
             rollerArm.set(DoubleSolenoid.Value.kForward);
         
     }
@@ -53,11 +56,11 @@ public class RollerArm extends Subsystem {
     public void turnOnRollers(int direction){
         SmartDashboard.putString("Rollers", "On");
         if (direction > 0){
-            SmartDashboard.putString("Roller Direction", "Forward");
+            rollerdirection = 1;
         }else if (direction < 0){
-            SmartDashboard.putString("Roller Direction", "Reverse");
+            rollerdirection = -1;
         }else if (direction == 0){
-            SmartDashboard.putString("Roller Direction", "Off");
+            rollerdirection = 0;
         }
         rollers.set(direction);
     }
@@ -66,11 +69,16 @@ public class RollerArm extends Subsystem {
      * Turn Off Rolers
      */
     public void turnOffRollers(){
-        SmartDashboard.putString("Rollers", "Off");
         rollers.set(0);
+        rollerdirection = 0;
     }
     
-    
+    public double getRollerDirection(){
+        return rollerdirection;
+    }
+    public boolean status(){
+        return rollerstatus;
+    }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

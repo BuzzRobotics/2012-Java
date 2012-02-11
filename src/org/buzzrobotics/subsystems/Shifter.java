@@ -16,6 +16,7 @@ import org.buzzrobotics.RobotMap;
  */
 public class Shifter extends Subsystem {
     DoubleSolenoid robotSolenoidShifter;
+    public boolean shiftersw = false;
     public Shifter() {   
         robotSolenoidShifter = new DoubleSolenoid(1, RobotMap.solenoidShifterDeploy, RobotMap.solenoidShifterRetract);
     }
@@ -25,11 +26,23 @@ public class Shifter extends Subsystem {
     }
     
     public void up() {
-        SmartDashboard.putString("Shifter", "High");
+        shiftersw = true;
         robotSolenoidShifter.set(DoubleSolenoid.Value.kForward);
     }
     public void down() {
-        SmartDashboard.putString("Shifter", "Low");
+        shiftersw = false;
        robotSolenoidShifter.set(DoubleSolenoid.Value.kReverse);
+    }
+    public void toggle(){
+        if (!shiftersw){
+            robotSolenoidShifter.set(DoubleSolenoid.Value.kForward);
+            shiftersw = true;
+        }else{
+            robotSolenoidShifter.set(DoubleSolenoid.Value.kReverse);
+            shiftersw = false;
+        }
+    }
+    public boolean status(){
+        return shiftersw;
     }
 }

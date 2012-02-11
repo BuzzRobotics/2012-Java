@@ -22,9 +22,9 @@ public class FloorLight extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (light_on){
-            floorlight.turnOnLight();
+            floorlight.on();
         }else{
-            floorlight.turnOffLight();
+            floorlight.off();
         }
         
     }

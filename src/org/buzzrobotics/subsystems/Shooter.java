@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Jaguar;
 public class Shooter extends Subsystem {
     DoubleSolenoid robotShooter;
     Jaguar loadMotor;
+    public boolean shooterstatus;
     public Shooter(){
         robotShooter = new DoubleSolenoid(1, RobotMap.solenoidShooterExtend, RobotMap.solenoidShooterRetract);
         loadMotor = new Jaguar(RobotMap.loadMotorPWM);  //3
@@ -23,17 +24,18 @@ public class Shooter extends Subsystem {
     }
     
     /*
+     * FALSE = IN
      * Retracts Shooter
      */
     public void in(){
-        SmartDashboard.putString("Shooter", "Down");
+        shooterstatus = false;
         robotShooter.set(DoubleSolenoid.Value.kReverse);
     }
     /*
      * Deploys Shooter pneumatic thingy!
      */
     public void out(){
-        SmartDashboard.putString("Shooter", "Out");
+        shooterstatus = true;
         robotShooter.set(DoubleSolenoid.Value.kForward);
     }
     
@@ -42,7 +44,9 @@ public class Shooter extends Subsystem {
     }
     public void stopload(){
         loadMotor.set(0);
-   
+    }
+    public boolean status(){
+       return shooterstatus;
     }
 }
 

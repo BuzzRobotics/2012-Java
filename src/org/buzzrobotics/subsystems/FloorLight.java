@@ -10,17 +10,23 @@ import org.buzzrobotics.RobotMap;
  * @author Peter Polis
  */
 public class FloorLight extends Subsystem {
+    public boolean lighton;
     Relay floor_light;
     public FloorLight(){
         floor_light = new Relay(RobotMap.FloorLightRelayPort);
     }
     
-    public void turnOnLight(){
+    public void on(){
+        lighton = true;
         floor_light.set(Relay.Value.kForward);
     }
     
-    public void turnOffLight(){
+    public void off(){
+        lighton = false;
         floor_light.set(Relay.Value.kOff);
+    }
+    public boolean status(){
+        return lighton;
     }
     
     public void initDefaultCommand() {

@@ -33,7 +33,7 @@ public class TurnWithGyro extends CommandBase {
         
             
             
-            System.out.println("Degrees: " + drivetrain.getGyroAngle() + ". Goal!: " + m_degrees);
+            //System.out.println("Degrees: " + drivetrain.getGyroAngle() + ". Goal!: " + m_degrees);
     }
 
     // Make this return true when this Command no longer needs to run execute()

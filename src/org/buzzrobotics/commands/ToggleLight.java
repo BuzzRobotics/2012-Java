@@ -5,7 +5,6 @@ package org.buzzrobotics.commands;
  * @author Kyle Deane
  */
 public class ToggleLight extends CommandBase {
-    public boolean lightswitch = false;
     public ToggleLight() {
         requires(light);
     }
@@ -16,13 +15,7 @@ public class ToggleLight extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (!lightswitch){
-            light.on();
-            lightswitch = true;
-        }else{
-            light.off();
-            lightswitch = false;
-        }
+       light.toggle();
     }
 
     // Make this return true when this Command no longer needs to run execute()

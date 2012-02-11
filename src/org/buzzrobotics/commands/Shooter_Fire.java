@@ -21,7 +21,6 @@ public class Shooter_Fire extends CommandBase {
         shooter.out();
         Timer.delay(.5);
         shooter.in();
-        System.out.println("FIIIIRE!!!");
     }
 
     // Make this return true when this Command no longer needs to run execute()

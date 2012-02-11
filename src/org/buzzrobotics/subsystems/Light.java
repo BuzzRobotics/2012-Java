@@ -10,13 +10,10 @@ import org.buzzrobotics.RobotMap;
  * @author Kyle Deane
  */
 public class Light extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    public boolean lighton;
     Relay relay_light;
     public Light() {   
-        SmartDashboard.putString("Light", "Off");
         relay_light = new Relay(RobotMap.lightrelay);
-        
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -28,8 +25,8 @@ public class Light extends Subsystem {
      * @author Kyle Deane
      */
     public void on() {
-        SmartDashboard.putString("Light", "On");
-        relay_light.set(Relay.Value.kForward);
+        lighton = true;
+        relay_light.set(Relay.Value.kForward); 
     }
     
     /*
@@ -37,7 +34,21 @@ public class Light extends Subsystem {
      * @author Kyle Deane
      */
     public void off() {
-        SmartDashboard.putString("Light", "Off");
+        lighton = false;
         relay_light.set(Relay.Value.kOff);
+    }
+    
+    public void toggle(){
+         if (!lighton){
+            lighton = true;
+            relay_light.set(Relay.Value.kForward);
+            
+        }else{
+            relay_light.set(Relay.Value.kOff);
+            lighton = false;
+        }
+    }
+    public boolean status(){
+        return lighton;
     }
 }

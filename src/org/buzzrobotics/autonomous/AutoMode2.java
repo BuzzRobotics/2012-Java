@@ -14,11 +14,7 @@ import org.buzzrobotics.subsystems.DriveTrain;
  * @author buzz5
  */
 public class AutoMode2 extends CommandGroup {
-        public int m_delay;
-    public AutoMode2(int delay) {
-        m_delay = delay;
-        
-        addSequential(new Delay(m_delay));
+    public AutoMode2() {
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         addSequential(new AutonDrive(13));             //Drive over to the ramp
         addSequential(new TurnWithGyro(90));

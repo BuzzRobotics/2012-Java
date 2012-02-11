@@ -143,4 +143,7 @@ public class RobotMap {
         
         public static int loadMotorPWM = 3;
         
+        public static int BridgeArmPot = 4;
+        public static int BridgeArmMotor = 7;
+        
 }

@@ -1,3 +1,7 @@
+/*
+ *Autonomous Mode 3
+ * Does nothing much at this point
+ */
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -9,11 +13,8 @@ import org.buzzrobotics.subsystems.DriveTrain;
  *
  * @author buzz5
  */
-public class AutoMode extends CommandGroup {
-        public int m_delay;
-    public AutoMode(int delay) {
-        m_delay = delay;
-        addSequential(new Delay(m_delay));
+public class AutoMode3 extends CommandGroup {
+    public AutoMode3() {
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         addSequential(new Load());
         addSequential(new Delay(1));
@@ -34,23 +35,6 @@ public class AutoMode extends CommandGroup {
         addSequential(new Load());
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());             //Fire again
-        addSequential(new Drive(0, 0, 10));            //Wait around for 15 seconds
-        
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
+        addSequential(new Drive(0, 0, 10));            //Wait around for 15 seconds            //Shoot one of the two balls we hav
     }
 }

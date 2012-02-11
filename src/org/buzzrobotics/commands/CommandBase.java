@@ -13,6 +13,7 @@ import org.buzzrobotics.subsystems.RollerArm;
 import org.buzzrobotics.subsystems.Camera;
 import org.buzzrobotics.subsystems.BallFeeder;
 import org.buzzrobotics.subsystems.FloorLight;
+import org.buzzrobotics.subsystems.BridgeArm;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -35,6 +36,7 @@ public abstract class CommandBase extends Command {
     public static Camera camera = new Camera();
     public static BallFeeder ballfeeder = new BallFeeder();
     public static FloorLight floorlight = new FloorLight();
+    public static BridgeArm bridgearm = new BridgeArm();
     //public static ShooterAngle shooterangle = new ShooterAngle();
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

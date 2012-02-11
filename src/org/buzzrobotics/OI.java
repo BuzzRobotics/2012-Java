@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import org.buzzrobotics.commands.*;
 import org.buzzrobotics.subsystems.BallFeeder;
-
+import edu.wpi.first.wpilibj.DriverStation;
 
 /*
  * Operator Interface
@@ -16,11 +16,20 @@ import org.buzzrobotics.subsystems.BallFeeder;
  * @author Buzz Robotics 2012 Programming Team
  */
 public class OI {
+    
     /*
      * Joystick 1 Button Definition
      * Left Joystick
      * @author Kyle Deane
      */
+
+    DriverStation driver = DriverStation.getInstance();
+    public double modebox = driver.getAnalogIn(1);
+    public double yaled = driver.getAnalogIn(2);
+    
+    public int delay;
+    public int mode;
+    
     public AutoBallLoad autoBallLoad;
     Joystick leftJoy = new Joystick(2);
     Button lbutton1 = new JoystickButton(leftJoy, 1),
@@ -62,8 +71,7 @@ public class OI {
      * @author Kyle Deane
      */
     public OI() {
-        rbutton8.whenPressed(new Shift_Down());
-        rbutton8.whenReleased(new Shift_Up());
+        rbutton8.whenPressed(new Shifter_Toggle());
         lbutton1.whenPressed(new Shooter_Fire());
 
         rbutton2.whenPressed(new ToggleLight()); 
@@ -84,8 +92,14 @@ public class OI {
         rbutton10.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
         rbutton11.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
         
-        rbutton5.whenPressed(new MoveBallFeeder(1));
-        rbutton5.whenReleased(new MoveBallFeeder(0));
+        rbutton3.whenPressed(new MoveBallFeeder(1));
+        rbutton3.whenReleased(new MoveBallFeeder(0));
+        
+        rbutton4.whenPressed(new BridgeArm_Move(-1));
+        rbutton4.whenReleased(new BridgeArm_Move(0));
+        rbutton5.whenPressed(new BridgeArm_Move(1));
+        rbutton5.whenReleased(new BridgeArm_Move(0));
+        
         rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
         
         lbutton11.whenPressed(new InterruptAutoLoad());
@@ -120,6 +134,7 @@ public class OI {
     public double getLeftY() {
         return leftJoy.getY();
     }
+
     
     /**
      * @return The value of the left joystick X axis
@@ -158,6 +173,42 @@ public class OI {
      */
     public double getLeftZ() {
         return leftJoy.getZ();
+    }
+    
+    public int getDelay(){
+        if (yaled == 0){
+            delay = 0;
+        }else if(yaled >= 0.5 && yaled <= 0.7){
+            delay = 1;
+        }else if(yaled >= 1.2 && yaled <= 1.4){
+            delay = 4;
+        }else if(yaled >= 1.8 && yaled <= 2.1){
+            delay = 6;
+        }else if(yaled >= 2.5 && yaled <= 2.8){
+            delay = 8;
+        }else if(yaled >= 3.0 && yaled <= 4.0){
+            delay = 10;
+        }
+        System.out.println(delay);
+        return delay;
+        
+    }
+    
+    public int getAutonMode(){
+        if (modebox == 0){
+            mode = 0;
+        }else if(modebox >= 0.5 && modebox <= 0.7){
+            mode = 1;
+        }else if(modebox >= 1.2 && modebox <= 1.4){
+            mode = 2;
+        }else if(modebox >= 1.8 && modebox <= 2.1){
+            mode = 3;
+        }else if(modebox >= 2.5 && modebox <= 2.8){
+            mode = 4;
+        }else if(modebox >= 3.0 && modebox <= 4.0){
+            mode = 5;
+        }
+        return mode;
     }
 }
 

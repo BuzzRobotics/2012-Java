@@ -1,4 +1,5 @@
 org.buzzrobotics
+org.buzzrobotics.autonomous
 org.buzzrobotics.commandgroups
 org.buzzrobotics.commands
 org.buzzrobotics.subsystems

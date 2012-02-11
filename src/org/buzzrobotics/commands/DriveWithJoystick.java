@@ -20,19 +20,19 @@ public class DriveWithJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        sensitivity = (oi.getRightZ() + 1)/2 + 0.2; 
+      /*  sensitivity = (oi.getRightZ() + 1)/2 + 0.2; 
                 if (sensitivity > 1.0){
                     sensitivity = 1.0;
-                }
-        drivetrain.arcadeDrive( oi.getRightX() * sensitivity, oi.getRightY() * sensitivity);
+                } */
+        drivetrain.arcadeDrive(oi.getRightX(), oi.getRightY());
         
 //            if (oi.getRightTwist() < -0.10 || oi.getRightTwist() > 0.10){
 //                drivetrain.drive(oi.getRightTwist(), turn);
 //            }
         if(ir.getFloor1IRSensor() && ir.getFloor2IRSensor() && ir.getFloor3IRSensor()){
-            floorlight.turnOnLight();
+            floorlight.on();
         }else{
-            floorlight.turnOffLight();
+            floorlight.off();
         }
         
     }
@@ -49,5 +49,6 @@ public class DriveWithJoystick extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        System.out.println("DRIVE INTERRUPTED");
     }
 }
