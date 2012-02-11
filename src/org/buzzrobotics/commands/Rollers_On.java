@@ -9,7 +9,7 @@ public class Rollers_On extends CommandBase {
     public Rollers_On(int direction) {
         // Use requires() here to declare subsystem dependencies
         requires(rollerarm);
-        direction = m_direction;
+        m_direction = direction;
     }
 
     // Called just before this Command runs the first time
@@ -24,7 +24,7 @@ public class Rollers_On extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         rollerarm.turnOnRollers(m_direction);
-        ballfeeder.driveUp();
+        //ballfeeder.driveUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()

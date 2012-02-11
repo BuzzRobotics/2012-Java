@@ -62,10 +62,10 @@ public class OI {
      * @author Kyle Deane
      */
     public OI() {
-        rbutton1.whenPressed(new Shift_Down());
-        rbutton1.whenReleased(new Shift_Up());
-        lbutton1.whenPressed(new Shooter_Out());
-        lbutton1.whenReleased(new Shooter_In());
+        rbutton8.whenPressed(new Shift_Down());
+        rbutton8.whenReleased(new Shift_Up());
+        lbutton1.whenPressed(new Shooter_Fire());
+
         rbutton2.whenPressed(new ToggleLight()); 
       //  rbutton2.whenPressed(new Shooter_Fire());
         lbutton3.whenPressed(new PickupArmRaise());
@@ -80,13 +80,13 @@ public class OI {
         
         rbutton6.whenPressed(new ResetGyro());
         rbutton7.whileHeld(new BalanceBot());
-        
-        rbutton10.whenPressed(new AdjustCamera(0.4, 0));
-        rbutton11.whenPressed(new AdjustCamera(0.7,1));
+       
+        rbutton10.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
+        rbutton11.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
         
         rbutton5.whenPressed(new MoveBallFeeder(1));
         rbutton5.whenReleased(new MoveBallFeeder(0));
-        rbutton8.whenPressed(autoBallLoad = new AutoBallLoad());
+        rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
         
         lbutton11.whenPressed(new InterruptAutoLoad());
                 

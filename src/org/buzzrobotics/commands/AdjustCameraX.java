@@ -5,7 +5,7 @@ package org.buzzrobotics.commands;
  * @author Kyle Deane
  */
 public class AdjustCameraX extends CommandBase {
-    public double m_x = 1;
+    public double m_x = .5;
     public AdjustCameraX(double x) {
         requires(camera);
         m_x = x;
