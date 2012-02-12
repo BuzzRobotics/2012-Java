@@ -99,6 +99,7 @@ public class Buzz extends IterativeRobot {
     
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        updateDashboard();
     }
 
     

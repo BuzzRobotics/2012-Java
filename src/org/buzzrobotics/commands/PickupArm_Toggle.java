@@ -1,13 +1,17 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.buzzrobotics.commands;
 
 /**
- * Lowers Pickup Arm
- * @author Peter Polis
+ *
+ * @author Kyle Deane
  */
-public class PickupArmLower extends CommandBase {
-      
-    public PickupArmLower() {
-        
+public class PickupArm_Toggle extends CommandBase {
+    
+    public PickupArm_Toggle() {
+        requires(rollerarm);
     }
 
     // Called just before this Command runs the first time
@@ -16,17 +20,16 @@ public class PickupArmLower extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.lower();
+        rollerarm.toggle();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       return true;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        
     }
 
     // Called when another command which requires one or more of the same

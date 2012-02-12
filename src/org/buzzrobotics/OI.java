@@ -39,8 +39,10 @@ public class OI {
            lbutton5 = new JoystickButton(leftJoy, 5),
            lbutton6 = new JoystickButton(leftJoy, 6),
            lbutton7 = new JoystickButton(leftJoy, 7),
-           lbutton8 = new JoystickButton(leftJoy, 8);
-    Button lbutton11 = new JoystickButton(leftJoy, 11);
+           lbutton8 = new JoystickButton(leftJoy, 8),
+           lbutton9 = new JoystickButton(leftJoy, 9),
+           lbutton10 = new JoystickButton(leftJoy, 10),
+           lbutton11 = new JoystickButton(leftJoy, 11);
     
     /*
      * Joystick 2 Button Definitions
@@ -56,10 +58,10 @@ public class OI {
            rbutton6 = new JoystickButton(rightJoy, 6),
            rbutton7 = new JoystickButton(rightJoy, 7),
            rbutton8 = new JoystickButton(rightJoy, 8),
-            rbutton9 = new JoystickButton(rightJoy, 9),
-            rbutton10 = new JoystickButton(rightJoy, 10),
-            rbutton11 = new JoystickButton(rightJoy, 11),
-            rbutton12 = new JoystickButton(rightJoy, 12);
+           rbutton9 = new JoystickButton(rightJoy, 9),
+           rbutton10 = new JoystickButton(rightJoy, 10),
+           rbutton11 = new JoystickButton(rightJoy, 11);
+         
     
     /**
      * Bind the press of each button to a specific command or command group.
@@ -70,39 +72,63 @@ public class OI {
      * Right Button 5: Light Off
      * @author Kyle Deane
      */
+    /*
+     * 
+     * 
+     * '
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
     public OI() {
-        rbutton8.whenPressed(new Shifter_Toggle());
+        /*
+         * Left
+         */
         lbutton1.whenPressed(new Shooter_Fire());
-
-        rbutton2.whenPressed(new ToggleLight()); 
-      //  rbutton2.whenPressed(new Shooter_Fire());
-        lbutton3.whenPressed(new PickupArmRaise());
-        lbutton2.whenPressed(new PickupArmLower());
         
         lbutton4.whenPressed(new Rollers_On(-1));
-        lbutton5.whenPressed(new Rollers_Off());
+        lbutton4.whenReleased(new Rollers_Off());
+        lbutton5.whenPressed(new Rollers_On(1));
+        lbutton5.whenReleased(new Rollers_Off());
         
         lbutton6.whenPressed(new Shooter_Angle(1));
         lbutton7.whenPressed(new Shooter_Angle(3));
-        lbutton8.whenPressed(new Shooter_Angle(5));       
+        lbutton8.whenPressed(new Shooter_Angle(5));     
         
-        rbutton6.whenPressed(new ResetGyro());
-        rbutton7.whileHeld(new BalanceBot());
-       
-        rbutton10.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
-        rbutton11.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
+        lbutton10.whenPressed(new MoveBallFeeder(1));
+        lbutton10.whenReleased(new MoveBallFeeder(0));
         
-        rbutton3.whenPressed(new MoveBallFeeder(1));
-        rbutton3.whenReleased(new MoveBallFeeder(0));
+        lbutton11.whenPressed(new InterruptAutoLoad());
+        //LEFT Z - does nothing right now.
         
+        /*
+         * Right
+         */
+        rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
+        rbutton9.whenPressed(new ToggleLight());
+        lbutton3.whenPressed(new PickupArm_Toggle());
         rbutton4.whenPressed(new BridgeArm_Move(-1));
         rbutton4.whenReleased(new BridgeArm_Move(0));
         rbutton5.whenPressed(new BridgeArm_Move(1));
         rbutton5.whenReleased(new BridgeArm_Move(0));
+        rbutton6.whenPressed(new ResetGyro());
+        rbutton7.whileHeld(new BalanceBot());
+        rbutton8.whenPressed(new Shifter_Toggle());
+        rbutton10.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
+        rbutton11.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
         
-        rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
-        
-        lbutton11.whenPressed(new InterruptAutoLoad());
+        //RIGHT Z = Drive Sensitivity
+       
                 
         // LATCH INSTEAD rbutton4.whenPressed(new PickupArmRaise());
         

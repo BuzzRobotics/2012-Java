@@ -1,12 +1,12 @@
 package org.buzzrobotics.commands;
 
 /**
- * Raises Pickup Arm
+ * Lowers Pickup Arm
  * @author Peter Polis
  */
-public class PickupArmRaise extends CommandBase {
-        
-    public PickupArmRaise() {
+public class PickupArm_Lower extends CommandBase {
+      
+    public PickupArm_Lower() {
         
     }
 
@@ -15,17 +15,18 @@ public class PickupArmRaise extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    public void execute() {
-        rollerarm.raise();
+    protected void execute() {
+        rollerarm.lower();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+       return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        
     }
 
     // Called when another command which requires one or more of the same

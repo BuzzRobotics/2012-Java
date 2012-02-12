@@ -19,11 +19,11 @@ public class AutoMode5 extends CommandGroup {
         addSequential(new TurnWithGyro(90));
         addSequential(new AutonDrive(20));
         addSequential(new TurnWithGyro(270));
-        addSequential(new PickupArmLower());
+        addSequential(new PickupArm_Lower());
         addSequential(new Rollers_On(-1));
         addSequential(new Delay(2));
         addSequential(new Rollers_Off());
-        addSequential(new PickupArmRaise());
+        addSequential(new PickupArm_Raise());
       //addSequential(new SomeCameraTargetingThing());
         addSequential(new Load());
         addSequential(new Shooter_Fire());

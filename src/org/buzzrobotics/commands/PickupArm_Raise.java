@@ -1,16 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author Kyle Deane
+ * Raises Pickup Arm
+ * @author Peter Polis
  */
-public class Shifter_Toggle extends CommandBase {
-    public Shifter_Toggle() {
-        requires(shifter);
+public class PickupArm_Raise extends CommandBase {
+        public boolean pickupArmState = true;
+    public PickupArm_Raise() {
+        
     }
 
     // Called just before this Command runs the first time
@@ -18,15 +15,14 @@ public class Shifter_Toggle extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        shifter.toggle();
+    public void execute() {
+            rollerarm.raise();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;  //should be true
+        return true;
     }
-    
 
     // Called once after isFinished returns true
     protected void end() {

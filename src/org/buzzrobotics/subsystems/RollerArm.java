@@ -19,6 +19,7 @@ public class RollerArm extends Subsystem {
     DoubleSolenoid rollerArm;
     public double rollerdirection = 0;
     public boolean rollerstatus;
+    public boolean v;
     
     public RollerArm(){
         rollerArm = new DoubleSolenoid(RobotMap.rollerArmSolenoidDeploy, RobotMap.rollerArmSolenoidRetract);
@@ -41,6 +42,16 @@ public class RollerArm extends Subsystem {
         rollerstatus = false;
             rollerArm.set(DoubleSolenoid.Value.kForward);
         
+    }
+    
+    public void toggle(){
+         if (!rollerstatus){
+            rollerstatus = true;
+            rollerArm.set(DoubleSolenoid.Value.kReverse);
+        }else{
+            rollerArm.set(DoubleSolenoid.Value.kForward);
+            rollerstatus = false;
+        }
     }
     /*
      * Turn Off Solenoid?
