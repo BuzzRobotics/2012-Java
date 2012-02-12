@@ -1,30 +1,22 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.buzzrobotics.commandgroups;
-import edu.wpi.first.wpilibj.Timer;
-import org.buzzrobotics.commands.Light;
-import org.buzzrobotics.commands.Shift_Down;
-import org.buzzrobotics.commands.Shift_Up;
-import org.buzzrobotics.commands.Drive;
-        
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.buzzrobotics.commands.*;
 
 /**
- * Testing Command Groups
+ *
  * @author Kyle Deane
  */
-public class whip extends CommandGroup {
-    /*
-     * I Whip my hair back and forth :D
-     */
-    public whip() {
-        addSequential(new Drive(1, 0, 3));
-        addSequential(new Shift_Down());
-        addSequential(new Light(true));
-        addSequential(new Shift_Up());
-        addSequential(new Drive(1, 0, 3));
-        addSequential(new Light(false));
-        
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
+public class LoadBalls_Door_Done extends CommandGroup {
+    
+    public LoadBalls_Door_Done() {
+        addSequential(new MoveBallFeeder(0));
+        addParallel(new Rollers_Off());
+        addParallel(new FeederDoor_Close());
         //      addSequential(new Command2());
         // these will run in order.
 

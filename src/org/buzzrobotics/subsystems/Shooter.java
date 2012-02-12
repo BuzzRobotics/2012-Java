@@ -40,7 +40,10 @@ public class Shooter extends Subsystem {
     }
     
     public void load(){
-        loadMotor.set(-.5);
+        loadMotor.set(.5);
+    }
+    public void reverse(){
+        loadMotor.set(-1);
     }
     public void stopload(){
         loadMotor.set(0);

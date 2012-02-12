@@ -162,6 +162,8 @@ public class Buzz extends IterativeRobot {
         SmartDashboard.putBoolean("fir2", CommandBase.ir.getFloor2IRSensor());
         SmartDashboard.putBoolean("fir3", CommandBase.ir.getFloor3IRSensor());
         
+        SmartDashboard.putBoolean("brake", CommandBase.brake.status());
+        SmartDashboard.putBoolean("loaderdoor", CommandBase.ballfeeder.doorStatus());
 //        SmartDashboard.putBoolean("Ball Load Sensor:", CommandBase.ir.getLoadSensor());
     }
 }

@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.buzzrobotics.commands.*;
 import org.buzzrobotics.subsystems.BallFeeder;
 import edu.wpi.first.wpilibj.DriverStation;
+import org.buzzrobotics.commandgroups.LoadBalls_Door;
+import org.buzzrobotics.commandgroups.LoadBalls_Door_Done;
 
 /*
  * Operator Interface
@@ -95,7 +97,9 @@ public class OI {
          * Left
          */
         lbutton1.whenPressed(new Shooter_Fire());
-        
+        lbutton2.whenPressed(new LoadBalls_Door());
+        lbutton2.whenReleased(new LoadBalls_Door_Done());
+        lbutton9.whenPressed(new PickupArm_Toggle());
         lbutton4.whenPressed(new Rollers_On(-1));
         lbutton4.whenReleased(new Rollers_Off());
         lbutton5.whenPressed(new Rollers_On(1));
@@ -104,6 +108,8 @@ public class OI {
         lbutton6.whenPressed(new Shooter_Angle(1));
         lbutton7.whenPressed(new Shooter_Angle(3));
         lbutton8.whenPressed(new Shooter_Angle(5));     
+        
+        lbutton3.whenPressed(new Load());
         
         lbutton10.whenPressed(new MoveBallFeeder(1));
         lbutton10.whenReleased(new MoveBallFeeder(0));
@@ -115,15 +121,17 @@ public class OI {
          * Right
          */
         rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
-        rbutton9.whenPressed(new ToggleLight());
-        lbutton3.whenPressed(new PickupArm_Toggle());
+        rbutton2.whenPressed(new BridgeArm_Set(2));
+        
         rbutton4.whenPressed(new BridgeArm_Move(-1));
         rbutton4.whenReleased(new BridgeArm_Move(0));
         rbutton5.whenPressed(new BridgeArm_Move(1));
         rbutton5.whenReleased(new BridgeArm_Move(0));
-        rbutton6.whenPressed(new ResetGyro());
-        rbutton7.whileHeld(new BalanceBot());
+        //rbutton6.whenPressed(new ResetGyro());
+        //rbutton7.whileHeld(new BalanceBot());
+        rbutton6.whenPressed(new ToggleLight());
         rbutton8.whenPressed(new Shifter_Toggle());
+        rbutton9.whenPressed(new Brake_Down());
         rbutton10.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
         rbutton11.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
         

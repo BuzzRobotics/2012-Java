@@ -23,41 +23,9 @@ public class RobotMap {
           * @author Kyle Deane
           */
          public final static int kinectScale = 1;
-        
-                
-        /*
-         * SuperShifter Ports
-         * Used on Solenoid Board
-         * solenoidShifterDeployPort - High Gear
-         * solenoidShifterRetractPort - Low Gear
-         */
-         public static final int
-            solenoidShifterDeploy = 1,   //High Gear
-            solenoidShifterRetract = 2;    //Low Gear  
-         
-         /*
-         * Solenoid Shooter
-         * Used on Solenoid Board
-         * solenoidShooterExtend - Extends to propel ball.
-         * solenoidShooterRetract - Retracts to be loaded again.
-         * 
-         * Solenoid Slice
-         */
-         public static final int
-            solenoidShooterExtend = 3,   //High Gear
-            solenoidShooterRetract = 4;    //Low Gear  
          
          
-         /*
-         * Compressor Ports
-         * compresserPWM - Compressor Spike RELAY port. Digital Sidecar Relay PORT 8
-         * pressureSwitchPWM - DIGITAL I/O - Used to tell when to stop Compressor. Digital Sidecar DigitalIO Port 1
-         * 
-         * Digital Side Car
-         */
-         public static final int
-            compressorPWM = 8,      //Compressor Spike RELAY port
-            pressureSwitchPWM = 1;  //DIGITAL I/O - Used to tell when to stop Compressor
+         
         /*
          * Drive Ports
          * PWM for drive speed controllers.
@@ -80,7 +48,40 @@ public class RobotMap {
             encLeftDrive1 = 4,
             encLeftDrive2 = 5;
         /*
-         * Light Relay
+         * Compressor Ports
+         * compresserPWM - Compressor Spike RELAY port. Digital Sidecar Relay PORT 8
+         * pressureSwitchPWM - DIGITAL I/O - Used to tell when to stop Compressor. Digital Sidecar DigitalIO Port 1
+         * 
+         * Digital Side Car
+         */
+         public static final int
+            compressorPWM = 8,      //Compressor Spike RELAY port
+            pressureSwitchPWM = 1;  //DIGITAL I/O - Used to tell when to stop Compressor
+         
+         /*
+         * SuperShifter Ports
+         * Used on Solenoid Board
+         * solenoidShifterDeployPort - High Gear
+         * solenoidShifterRetractPort - Low Gear
+         */
+         public static final int
+            solenoidShifterDeploy = 1,   //High Gear
+            solenoidShifterRetract = 2;    //Low Gear  
+         
+         /*
+         * Solenoid Shooter
+         * Used on Solenoid Board
+         * solenoidShooterExtend - Extends to propel ball.
+         * solenoidShooterRetract - Retracts to be loaded again.
+         * 
+         * Solenoid Slice
+         */
+         public static final int
+            solenoidShooterExtend = 3,   //High Gear
+            solenoidShooterRetract = 4;    //Low Gear  
+         
+        /*
+         * Light Relay (Goes on RELAY port of DS)
          * @param I whip my hair back and forth!
          * @param Relay cable slot for the lights on BreadBoard
          */
@@ -95,6 +96,7 @@ public class RobotMap {
                 top_opticalSensorPWM = 7,
                 middle_opticalSensorPWM = 8,
                 bottom_opticalSensorPWM = 9;
+        
          public static final int loadSensorPWM = 10;
         
         /*
@@ -105,29 +107,49 @@ public class RobotMap {
                 floor1_opticalSensor = 12,
                 floor2_opticalSensor = 13,
                 floor3_opticalSensor = 14;
+        /*
+         * Floor Light Relay
+         * Triggered when all 3 foor sensors are lit.
+         */
+         public static int FloorLightRelayPort = 2;
+
 
         
         /*
-         * TurretPot
+         * ShooterAngle Stuff
          * Analog Slice port 1
          */
-   
-        
-        
-        public static int ShooterPot = 3;
-        public static int ShooterAngleMotor = 5;
-        /*
-         * Turret Motor
-         */
+        public static final int
+                ShooterPot = 3,
+                ShooterAngleMotor = 5;
+      
         
         /*
          * Gyroscope Port
          * On Analog Input
+         * Accelerometer goes on i2c on digital SideCar. :D
          */
-        public static int gyroPort = 1;
+        public static final int gyroPort = 1;
         
-        public static int rollerArmSolenoidDeploy = 5;
-        public static int rollerArmSolenoidRetract = 6;
+        /*
+         * Roller Arm
+         * Controlled by a Solenoid
+         * On Solenoid Module.
+         */
+        public final static int rollerArmSolenoidSpike = 3;
+        
+        /*
+         * the retract is just bolted shut, just used to vent the other end.
+         */
+        public static final int
+                brakeDeploy = 5,
+                brakeRetract = 6;
+        /*
+         * Ball Loader Door
+         */
+        public static final int
+                loaderDoorDeploy = 7,
+                loaderDoorRetract = 8;
         
         public static int rollerPWM = 4;
         //public static int rollerArmPotPort = 4;
@@ -136,14 +158,27 @@ public class RobotMap {
          * Camera Servo Ports
          * Used on PWM of Digital Sidecar
          */
-        public static int camerax = 9;
-        public static int cameray = 10;
-        
-        public static int FloorLightRelayPort = 2;
-        
+        public static final int
+                camerax = 9,
+                cameray = 10;
+        /*
+         * LoadMotorPWM
+         * (Loads Ball onto shooter)
+         */
         public static int loadMotorPWM = 3;
         
-        public static int BridgeArmPot = 4;
-        public static int BridgeArmMotor = 7;
+        /*
+         * Bridge ARm
+         * POT - reads position
+         * Motor - Controlls Motor
+         * POT connected to Analog IO
+         * Motor connected to PWM
+         */
+        public static final int
+                BridgeArmPot = 4,
+                BridgeArmMotor = 7;
+        
+        public static final int ballFeederPWM = 6;
+       
         
 }
