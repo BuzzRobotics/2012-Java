@@ -83,7 +83,7 @@ public class Buzz extends IterativeRobot {
         //SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
         
     }
-
+    
     public void autonomousInit() {
         //ReSTART Auton Command!
         if (autonomousCommand != null) {
@@ -127,6 +127,7 @@ public class Buzz extends IterativeRobot {
         //DriveWithJoystick.cancel();
     }
     public void disabledPeriodic() {
+        updateDashboard();
         
     }
     public void updateDashboard(){
@@ -134,7 +135,7 @@ public class Buzz extends IterativeRobot {
         SmartDashboard.putDouble("pot", CommandBase.shooterangle.returnPot());
         
         SmartDashboard.putDouble("bridgearmpot", CommandBase.bridgearm.returnPot());
-        System.out.println(CommandBase.bridgearm.returnPot());
+      //  System.out.println(CommandBase.bridgearm.returnPot());
         SmartDashboard.putDouble("accelx", CommandBase.drivetrain.getAccelX());
         SmartDashboard.putDouble("accely", CommandBase.drivetrain.getAccelY());
       
@@ -142,7 +143,8 @@ public class Buzz extends IterativeRobot {
         
         SmartDashboard.putBoolean("floorlight", CommandBase.floorlight.status());
         SmartDashboard.putBoolean("light", CommandBase.light.status());
-        
+        SmartDashboard.putDouble("rtX", CommandBase.oi.getRightX());
+        SmartDashboard.putDouble("rtY", CommandBase.oi.getRightY());
         SmartDashboard.putBoolean("rollerarm  ", CommandBase.rollerarm.status());
         
         SmartDashboard.putBoolean("light", CommandBase.light.status());
@@ -164,6 +166,7 @@ public class Buzz extends IterativeRobot {
         
         SmartDashboard.putBoolean("brake", CommandBase.brake.status());
         SmartDashboard.putBoolean("loaderdoor", CommandBase.ballfeeder.doorStatus());
+//        SmartDashboard.putDouble("Important Numbers", Math.);
 //        SmartDashboard.putBoolean("Ball Load Sensor:", CommandBase.ir.getLoadSensor());
     }
 }

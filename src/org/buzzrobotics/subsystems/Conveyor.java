@@ -9,12 +9,12 @@ import org.buzzrobotics.RobotMap;
  * Ball Feeder Subsystem.
  * @author Peter Polis
  */
-public class BallFeeder extends Subsystem {
+public class Conveyor extends Subsystem {
     DoubleSolenoid loaderDoor;
     Jaguar ballFeederJaguar;
     public boolean loaderDoorStatus;
      
-    public BallFeeder(){
+    public Conveyor(){
         ballFeederJaguar = new Jaguar(RobotMap.ballFeederPWM);
         loaderDoor = new DoubleSolenoid(1, RobotMap.loaderDoorDeploy, RobotMap.loaderDoorRetract);
     }

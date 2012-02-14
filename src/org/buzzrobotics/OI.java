@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import org.buzzrobotics.commands.*;
-import org.buzzrobotics.subsystems.BallFeeder;
+import org.buzzrobotics.subsystems.Conveyor;
 import edu.wpi.first.wpilibj.DriverStation;
 import org.buzzrobotics.commandgroups.LoadBalls_Door;
 import org.buzzrobotics.commandgroups.LoadBalls_Door_Done;
@@ -114,7 +114,6 @@ public class OI {
         lbutton10.whenPressed(new MoveBallFeeder(1));
         lbutton10.whenReleased(new MoveBallFeeder(0));
         
-        lbutton11.whenPressed(new InterruptAutoLoad());
         //LEFT Z - does nothing right now.
         
         /*
@@ -122,16 +121,17 @@ public class OI {
          */
         rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
         rbutton2.whenPressed(new BridgeArm_Set(2));
-        
+        rbutton3.whenPressed(new InterruptAutoLoad());
         rbutton4.whenPressed(new BridgeArm_Move(-1));
         rbutton4.whenReleased(new BridgeArm_Move(0));
         rbutton5.whenPressed(new BridgeArm_Move(1));
         rbutton5.whenReleased(new BridgeArm_Move(0));
         //rbutton6.whenPressed(new ResetGyro());
         //rbutton7.whileHeld(new BalanceBot());
-        rbutton6.whenPressed(new ToggleLight());
+        rbutton6.whenPressed(new Brake_Down());
+        rbutton7.whenPressed(new Brake_Up());
         rbutton8.whenPressed(new Shifter_Toggle());
-        rbutton9.whenPressed(new Brake_Down());
+        rbutton9.whenPressed(new ToggleLight());
         rbutton10.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
         rbutton11.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
         

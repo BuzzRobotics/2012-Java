@@ -11,7 +11,7 @@ import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.ShooterAngle;
 import org.buzzrobotics.subsystems.Rollers;
 import org.buzzrobotics.subsystems.Camera;
-import org.buzzrobotics.subsystems.BallFeeder;
+import org.buzzrobotics.subsystems.Conveyor;
 import org.buzzrobotics.subsystems.FloorLight;
 import org.buzzrobotics.subsystems.BridgeArm;
 import org.buzzrobotics.subsystems.Brake;
@@ -35,7 +35,7 @@ public abstract class CommandBase extends Command {
     public static ShooterAngle shooterangle = new ShooterAngle();
     public static Rollers rollerarm = new Rollers();
     public static Camera camera = new Camera();
-    public static BallFeeder ballfeeder = new BallFeeder();
+    public static Conveyor ballfeeder = new Conveyor();
     public static FloorLight floorlight = new FloorLight();
     public static BridgeArm bridgearm = new BridgeArm();
     public static Brake brake = new Brake();

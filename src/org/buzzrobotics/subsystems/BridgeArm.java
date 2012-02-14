@@ -11,7 +11,7 @@ import org.buzzrobotics.commands.Shooter_Angle;
 
 /**
  * Shooter Angle
- * Uses screw (Controlled by Moter and POT) to limit how far the shooter catapult can go.
+ * Uses screw (Controlled by Motor and POT) to limit how far the shooter catapult can go.
  * @author Kyle Deane
  */
 public class BridgeArm extends PIDSubsystem {
