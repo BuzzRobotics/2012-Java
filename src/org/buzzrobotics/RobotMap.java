@@ -176,7 +176,7 @@ public class RobotMap {
          */
         public static final int
                 BridgeArmPot = 4,
-                BridgeArmMotor = 3;
+                BridgeArmMotor = 3; 
         
         public static final int ballFeederPWM = 6;
        

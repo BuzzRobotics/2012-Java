@@ -48,7 +48,8 @@ public class DriveTrain extends Subsystem {
         setForward();
         
         drive = new RobotDrive(RobotMap.driveRight1, RobotMap.driveLeft1);
-        
+        drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+        drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
         rightDriveEncoder = new Encoder(RobotMap.encRightDrive1, RobotMap.encRightDrive2);
         leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
         leftDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
