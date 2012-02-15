@@ -121,7 +121,7 @@ public class RobotMap {
          */
         public static final int
                 ShooterPot = 3,
-                ShooterAngleMotor = 5;
+                ShooterAngleMotor = 8;
       
         
         /*
@@ -165,7 +165,7 @@ public class RobotMap {
          * LoadMotorPWM
          * (Loads Ball onto shooter)
          */
-        public static int loadMotorPWM = 3;
+        public static int loadMotorPWM = 5;
         
         /*
          * Bridge ARm
@@ -176,7 +176,7 @@ public class RobotMap {
          */
         public static final int
                 BridgeArmPot = 4,
-                BridgeArmMotor = 7;
+                BridgeArmMotor = 3;
         
         public static final int ballFeederPWM = 6;
        

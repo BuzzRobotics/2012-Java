@@ -29,6 +29,8 @@ public class AutoBallLoad extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() { 
+        //LOAD TO TOP THEN LOAD TO MIDDLE
+        
         if (ir.getTopIRSensor() && (m_Light == 1)){
             m_Light = 2;
             return true;
@@ -38,6 +40,14 @@ public class AutoBallLoad extends CommandBase {
         }else{
             return false;
         }
+        
+        //ALTERNATE LOADING OPTION - WAITS FOR 3 BALLS
+        
+//        if(ir.getBottomIRSensor() && ir.getMiddleIRSensor() && ir.getTopIRSensor()){
+//            return true;
+//        }else{
+//            return false;
+//        }
         
     }
     
