@@ -20,6 +20,7 @@ import org.buzzrobotics.commands.Hybrid;
 import org.buzzrobotics.commands.DriveWithJoystick;
 import org.buzzrobotics.OI;
 import org.buzzrobotics.commands.*;
+import org.buzzrobotics.Dashboard;
 import org.buzzrobotics.subsystems.DriveTrain;
 
 /**
@@ -32,15 +33,15 @@ import org.buzzrobotics.subsystems.DriveTrain;
 public class Buzz extends IterativeRobot {
 
     Command Hybrid;
-    SendableChooser autoChooser;
+   /* SendableChooser autoChooser;
     SendableChooser ShooterLimit;
-    SendableChooser YaledChooser;
+    SendableChooser YaledChooser;*/
     Command DriveWithJoystick;
     Command ShooterAngle;
     Command autonomousCommand;
     Compressor RobotCompressor;
-    
-
+    public static Dashboard dashboard = new Dashboard();
+ 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -48,6 +49,7 @@ public class Buzz extends IterativeRobot {
     public void robotInit() {
         RobotCompressor = new Compressor(RobotMap.pressureSwitchPWM,RobotMap.compressorPWM);
         RobotCompressor.start();
+        
         // instantiate the command used for the autonomous period
         Hybrid = new Hybrid();
         DriveWithJoystick = new DriveWithJoystick();
@@ -99,7 +101,8 @@ public class Buzz extends IterativeRobot {
     
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        updateDashboard();
+        dashboard.update();
+        System.out.println(CommandBase.oi.getAutonMode());
     }
 
     
@@ -116,7 +119,7 @@ public class Buzz extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        updateDashboard();
+        dashboard.update();
         //System.out.print(this);
         //DriveWithJoystick.start();
 //        ShooterAngle = (Command) ShooterLimit.getSelected();
@@ -127,47 +130,8 @@ public class Buzz extends IterativeRobot {
         //DriveWithJoystick.cancel();
     }
     public void disabledPeriodic() {
-        updateDashboard();
+        dashboard.update();
         
-    }
-    public void updateDashboard(){
-        SmartDashboard.putDouble("gyro", CommandBase.drivetrain.getGyroAngle());
-        SmartDashboard.putDouble("pot", CommandBase.shooterangle.returnPot());
-        
-        SmartDashboard.putDouble("bridgearmpot", CommandBase.bridgearm.returnPot());
-      //  System.out.println(CommandBase.bridgearm.returnPot());
-        SmartDashboard.putDouble("accelx", CommandBase.drivetrain.getAccelX());
-        SmartDashboard.putDouble("accely", CommandBase.drivetrain.getAccelY());
-      
-        //SmartDashboard.putDouble("accel", CommandBase.rollerarm.getRollerDirection());
-        
-        SmartDashboard.putBoolean("floorlight", CommandBase.floorlight.status());
-        SmartDashboard.putBoolean("light", CommandBase.light.status());
-        SmartDashboard.putDouble("rtX", CommandBase.oi.getRightX());
-        SmartDashboard.putDouble("rtY", CommandBase.oi.getRightY());
-        SmartDashboard.putBoolean("rollerarm  ", CommandBase.rollerarm.status());
-        
-        SmartDashboard.putBoolean("light", CommandBase.light.status());
-        //SmartDashboard.putBoolean("shooter", CommandBase.shooter.status());
-        
-        SmartDashboard.putDouble("encavg", CommandBase.drivetrain.getAvgDistance());
-        SmartDashboard.putDouble("encleft", CommandBase.drivetrain.getLeftEncoder());
-        SmartDashboard.putDouble("encright", CommandBase.drivetrain.getRightEncoder());
-       
-        SmartDashboard.putBoolean("ir1", CommandBase.ir.getTopIRSensor());
-        SmartDashboard.putBoolean("ir2", CommandBase.ir.getMiddleIRSensor());
-        SmartDashboard.putBoolean("ir3", CommandBase.ir.getBottomIRSensor());
-        SmartDashboard.putBoolean("ir4", CommandBase.ir.getFeederIRSensor());
-        
-        
-        SmartDashboard.putBoolean("fir1", CommandBase.ir.getFloor1IRSensor());
-        SmartDashboard.putBoolean("fir2", CommandBase.ir.getFloor2IRSensor());
-        SmartDashboard.putBoolean("fir3", CommandBase.ir.getFloor3IRSensor());
-        
-        SmartDashboard.putBoolean("brake", CommandBase.brake.status());
-        SmartDashboard.putBoolean("loaderdoor", CommandBase.ballfeeder.doorStatus());
-//        SmartDashboard.putDouble("Important Numbers", Math.);
-//        SmartDashboard.putBoolean("Ball Load Sensor:", CommandBase.ir.getLoadSensor());
     }
 }
 

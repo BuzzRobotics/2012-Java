@@ -30,7 +30,7 @@ public class DriveTrain extends Subsystem {
     /*
      * Define Variables
      */
-    final int WHEEL_RADIUS = 3;
+    final int WHEEL_RADIUS = 4;
     final double CIRCUMFERENCE = 2 * Math.PI * WHEEL_RADIUS;
     final int ENCODER_CODES_PER_REV = 360;
     final double DISTANCE_PER_PULSE = CIRCUMFERENCE / ENCODER_CODES_PER_REV;

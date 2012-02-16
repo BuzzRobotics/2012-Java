@@ -7,7 +7,8 @@ import org.buzzrobotics.RobotMap;
 import edu.wpi.first.wpilibj.Jaguar;
 
 /**
- *
+ * Contains Shooter Stuffs
+ * Uses Solenoid and a Jaguar for the Loader Motor.
  * @author Kyle Deane
  */
 public class Shooter extends Subsystem {

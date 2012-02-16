@@ -1,6 +1,5 @@
 /*
  *Autonomous Mode 3
- * Does nothing much at this point
  */
 package org.buzzrobotics.autonomous;
 
@@ -12,9 +11,13 @@ import org.buzzrobotics.subsystems.DriveTrain;
 /**
  *
  * @author buzz5
+ * 
+ *                          ~SHOOT 2 BALLS THEN GET 3 FROM CENTER BRIDGE AND FIRE THOSE~
+ * 
  */
 public class AutoMode3 extends CommandGroup {
     public AutoMode3() {
+        addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         addSequential(new Load());
         addSequential(new Delay(1));
@@ -40,6 +43,6 @@ public class AutoMode3 extends CommandGroup {
         addSequential(new Load());
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());             //Fire again
-        addSequential(new Drive(0, 0, 10));            //Wait around for 15 seconds            //Shoot one of the two balls we hav
+        addSequential(new Drive(0, 0, 10));            //Wait around for 10 seconds            //Wait out rest of automode
     }
 }

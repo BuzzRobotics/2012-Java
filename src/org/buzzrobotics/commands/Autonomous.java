@@ -18,25 +18,22 @@ public class Autonomous extends CommandGroup {
         addSequential(new Delay(CommandBase.oi.getDelay()));
         switch(CommandBase.oi.getAutonMode()){
             case 0:
-                addSequential(new AutoMode1());
+                addSequential(new Hybrid());        //Hybrid
                 break;
             case 1:
-                addSequential(new AutoMode1());
+                addSequential(new AutoMode1());     //Shoot 2 balls
                 break;
             case 2:
-                addSequential(new AutoMode2());
+                addSequential(new AutoMode2());     //Drive to alliance bridge
                 break;
             case 3:
-                addSequential(new AutoMode3());
+                addSequential(new AutoMode3());     //Get balls from center bridge
                 break;
             case 4:
-                addSequential(new AutoMode4());
+                addSequential(new AutoMode4());     //Do nothing
                 break;
             case 5:
-                addSequential(new AutoMode5());
-                break;
-            case 6:
-                addSequential(new Hybrid());
+                addSequential(new AutoMode5());     //Broken
                 break;
             default:
                 break;

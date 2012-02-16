@@ -1,17 +1,14 @@
 package org.buzzrobotics.commands;
 
-
-
 /**
  * Autonomously Loads Balls.
- * @author BUZZWS1
+ * @author Peter
  */
 public class AutoBallLoad extends CommandBase {
-    public int m_Light;
-    public AutoBallLoad(int Light) {
-        m_Light = Light;
-    
-    
+    public int m_Stage;
+    public AutoBallLoad(int Stage) {
+        m_Stage = Stage;
+
         //requires(ballfeeder);
         //requires(rollerarm);
         setInterruptible(true);
@@ -31,11 +28,11 @@ public class AutoBallLoad extends CommandBase {
     protected boolean isFinished() { 
         //LOAD TO TOP THEN LOAD TO MIDDLE
         
-        if (ir.getTopIRSensor() && (m_Light == 1)){
-            m_Light = 2;
+        if (ir.getTopIRSensor() && (m_Stage == 1)){
+            m_Stage = 2;
             return true;
-        }else if(ir.getMiddleIRSensor() && (m_Light == 2)){
-            m_Light = 1;
+        }else if(ir.getMiddleIRSensor() && (m_Stage == 2)){
+            m_Stage = 1;
             return true;
         }else{
             return false;

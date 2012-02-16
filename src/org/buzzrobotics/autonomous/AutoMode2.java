@@ -12,24 +12,41 @@ import org.buzzrobotics.subsystems.DriveTrain;
 /**
  *
  * @author buzz5
+ * 
+ *                          ~SHOOT 1 THEN DRIVE TO ALLIANCE BRIDGE AND SHOOT 
  */
 public class AutoMode2 extends CommandGroup {
     public AutoMode2() {
+        addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
-        addSequential(new AutonDrive(13));             //Drive over to the ramp
+        addSequential(new AutonDrive(100));             //Drive over to the ramp
         addSequential(new TurnWithGyro(90));
-        addSequential(new AutonDrive(20));
+        addSequential(new AutonDrive(100));
         addSequential(new TurnWithGyro(270));
-        addSequential(new PickupArm_Lower());
-        addSequential(new Rollers_On(-1));
+        addSequential(new BridgeArm_Set(1));
+        addSequential(new Rollers_On(1));
+        addSequential(new MoveBallFeeder(1));
         addSequential(new Delay(2));
         addSequential(new Rollers_Off());
-        addSequential(new PickupArm_Raise());
+        addSequential(new MoveBallFeeder(0));
+        addSequential(new BridgeArm_Set(5));
+        addSequential(new TurnWithGyro(165));           //Point back at hoops
       //addSequential(new SomeCameraTargetingThing());
         addSequential(new Load());
-        addSequential(new Shooter_Fire());
+        
+        addSequential(new Shooter_Fire());              //FIRE 1
+        addSequential(new MoveBallFeeder(1));
+        addSequential(new Delay(1));
+        addSequential(new MoveBallFeeder(0));
         addSequential(new Load());
-        addSequential(new Shooter_Fire());
+        addSequential(new Shooter_Fire());              //FIRE 2
+        addSequential(new MoveBallFeeder(1));
+        addSequential(new Delay(1));
+        addSequential(new MoveBallFeeder(0));
+        addSequential(new Load());
+        addSequential(new Shooter_Fire());              //FIRE 3
+        addSequential(new Drive(0, 0, 10));            //Wait around for 10 seconds            //Wait for automode to end
+
         
         // Add Commands here:
         // e.g. addSequential(new Command1());
