@@ -43,6 +43,9 @@ public class Dashboard {
         
         SmartDashboard.putBoolean("brake", CommandBase.brake.status());
         SmartDashboard.putBoolean("loaderdoor", CommandBase.ballfeeder.doorStatus());
+        SmartDashboard.putBoolean("shifter", CommandBase.shifter.status());
+        
+        SmartDashboard.putDouble("shiftercount", CommandBase.shifter.getCounter());
     }
     /*
      * Displays information on the DriverStation LCD (On the diagnostics tab)

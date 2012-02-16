@@ -124,10 +124,14 @@ public class Buzz extends IterativeRobot {
         //DriveWithJoystick.start();
 //        ShooterAngle = (Command) ShooterLimit.getSelected();
         //ShooterAngle.start();
+        dashboard.disp(2, "KYLE");
     }
     
     public void disabledInit() {
         //DriveWithJoystick.cancel();
+        if (autonomousCommand != null) {
+            autonomousCommand.cancel();
+        }
     }
     public void disabledPeriodic() {
         dashboard.update();
