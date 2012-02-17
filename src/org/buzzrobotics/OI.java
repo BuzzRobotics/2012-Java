@@ -82,23 +82,6 @@ public class OI {
      * Right Button 5: Light Off
      * @author Kyle Deane
      */
-    /*
-     * 
-     * 
-     * '
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     *
-     * 
-     */
     public OI() {
         if (this.getRightHatY() > 0.5){rightHatUp.setPressed(true);}else{rightHatUp.setPressed(false);}
         if (this.getRightHatY() < -0.5){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
@@ -117,14 +100,15 @@ public class OI {
         rbutton2.whenPressed(new Rollers_On(-1));
         rbutton2.whenReleased(new Rollers_Off());
         
-        rbutton3.whenPressed(new BridgeArm_Move(-1));
-        rbutton3.whenReleased(new BridgeArm_Move(0));
-        rbutton4.whenPressed(new BridgeArm_Move(1));
-        rbutton4.whenReleased(new BridgeArm_Move(0));
+        rightHatUp.whenPressed(new BridgeArm_Move(-1));
+        rightHatUp.whenReleased(new BridgeArm_Move(0));
+        rightHatDown.whenPressed(new BridgeArm_Move(1));
+        rightHatDown.whenReleased(new BridgeArm_Move(0));
         rbutton5.whenPressed(new Shifter_Toggle());
         rbutton6.whenPressed(new Brake_Toggle());
-        //rbutton7.whileHeld(new BalanceBot());
+        //rbutton8.whileHeld(new BalanceBot());
         
+        rbutton9.whenPressed(new InterruptAutoLoad());
         rbutton10.whenPressed(new ToggleLight());
         rbutton11.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
         rbutton12.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
