@@ -10,7 +10,7 @@ package org.buzzrobotics.commands;
  */
 public class Load extends CommandBase {
     
-        public double shooterTimeOut = 0.5;
+        public double shooterTimeOut = 1.5;
     
     public Load() {
         // Use requires() here to declare subsystem dependencies

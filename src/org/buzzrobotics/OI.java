@@ -1,8 +1,12 @@
 package org.buzzrobotics;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.NetworkButton;
+import edu.wpi.first.wpilibj.buttons.AnalogIOButton;
+import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.InternalButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import org.buzzrobotics.commands.*;
 import org.buzzrobotics.subsystems.Conveyor;
@@ -45,7 +49,7 @@ public class OI {
            lbutton9 = new JoystickButton(leftJoy, 9),
            lbutton10 = new JoystickButton(leftJoy, 10),
            lbutton11 = new JoystickButton(leftJoy, 11);
-    
+   
     /*
      * Joystick 2 Button Definitions
      * Right Joystick
@@ -64,7 +68,10 @@ public class OI {
            rbutton10 = new JoystickButton(rightJoy, 10),
            rbutton11 = new JoystickButton(rightJoy, 11),
            rbutton12 = new JoystickButton(rightJoy, 12);
-         
+   InternalButton rightHatUp = new InternalButton();
+   InternalButton rightHatDown = new InternalButton();
+   InternalButton rightHatLeft = new InternalButton();
+   InternalButton rightHatRight = new InternalButton();
     
     /**
      * Bind the press of each button to a specific command or command group.
@@ -93,27 +100,11 @@ public class OI {
      * 
      */
     public OI() {
-        /*
-         * Left
-         */
-        lbutton1.whenPressed(new Shooter_Fire());
-        lbutton2.whenPressed(new LoadBalls_Door());
-        lbutton2.whenReleased(new LoadBalls_Door_Done());
-        lbutton9.whenPressed(new PickupArm_Toggle());
-        lbutton4.whenPressed(new Rollers_On(-1));
-        lbutton4.whenReleased(new Rollers_Off());
-        lbutton5.whenPressed(new Rollers_On(1));
-        lbutton5.whenReleased(new Rollers_Off());
+        if (this.getRightHatY() > 0.5){rightHatUp.setPressed(true);}else{rightHatUp.setPressed(false);}
+        if (this.getRightHatY() < -0.5){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
+        if (this.getRightHatX() > 0.5){rightHatRight.setPressed(true);}else{rightHatRight.setPressed(false);}
+        if (this.getRightHatX() < -0.5){rightHatLeft.setPressed(true);}else{rightHatLeft.setPressed(false);}
         
-        lbutton6.whenPressed(new Shooter_Angle(1));
-        lbutton7.whenPressed(new Shooter_Angle(3));
-        lbutton8.whenPressed(new Shooter_Angle(5));     
-        
-        lbutton3.whenPressed(new Load());
-        
-        lbutton10.whenPressed(new MoveBallFeeder(1));
-        lbutton10.whenReleased(new MoveBallFeeder(0));
-       
         
         //LEFT Z - does nothing right now.
         
@@ -121,25 +112,52 @@ public class OI {
          * Right
          */
         rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
-        rbutton2.whenPressed(new BridgeArm_Set(2));
-        rbutton3.whenPressed(new InterruptAutoLoad());
-        rbutton4.whenPressed(new BridgeArm_Move(-1));
-        rbutton4.whenReleased(new BridgeArm_Move(0));
-        rbutton5.whenPressed(new BridgeArm_Move(1));
-        rbutton5.whenReleased(new BridgeArm_Move(0));
-        //rbutton6.whenPressed(new ResetGyro());
-        //rbutton7.whileHeld(new BalanceBot());
-        rbutton6.whenPressed(new Brake_Down());
-        rbutton7.whenPressed(new Brake_Up());
-        rbutton8.whenPressed(new Shifter_Toggle());
-        rbutton9.whenPressed(new ToggleLight());
-        rbutton10.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
-        rbutton11.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
+        //rbutton2.whenPressed(new BridgeArm_Set(2));
+        //rbutton3.whenPressed(new InterruptAutoLoad());
+        rbutton2.whenPressed(new Rollers_On(-1));
+        rbutton2.whenReleased(new Rollers_Off());
         
-        //RIGHT Z = Drive Sensitivity
+        rbutton3.whenPressed(new BridgeArm_Move(-1));
+        rbutton3.whenReleased(new BridgeArm_Move(0));
+        rbutton4.whenPressed(new BridgeArm_Move(1));
+        rbutton4.whenReleased(new BridgeArm_Move(0));
+        rbutton5.whenPressed(new Shifter_Toggle());
+        rbutton6.whenPressed(new Brake_Toggle());
+        //rbutton7.whileHeld(new BalanceBot());
+        
+        rbutton10.whenPressed(new ToggleLight());
+        rbutton11.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
+        rbutton12.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
+        
+        
+        /*
+         * Left
+         */
+        lbutton1.whenPressed(new Shooter_Fire());
+        lbutton2.whenPressed(new LoadBalls_Door());
+        lbutton2.whenReleased(new LoadBalls_Door_Done());
+        
+//        lbutton4.whenPressed(new Rollers_On(-1));
+//        lbutton4.whenReleased(new Rollers_Off());
+//        lbutton5.whenPressed(new Rollers_On(1));
+//        lbutton5.whenReleased(new Rollers_Off());
+        lbutton3.whenPressed(new Load());
+        
+        lbutton4.whenPressed(new Loader_Forward());
+        lbutton4.whenReleased(new Loader_Stop());
+        
+        lbutton5.whenPressed(new Loader_Reverse());
+        lbutton5.whenReleased(new Loader_Stop());
+        
+        lbutton6.whenPressed(new Shooter_Angle(1));
+        lbutton7.whenPressed(new Shooter_Angle(3));
+        lbutton8.whenPressed(new Shooter_Angle(5));     
+        
+        lbutton9.whenPressed(new MoveBallFeeder(-1));
+        lbutton9.whenReleased(new MoveBallFeeder(0));
+        lbutton10.whenPressed(new MoveBallFeeder(1));
+        lbutton10.whenReleased(new MoveBallFeeder(0));
        
-                
-        // LATCH INSTEAD rbutton4.whenPressed(new PickupArmRaise());
         
     }
     /*
@@ -161,6 +179,13 @@ public class OI {
 //    public Joystick getLeftStick() {
 //        return leftJoy;
 //    }
+    /**
+     * @return The value of the left joystick X axis
+     * @author Kyle Deane
+     */
+    public double getLeftX() {
+        return leftJoy.getX();
+    }
     
     /**
      * @return The value of the left joystick Y axis.
@@ -169,14 +194,13 @@ public class OI {
     public double getLeftY() {
         return leftJoy.getY();
     }
-
     
-    /**
-     * @return The value of the left joystick X axis
+     /**
+     * @return The value of the left joystick Z axis.
      * @author Kyle Deane
      */
-    public double getLeftX() {
-        return leftJoy.getX();
+    public double getLeftZ() {
+        return leftJoy.getZ();
     }
     
     /**
@@ -195,16 +219,25 @@ public class OI {
         return rightJoy.getX();
     }
     
+    /*
+     * @return value of Right Twist
+     * @author Kyle Deane
+     */
     public double getRightTwist(){
         return rightJoy.getTwist();
     }
     
+    /*
+     * @return value of right Hat X Axis (And Y Axis)
+     * Used above to turn these values into buttons, because these are binary and shouldn't be an axis.
+     */
     public double getRightHatX(){
         return rightJoy.getRawAxis(5);
     }
     public double getRightHatY(){
         return rightJoy.getRawAxis(6);
     }
+    
     /**
      * @return The value of the right joystick Z axis.
      * @author Kyle Deane
@@ -212,14 +245,7 @@ public class OI {
     public double getRightZ() {
         return rightJoy.getRawAxis(4);
     }
-    /**
-     * @return The value of the left joystick Z axis.
-     * @author Kyle Deane
-     */
-    public double getLeftZ() {
-        return leftJoy.getZ();
-    }
-    
+   
     public int getDelay(){
         if (yaled == 0){
             delay = 0;
