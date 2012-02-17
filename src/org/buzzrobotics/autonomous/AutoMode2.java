@@ -20,9 +20,9 @@ public class AutoMode2 extends CommandGroup {
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         addSequential(new AutonDrive(100));             //Drive over to the ramp
-        addSequential(new TurnWithGyro(90));
-        addSequential(new AutonDrive(100));
         addSequential(new TurnWithGyro(270));
+        addSequential(new AutonDrive(100));
+        addSequential(new TurnWithGyro(90));
         addSequential(new BridgeArm_Set(1));
         addSequential(new Rollers_On(1));
         addSequential(new MoveBallFeeder(1));
@@ -32,8 +32,8 @@ public class AutoMode2 extends CommandGroup {
         addSequential(new BridgeArm_Set(5));
         addSequential(new TurnWithGyro(165));           //Point back at hoops
       //addSequential(new SomeCameraTargetingThing());
-        addSequential(new Load());
         
+        addSequential(new Load());
         addSequential(new Shooter_Fire());              //FIRE 1
         addSequential(new MoveBallFeeder(1));
         addSequential(new Delay(1));

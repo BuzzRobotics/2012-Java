@@ -1,7 +1,7 @@
 package org.buzzrobotics.commands;
 
 /**
- * Raises the brake. Doesnt do anything much. :D
+ * Raises the brake. Doesn't do anything much. :D
  * @author Kyle Deane
  */
 public class Brake_Up extends CommandBase {

@@ -49,10 +49,11 @@ public class Shifter extends Subsystem {
     public boolean status(){
         return shiftersw;
     }
-    public void resetcounter(){
+    public void resetCounter(){
         counter = 0;
     }
     public double getCounter(){
         return counter;
     }
+    
 }

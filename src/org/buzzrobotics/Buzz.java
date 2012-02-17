@@ -88,11 +88,13 @@ public class Buzz extends IterativeRobot {
     
     public void autonomousInit() {
         //ReSTART Auton Command!
+        CommandBase.shifter.resetCounter();
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
        autonomousCommand = new Autonomous();
        autonomousCommand.start();
+       
     }
 
     /**
@@ -110,6 +112,7 @@ public class Buzz extends IterativeRobot {
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
+        CommandBase.shifter.resetCounter();
                 //AutonomousCommand.cancel();
                 //ShooterAngle = (Command) ShooterLimit.getSelected();
     }

@@ -46,6 +46,10 @@ public class Dashboard {
         SmartDashboard.putBoolean("shifter", CommandBase.shifter.status());
         
         SmartDashboard.putDouble("shiftercount", CommandBase.shifter.getCounter());
+        
+        if (CommandBase.shifter.getCounter() > 5){
+            this.disp(2, "ZOMG YOU'RE GONNA BREAK ME! STOP SHIFTING! ;)");
+        }
     }
     /*
      * Displays information on the DriverStation LCD (On the diagnostics tab)

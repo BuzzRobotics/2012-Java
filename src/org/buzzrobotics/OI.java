@@ -62,7 +62,8 @@ public class OI {
            rbutton8 = new JoystickButton(rightJoy, 8),
            rbutton9 = new JoystickButton(rightJoy, 9),
            rbutton10 = new JoystickButton(rightJoy, 10),
-           rbutton11 = new JoystickButton(rightJoy, 11);
+           rbutton11 = new JoystickButton(rightJoy, 11),
+            rbutton12 = new JoystickButton(rightJoy, 12);
          
     
     /**
@@ -193,13 +194,23 @@ public class OI {
     public double getRightX() {
         return rightJoy.getX();
     }
-
+    
+    public double getRightTwist(){
+        return rightJoy.getTwist();
+    }
+    
+    public double getRightHatX(){
+        return rightJoy.getRawAxis(5);
+    }
+    public double getRightHatY(){
+        return rightJoy.getRawAxis(6);
+    }
     /**
      * @return The value of the right joystick Z axis.
      * @author Kyle Deane
      */
     public double getRightZ() {
-        return rightJoy.getZ();
+        return rightJoy.getRawAxis(4);
     }
     /**
      * @return The value of the left joystick Z axis.
