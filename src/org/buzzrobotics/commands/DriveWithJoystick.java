@@ -29,6 +29,13 @@ public class DriveWithJoystick extends CommandBase {
         }else{
             drivetrain.arcadeDrive(-oi.getRightX(), -oi.getRightY());
         }
+        if (oi.getRightTwist() > 0.1 || oi.getRightTwist() < -0.1){
+            if (oi.getRightTwist() > 0.1){
+                drivetrain.drive(oi.getRightTwist(), 1);
+            }else if (oi.getRightTwist() < 0.1 ){
+                drivetrain.drive(oi.getRightTwist(), -1); //we could also try the turn as getrighttwist
+            }
+        }
         
         
 //            if (oi.getRightTwist() < -0.10 || oi.getRightTwist() > 0.10){

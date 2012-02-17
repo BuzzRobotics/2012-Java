@@ -63,7 +63,7 @@ public class OI {
            rbutton9 = new JoystickButton(rightJoy, 9),
            rbutton10 = new JoystickButton(rightJoy, 10),
            rbutton11 = new JoystickButton(rightJoy, 11),
-            rbutton12 = new JoystickButton(rightJoy, 12);
+           rbutton12 = new JoystickButton(rightJoy, 12);
          
     
     /**
