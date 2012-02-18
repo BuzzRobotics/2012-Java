@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *Autonomous Mode 3
  */
 package org.buzzrobotics.autonomous;
 
@@ -13,56 +12,37 @@ import org.buzzrobotics.subsystems.DriveTrain;
  *
  * @author buzz5
  * 
- *                          ~SHOOT 1 THEN DRIVE TO ALLIANCE BRIDGE AND SHOOT 
+ *                          ~SHOOT 2 BALLS THEN GET 3 FROM CENTER BRIDGE AND FIRE THOSE~
+ * 
  */
 public class AutoMode2 extends CommandGroup {
     public AutoMode2() {
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
+        addSequential(new Load());
+        addSequential(new Delay(1));
+        addSequential(new Shooter_Fire());             //Shoot the other ball
         addSequential(new AutonDrive(100));             //Drive over to the ramp
-        addSequential(new TurnWithGyro(270));
-        addSequential(new AutonDrive(100));
-        addSequential(new TurnWithGyro(90));
-        addSequential(new BridgeArm_Set(1));
-        addSequential(new Rollers_On(1));
+        addSequential(new BridgeArm_Set(1));           //Drop the pickup arm to lower the ramp
+        addSequential(new Rollers_On(1));              //Turn on Rollers
         addSequential(new MoveBallFeeder(1));
-        addSequential(new Delay(2));
-        addSequential(new Rollers_Off());
+        addSequential(new Delay(3));             //Delay again   
+        addSequential(new Rollers_Off());              //Turn off the rollers
         addSequential(new MoveBallFeeder(0));
-        addSequential(new BridgeArm_Set(5));
-        addSequential(new TurnWithGyro(165));           //Point back at hoops
-      //addSequential(new SomeCameraTargetingThing());
-        
-        addSequential(new Load());
-        addSequential(new Shooter_Fire());              //FIRE 1
+        addSequential(new BridgeArm_Set(5));           //Drop the pickup arm to lower the ramp
+        addSequential(new AutonDrive(-100));            //...while we drive back to the key
         addSequential(new MoveBallFeeder(1));
         addSequential(new Delay(1));
         addSequential(new MoveBallFeeder(0));
         addSequential(new Load());
-        addSequential(new Shooter_Fire());              //FIRE 2
+        addSequential(new Delay(1));
+        addSequential(new Shooter_Fire());             //Fire
         addSequential(new MoveBallFeeder(1));
         addSequential(new Delay(1));
         addSequential(new MoveBallFeeder(0));
         addSequential(new Load());
-        addSequential(new Shooter_Fire());              //FIRE 3
-        addSequential(new Drive(0, 0, 10));            //Wait around for 10 seconds            //Wait for automode to end
-
-        
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
+        addSequential(new Delay(1));
+        addSequential(new Shooter_Fire());             //Fire again
+        addSequential(new Drive(0, 0, 10));            //Wait around for 10 seconds            //Wait out rest of automode
     }
 }

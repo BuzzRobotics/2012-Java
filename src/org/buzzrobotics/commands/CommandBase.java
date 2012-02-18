@@ -1,5 +1,6 @@
 package org.buzzrobotics.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.OI;

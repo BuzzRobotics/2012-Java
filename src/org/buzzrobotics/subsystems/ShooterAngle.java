@@ -55,4 +55,13 @@ public class ShooterAngle extends PIDSubsystem {
     public double returnPot(){
        return ShooterPot.getVoltage();
     }
+    public void driveUp(){
+        ShooterAngleMotor.set(0.5);
+    }
+    public void driveDown(){
+        ShooterAngleMotor.set(-0.5);
+    }
+    public void stop(){
+        ShooterAngleMotor.set(0);
+    }
 }

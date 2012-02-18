@@ -12,8 +12,10 @@ import org.buzzrobotics.RobotMap;
 public class FloorLight extends Subsystem {
     public boolean lighton;
     Relay floor_light;
+    Relay floor_light2;
     public FloorLight(){
         floor_light = new Relay(RobotMap.FloorLightRelayPort);
+        floor_light2 = new Relay(RobotMap.FloorLight2RelayPort);
     }
     
     public void on(){
@@ -25,6 +27,15 @@ public class FloorLight extends Subsystem {
         lighton = false;
         floor_light.set(Relay.Value.kOff);
     }
+    
+    public void light2on(){
+        floor_light2.set(Relay.Value.kForward);
+    }
+    
+    public void light2off(){
+        floor_light2.set(Relay.Value.kOff);
+    }
+    
     public boolean status(){
         return lighton;
     }

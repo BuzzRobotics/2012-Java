@@ -39,13 +39,18 @@ public class Dashboard {
         
         SmartDashboard.putBoolean("fir1", CommandBase.ir.getFloor1IRSensor());
         SmartDashboard.putBoolean("fir2", CommandBase.ir.getFloor2IRSensor());
-        SmartDashboard.putBoolean("fir3", CommandBase.ir.getFloor3IRSensor());
         
         SmartDashboard.putBoolean("brake", CommandBase.brake.status());
         SmartDashboard.putBoolean("loaderdoor", CommandBase.ballfeeder.doorStatus());
         SmartDashboard.putBoolean("shifter", CommandBase.shifter.status());
         
-        SmartDashboard.putDouble("shiftercount", CommandBase.shifter.getCounter());
+            SmartDashboard.putDouble("HatY", CommandBase.oi.getRightHatY());
+            SmartDashboard.putDouble("HatX", CommandBase.oi.getRightHatX());
+            SmartDashboard.putDouble("Twist", CommandBase.oi.getRightTwist());
+
+
+                        SmartDashboard.putDouble("shiftercount", CommandBase.shifter.getCounter());
+
         
         if (CommandBase.shifter.getCounter() > 5){
             this.disp(2, "ZOMG YOU'RE GONNA BREAK ME! STOP SHIFTING! ;)");

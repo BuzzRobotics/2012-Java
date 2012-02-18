@@ -1,5 +1,5 @@
 /*
- *Autonomous Mode 3
+ * Doesn't Do Much!
  */
 package org.buzzrobotics.autonomous;
 
@@ -12,16 +12,12 @@ import org.buzzrobotics.subsystems.DriveTrain;
  *
  * @author buzz5
  * 
- *                          ~SHOOT 2 BALLS THEN GET 3 FROM CENTER BRIDGE AND FIRE THOSE~
- * 
+ *                                  ~SHOOT 1 THEN GO TO THE CENTER BRIDGE~
  */
 public class AutoMode3 extends CommandGroup {
     public AutoMode3() {
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
-        addSequential(new Load());
-        addSequential(new Delay(1));
-        addSequential(new Shooter_Fire());             //Shoot the other ball
         addSequential(new AutonDrive(100));             //Drive over to the ramp
         addSequential(new BridgeArm_Set(1));           //Drop the pickup arm to lower the ramp
         addSequential(new Rollers_On(1));              //Turn on Rollers
@@ -44,5 +40,22 @@ public class AutoMode3 extends CommandGroup {
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());             //Fire again
         addSequential(new Drive(0, 0, 10));            //Wait around for 10 seconds            //Wait out rest of automode
+        
+        // Add Commands here:
+        // e.g. addSequential(new Command1());
+        //      addSequential(new Command2());
+        // these will run in order.
+
+        // To run multiple commands at the same time,
+        // use addParallel()
+        // e.g. addParallel(new Command1());
+        //      addSequential(new Command2());
+        // Command1 and Command2 will run in parallel.
+
+        // A command group will require all of the subsystems that each member
+        // would require.
+        // e.g. if Command1 requires chassis, and Command2 requires arm,
+        // a CommandGroup containing them would require both the chassis and the
+        // arm.
     }
 }

@@ -16,7 +16,6 @@ public class irSensor extends Subsystem {
     private DigitalInput Feeder_ir_sensor = new DigitalInput(RobotMap.feeder_opticalSensorPWM);
     private DigitalInput LoadSensor = new DigitalInput(RobotMap.loadSensorPWM);
 
-    private DigitalInput floor3 = new DigitalInput(RobotMap.floor3_opticalSensor);
     private DigitalInput floor2 = new DigitalInput(RobotMap.floor2_opticalSensor);
     private DigitalInput floor1 = new DigitalInput(RobotMap.floor1_opticalSensor);
 
@@ -51,10 +50,6 @@ public class irSensor extends Subsystem {
         return !floor2stat;
     }
 
-    public boolean getFloor3IRSensor(){
-        boolean floor3stat = floor3.get();
-        return !floor3stat;
-    }
     public boolean getLoadSensor(){
         return LoadSensor.get();
     }

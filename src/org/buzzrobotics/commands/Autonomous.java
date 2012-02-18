@@ -24,16 +24,16 @@ public class Autonomous extends CommandGroup {
                 addSequential(new AutoMode1());     //Shoot 2 balls
                 break;
             case 2:
-                addSequential(new AutoMode2());     //Drive to alliance bridge
+                addSequential(new AutoMode4());     //Drive to alliance bridge
                 break;
             case 3:
-                addSequential(new AutoMode3());     //Get balls from center bridge
+                addSequential(new AutoMode2());     //Get balls from center bridge
                 break;
             case 4:
-                addSequential(new AutoMode4());     //Do nothing
+                addSequential(new AutoMode5());     //Do nothing
                 break;
             case 5:
-                addSequential(new AutoMode5());     //Broken
+                addSequential(new AutoMode3());     //Broken
                 break;
             default:
                 break;

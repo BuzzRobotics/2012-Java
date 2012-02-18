@@ -17,7 +17,7 @@ public class LoadBalls_Door extends CommandGroup {
     
     public LoadBalls_Door() {
         addSequential(new MoveBallFeeder(-1));
-        addParallel(new Rollers_On(-1));
+        addParallel(new Rollers_On(1));
         addParallel(new FeederDoor_Open());
         //      addSequential(new Command2());
         // these will run in order.

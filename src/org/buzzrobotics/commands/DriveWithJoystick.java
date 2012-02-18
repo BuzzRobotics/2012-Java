@@ -29,24 +29,35 @@ public class DriveWithJoystick extends CommandBase {
         }else{
             drivetrain.arcadeDrive(-oi.getRightX(), -oi.getRightY());
         }
-        if (oi.getRightTwist() > 0.1 || oi.getRightTwist() < -0.1){
-            if (oi.getRightTwist() > 0.1){
-                drivetrain.drive(oi.getRightTwist(), 1);
-            }else if (oi.getRightTwist() < 0.1 ){
-                drivetrain.drive(oi.getRightTwist(), -1); //we could also try the turn as getrighttwist
-            }
-        }
+//        if (oi.getRightTwist() > 0.8 || oi.getRightTwist() < -0.8){
+//            if (oi.getRightTwist() > 0.1){
+//                drivetrain.drive(oi.getRightTwist(), 1);
+//            }else if (oi.getRightTwist() < 0.1 ){
+//                drivetrain.drive(-oi.getRightTwist(), -1); //we could also try the turn as getrighttwist
+//            }
+//        }
         
         
 //            if (oi.getRightTwist() < -0.10 || oi.getRightTwist() > 0.10){
 //                drivetrain.drive(oi.getRightTwist(), turn);
 //            }
-        if(ir.getFloor1IRSensor() && ir.getFloor2IRSensor() && ir.getFloor3IRSensor()){
-            floorlight.on();
+//        if(ir.getFloor1IRSensor() && ir.getFloor2IRSensor() && ir.getFloor3IRSensor()){
+//            floorlight.on();
+//        }else{
+//            floorlight.off();
+//        }
+        
+        if(ir.getFloor1IRSensor()){
+             floorlight.on();
         }else{
-            floorlight.off();
+             floorlight.off();
         }
         
+        if(ir.getFloor2IRSensor()){
+             floorlight.light2on();
+        }else{
+            floorlight.light2off();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

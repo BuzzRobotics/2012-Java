@@ -48,17 +48,17 @@ public class Conveyor extends Subsystem {
         //loaderDoorStatus = false;
         loaderDoor.set(DoubleSolenoid.Value.kReverse);
     }
-//    public void toggleDoor(){
-//         if (!loaderDoorStatus){
-//            loaderDoorStatus = true;
-//            loaderDoor.set(DoubleSolenoid.Value.kForward);
-//            
-//        }else{
-//            loaderDoor.set(DoubleSolenoid.Value.kReverse);
-//            loaderDoorStatus = false;
-//        }
-//        
-//    }
+    public void toggleDoor(){
+         if (!loaderDoorStatus){
+            loaderDoorStatus = true;
+            loaderDoor.set(DoubleSolenoid.Value.kForward);
+            
+        }else{
+            loaderDoor.set(DoubleSolenoid.Value.kReverse);
+            loaderDoorStatus = false;
+        }
+        
+    }
     public boolean doorStatus(){
         return loaderDoorStatus;
     }
