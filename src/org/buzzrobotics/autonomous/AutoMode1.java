@@ -16,11 +16,14 @@ public class AutoMode1 extends CommandGroup {
     public AutoMode1() {
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
+       // addSequential(new MoveBallFeeder(1));
         addSequential(new Load());
-        addSequential(new Delay(1));
-        addSequential(new Shooter_Fire());             //Shoot the other ball
-        addSequential(new AutonDrive(100));
-        addSequential(new Drive(0, 0, 15));            //Wait around for 15 seconds            //Wait for automode to end
+        //addSequential(new MoveBallFeeder(0));
+        addSequential(new Delay(2));
+        addSequential(new Shooter_Fire());    
+        addParallel(new flashyLights());//Shoot the other ball
+        //addSequential(new AutonDrive(100));
+       // addSequential(new Drive(0, 0, 15));            //Wait around for 15 seconds            //Wait for automode to end
         // add
         // Add Commands here:
         // e.g. addSequential(new Command1());

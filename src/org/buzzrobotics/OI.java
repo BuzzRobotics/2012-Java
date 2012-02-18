@@ -30,6 +30,7 @@ public class OI {
      */
 
     DriverStation driver = DriverStation.getInstance();
+    
     public double modebox = driver.getAnalogIn(1);
     public double yaled = driver.getAnalogIn(2);
     
@@ -84,7 +85,7 @@ public class OI {
      */
     public OI() {
         
-       
+       System.out.println(driver.getAlliance());
         if (getRightHatY() == 1.0){rightHatUp.setPressed(true);}else{rightHatUp.setPressed(false);}
         if (getRightHatY() == -1.0){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
         if (getRightHatX() == 1.0){rightHatRight.setPressed(true);}else{rightHatRight.setPressed(false);}
@@ -111,12 +112,12 @@ public class OI {
         rbutton6.whenPressed(new Brake_Toggle());
         //rbutton8.whileHeld(new BalanceBot());
         
-        rbutton7.whenPressed(new AdjustCamera(0.4,.26));  // ( Tilt, Pan) Target???
-        rbutton8.whenPressed(new AdjustCamera(0.7, 1));   // ( Tilt, Pan) Ball????
+        rbutton7.whenPressed(new AdjustCamera(0.4,1));  // ( Tilt, Pan) Target???
+        rbutton8.whenPressed(new AdjustCamera(0.7, .26));   // ( Tilt, Pan) Ball????
         
         rbutton9.whenPressed(new InterruptAutoLoad());
         rbutton10.whenPressed(new ToggleLight());
-        
+        rbutton11.whenPressed(new flashyLights());        
         
         /*
          * Left
@@ -147,15 +148,17 @@ public class OI {
         //lbutton7.whenReleased(new LoadBalls_Door_Done());
         lbutton7.whenPressed(new FeederDoor_Toggle());
         
-        lbutton8.whenPressed(new LoadBalls_Door());
-        lbutton8.whenReleased(new LoadBalls_Door_Done());
+        lbutton10.whenPressed(new LoadBalls_Door());
+        lbutton10.whenReleased(new LoadBalls_Door_Done());
         //lbutton8.whenPressed(new Load());
         
         //lbutton9.whenPressed(new Shooter_Angle(1));
         //lbutton10.whenPressed(new Shooter_Angle(3));
         //lbutton11.whenPressed(new Shooter_Angle(5));     
-        lbutton9.whenPressed(new MoveShooterAngle(1));
-        lbutton10.whenPressed(new MoveShooterAngle(-1));
+        lbutton8.whenPressed(new MoveShooterAngle(1));
+        lbutton9.whenPressed(new MoveShooterAngle(-1));
+        lbutton11.whenPressed(new Shooter_Out());
+        lbutton11.whenReleased(new Shooter_In());
         
        
         
@@ -259,6 +262,8 @@ public class OI {
             delay = 8;
         }else if(yaled >= 3.0 && yaled <= 4.0){
             delay = 10;
+        }else{
+            delay = 0;
         }
         System.out.println(delay);
         return delay;
@@ -278,6 +283,8 @@ public class OI {
             mode = 4;
         }else if(modebox >= 3.0 && modebox <= 4.0){
             mode = 5;
+        }else{
+            mode = 1;
         }
         return mode;
     }

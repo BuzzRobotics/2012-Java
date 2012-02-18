@@ -21,6 +21,7 @@ import org.buzzrobotics.commands.DriveWithJoystick;
 import org.buzzrobotics.OI;
 import org.buzzrobotics.commands.*;
 import org.buzzrobotics.Dashboard;
+import org.buzzrobotics.autonomous.AutoMode1;
 import org.buzzrobotics.subsystems.DriveTrain;
 
 /**
@@ -33,13 +34,18 @@ import org.buzzrobotics.subsystems.DriveTrain;
 public class Buzz extends IterativeRobot {
 
     Command Hybrid;
+
+    Command light;
    /* SendableChooser autoChooser;
     SendableChooser ShooterLimit;
     SendableChooser YaledChooser;*/
+    
     Command DriveWithJoystick;
     Command ShooterAngle;
     Command autonomousCommand;
     Compressor RobotCompressor;
+    Command shoot2balls;
+    
     public static Dashboard dashboard = new Dashboard();
  
     /**
@@ -53,6 +59,7 @@ public class Buzz extends IterativeRobot {
         // instantiate the command used for the autonomous period
         Hybrid = new Hybrid();
         DriveWithJoystick = new DriveWithJoystick();
+        shoot2balls = new AutoMode1();
         
         NetworkTable.initialize();
         // Initialize all subsystems
@@ -92,8 +99,9 @@ public class Buzz extends IterativeRobot {
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
-       autonomousCommand = new Autonomous();
-       autonomousCommand.start();
+      autonomousCommand = new Autonomous(1, 0);  //set -1 for getting values from Autonomous Box.
+      autonomousCommand.start();
+       
        
     }
 
@@ -105,13 +113,17 @@ public class Buzz extends IterativeRobot {
         Scheduler.getInstance().run();
         dashboard.update();
         System.out.println(CommandBase.oi.getAutonMode());
+        //shoot2balls.start();
     }
 
     
     public void teleopInit() {
+        light = new Light(true);
+        light.start();        
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
+        //shoot2balls.cancel();
         CommandBase.shifter.resetCounter();
                 //AutonomousCommand.cancel();
                 //ShooterAngle = (Command) ShooterLimit.getSelected();
@@ -127,7 +139,7 @@ public class Buzz extends IterativeRobot {
         //DriveWithJoystick.start();
 //        ShooterAngle = (Command) ShooterLimit.getSelected();
         //ShooterAngle.start();
-        dashboard.disp(2, "KYLE");
+        dashboard.disp(2, "Teleop Working :)");
         
         
     }
@@ -136,7 +148,9 @@ public class Buzz extends IterativeRobot {
         //DriveWithJoystick.cancel();
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
+            dashboard.disp(2, "Attempting to Cancel Auton :(");
         }
+        
     }
     public void disabledPeriodic() {
         dashboard.update();

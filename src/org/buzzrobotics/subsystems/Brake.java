@@ -56,8 +56,8 @@ public class Brake extends Subsystem {
     }
     /*
      * Brake Status
-     * @return brakestatus
-     */
++
+*/
     public boolean status(){
         return brakestatus;
     }

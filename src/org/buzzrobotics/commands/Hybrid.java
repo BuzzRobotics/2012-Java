@@ -77,7 +77,7 @@ public class Hybrid extends CommandBase {
                 }
                 buttons[1] = headAngle < HEAD_RIGHT;
                 if (buttons[1]){
-                    light.off();
+                    new Shooter_Fire();
                 }
 
                 /* Calculate the leg angles in the XY plane and use them to set the Leg Out buttons */
