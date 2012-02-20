@@ -19,11 +19,20 @@ public class AutoMode1 extends CommandGroup {
        // addSequential(new MoveBallFeeder(1));
         addSequential(new Load());
         //addSequential(new MoveBallFeeder(0));
-        addSequential(new Delay(2));
+        addSequential(new Delay(1));
         addSequential(new Shooter_Fire());    
         addParallel(new flashyLights());//Shoot the other ball
-        //addSequential(new AutonDrive(100));
-       // addSequential(new Drive(0, 0, 15));            //Wait around for 15 seconds            //Wait for automode to end
+        
+        addSequential(new AutonDrive(24));
+        addParallel(new BridgeArm_Set(1));
+        addSequential(new Rollers_On(1));
+        addSequential(new MoveBallFeeder(1));
+        addSequential(new Delay(2));
+        addSequential(new Rollers_Off());
+        addSequential(new MoveBallFeeder(0));
+        addSequential(new AutonDrive(-24));
+        addParallel(new Load());
+        
         // add
         // Add Commands here:
         // e.g. addSequential(new Command1());

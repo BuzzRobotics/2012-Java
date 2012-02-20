@@ -4,6 +4,8 @@
  */
 package org.buzzrobotics.commands;
 
+import edu.wpi.first.wpilibj.Timer;
+
 /**
  *
  * @author Kyle Deane
@@ -23,6 +25,15 @@ public class Brake_Down extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         brake.deploy();
+        
+        floorlight.on();
+        Timer.delay(.08);
+        floorlight.off();
+        Timer.delay(.08);
+        floorlight.light2on();
+        Timer.delay(.08);
+        floorlight.light2off();
+        Timer.delay(.08);
     }
 
     // Make this return true when this Command no longer needs to run execute()

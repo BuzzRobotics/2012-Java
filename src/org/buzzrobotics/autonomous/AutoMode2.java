@@ -22,15 +22,15 @@ public class AutoMode2 extends CommandGroup {
         addSequential(new Load());
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());             //Shoot the other ball
-        addSequential(new AutonDrive(100));             //Drive over to the ramp
+        addSequential(new AutonDrive(24));             //Drive over to the ramp
         addSequential(new BridgeArm_Set(1));           //Drop the pickup arm to lower the ramp
         addSequential(new Rollers_On(1));              //Turn on Rollers
         addSequential(new MoveBallFeeder(1));
         addSequential(new Delay(3));             //Delay again   
         addSequential(new Rollers_Off());              //Turn off the rollers
         addSequential(new MoveBallFeeder(0));
-        addSequential(new BridgeArm_Set(5));           //Drop the pickup arm to lower the ramp
-        addSequential(new AutonDrive(-100));            //...while we drive back to the key
+        addSequential(new BridgeArm_Set(5));           //Drop the pickup arm to raise the ramp
+        addSequential(new AutonDrive(-24));            //...while we drive back to the key
         addSequential(new MoveBallFeeder(1));
         addSequential(new Delay(1));
         addSequential(new MoveBallFeeder(0));
