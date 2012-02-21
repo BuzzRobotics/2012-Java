@@ -41,7 +41,7 @@ public class Shooter extends Subsystem {
     }
     
     public void load(){
-        loadMotor.set(.5);
+        loadMotor.set(0.5);
     }
     public void reverse(){
         loadMotor.set(-1);

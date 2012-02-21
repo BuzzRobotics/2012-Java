@@ -1,4 +1,4 @@
-    package org.buzzrobotics.commands;
+package org.buzzrobotics.commands;
 
 /**
  * Drives with Joystick. Always called during Teleop and should never be ended.
@@ -8,7 +8,11 @@
 public class DriveWithJoystick extends CommandBase {
     public double sensitivity;
     public double turn;
-    
+    public double joyx;
+    public double joyy;
+    public double joyz;
+    public double oJoyX;
+    public double oJoyY;
     public DriveWithJoystick() {
         requires(drivetrain);
     }
@@ -24,11 +28,14 @@ public class DriveWithJoystick extends CommandBase {
                 if (sensitivity > 1.0){
                     sensitivity = 1.0;
                 } */
-        if (oi.getRightZ() > 0){
-            drivetrain.arcadeDrive(oi.getRightX(), oi.getRightY());
-        }else{
-            drivetrain.arcadeDrive(-oi.getRightX(), -oi.getRightY());
-        }
+        joyz = oi.getRightZ();
+        oJoyX = oi.getRightX();
+        oJoyY = oi.getRightY();
+        joyx = (joyz*oJoyX)*(joyz*oJoyX)*(joyz*oJoyX) + (1 - joyz)*oJoyX;
+        joyy = (joyz*oJoyY)*(joyz*oJoyY)*(joyz*oJoyY) + (1 - joyz)*oJoyY;
+      
+            drivetrain.arcadeDrive(joyx,joyy);
+        
 //        if (oi.getRightTwist() > 0.8 || oi.getRightTwist() < -0.8){
 //            if (oi.getRightTwist() > 0.1){
 //                drivetrain.drive(oi.getRightTwist(), 1);

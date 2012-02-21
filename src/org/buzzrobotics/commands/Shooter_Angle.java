@@ -18,8 +18,9 @@ public class Shooter_Angle extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-     //shooterangle.setSetpoint(m_setpoint);
-     shooterangle.disable();  //when fixed, return to enable()
+     shooterangle.setSetpoint(m_setpoint);
+     shooterangle.enable();  //when fixed, return to enable()
+     //System.out.println(shooterangle.getPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,6 +31,7 @@ public class Shooter_Angle extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        shooterangle.disable();
     }
 
     // Called when another command which requires one or more of the same

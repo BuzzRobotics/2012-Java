@@ -150,13 +150,19 @@ public class OI {
         
         lbutton10.whenPressed(new LoadBalls_Door());
         lbutton10.whenReleased(new LoadBalls_Door_Done());
+        
         //lbutton8.whenPressed(new Load());
         
-        //lbutton9.whenPressed(new Shooter_Angle(1));
-        //lbutton10.whenPressed(new Shooter_Angle(3));
-        //lbutton11.whenPressed(new Shooter_Angle(5));     
-        lbutton8.whenPressed(new MoveShooterAngle(1));
-        lbutton9.whenPressed(new MoveShooterAngle(-1));
+        lbutton8.whenPressed(new Shooter_Angle(1));
+        lbutton9.whenPressed(new Shooter_Angle(3));
+        
+        //lbutton10.whenPressed(new Shooter_Angle(5));     
+        
+        //lbutton8.whenPressed(new MoveShooterAngle(1));
+        //lbutton9.whenPressed(new MoveShooterAngle(-1));
+        
+        
+        
         lbutton11.whenPressed(new Shooter_Out());
         lbutton11.whenReleased(new Shooter_In());
         
