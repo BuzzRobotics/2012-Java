@@ -23,8 +23,8 @@ public class Rollers_On extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.turnOnRollers(m_direction);
-        //ballfeeder.driveUp();
+            rollerarm.turnOnRollers(m_direction);
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -17,7 +17,7 @@ import org.buzzrobotics.subsystems.DriveTrain;
  */
 public class AutoMode2 extends CommandGroup {
     public AutoMode2() {
-        addSequential(new ResetGyro());
+       
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         addSequential(new Load());

@@ -37,7 +37,7 @@ public class OI {
     public int delay;
     public int mode;
     
-    public AutoBallLoad autoBallLoad;
+
     Joystick leftJoy = new Joystick(2);
     Button lbutton1 = new JoystickButton(leftJoy, 1),
            lbutton2 = new JoystickButton(leftJoy, 2),
@@ -97,7 +97,6 @@ public class OI {
         /*
          * Right
          */
-        rbutton1.whenPressed(autoBallLoad = new AutoBallLoad(1));
         //rbutton2.whenPressed(new BridgeArm_Set(2));
         //rbutton3.whenPressed(new InterruptAutoLoad());
         rbutton2.whenPressed(new Rollers_On(-1));
@@ -117,7 +116,7 @@ public class OI {
         rbutton7.whenPressed(new AdjustCamera(0.4,1));  // ( Tilt, Pan) Target???
         rbutton8.whenPressed(new AdjustCamera(0.7, .26));   // ( Tilt, Pan) Ball????
         
-        rbutton9.whenPressed(new InterruptAutoLoad());
+        
         //rbutton10.whenPressed(new ToggleLight());
         rbutton10.whenPressed(new flashyLights());        
         rbutton11.whenPressed(new ShooterAngle_Set(2.07));  //2.07

@@ -8,14 +8,12 @@ import org.buzzrobotics.commands.CommandBase;
  */
 public class Dashboard {
     public void update(){
-        SmartDashboard.putDouble("gyro", CommandBase.drivetrain.getGyroAngle());
+
         SmartDashboard.putDouble("pot", CommandBase.shooterangle.returnPot());
         
         SmartDashboard.putDouble("bridgearmpot", CommandBase.bridgearm.returnPot());
       //  System.out.println(CommandBase.bridgearm.returnPot());
-        SmartDashboard.putDouble("accelx", CommandBase.drivetrain.getAccelX());
-        SmartDashboard.putDouble("accely", CommandBase.drivetrain.getAccelY());
-      
+
         //SmartDashboard.putDouble("accel", CommandBase.rollerarm.getRollerDirection());
         
         SmartDashboard.putDouble("GetAutonMode", CommandBase.oi.getAutonMode());
@@ -34,12 +32,6 @@ public class Dashboard {
         SmartDashboard.putDouble("encavg", CommandBase.drivetrain.getAvgDistance());
         SmartDashboard.putDouble("encleft", CommandBase.drivetrain.getLeftEncoder());
         SmartDashboard.putDouble("encright", CommandBase.drivetrain.getRightEncoder());
-       
-        SmartDashboard.putBoolean("ir1", CommandBase.ir.getTopIRSensor());
-        SmartDashboard.putBoolean("ir2", CommandBase.ir.getMiddleIRSensor());
-        SmartDashboard.putBoolean("ir3", CommandBase.ir.getBottomIRSensor());
-        SmartDashboard.putBoolean("ir4", CommandBase.ir.getFeederIRSensor());
-        
         
         SmartDashboard.putBoolean("fir1", CommandBase.ir.getFloor1IRSensor());
         SmartDashboard.putBoolean("fir2", CommandBase.ir.getFloor2IRSensor());

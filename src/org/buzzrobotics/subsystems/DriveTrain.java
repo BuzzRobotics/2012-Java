@@ -4,17 +4,13 @@
  */
 package org.buzzrobotics.subsystems;
 
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.DriveWithJoystick;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Gyro;
-import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendablePIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.ADXL345_I2C;
 
 /**
  * @author Kyle Deane
@@ -23,9 +19,9 @@ public class DriveTrain extends Subsystem {
     RobotDrive drive;
     Encoder rightDriveEncoder;
     Encoder leftDriveEncoder;
-    Gyro gyro;
-    ADXL345_I2C accelerometer;
-    
+//    Gyro gyro;
+//    ADXL345_I2C accelerometer;
+//    
     private int forward;
     /*
      * Define Variables
@@ -51,19 +47,27 @@ public class DriveTrain extends Subsystem {
         drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
         drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
         rightDriveEncoder = new Encoder(RobotMap.encRightDrive1, RobotMap.encRightDrive2);
+        
         leftDriveEncoder = new Encoder(RobotMap.encLeftDrive1, RobotMap.encLeftDrive2);
         leftDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.start();
         leftDriveEncoder.start();
         
-        accelerometer = new ADXL345_I2C(1, ADXL345_I2C.DataFormat_Range.k16G);
+//        accelerometer = new ADXL345_I2C(1, ADXL345_I2C.DataFormat_Range.k16G);
         
-        gyro = new Gyro(RobotMap.gyroPort);
-        gyro.setSensitivity(0.007);
+//        gyro = new Gyro(RobotMap.gyroPort);
+//        gyro.setSensitivity(0.007);
         
-        controller = new SendablePIDController(Kp, Ki, Kd, gyro, new PIDOutput() {
-
+        PIDSource difference = new PIDSource(){
+            public double pidGet(){
+                return leftDriveEncoder.getDistance() - rightDriveEncoder.getDistance();
+            }
+        };
+                
+        controller = new SendablePIDController(Kp, Ki, Kd, difference, new PIDOutput() {
+           
+            
             public void pidWrite(double output) {
                 arcadeDrive(forward, -output);
             }
@@ -147,6 +151,9 @@ public class DriveTrain extends Subsystem {
         return leftDriveEncoder.getDistance();
     }
     
+    public double getEncoderDifference(){
+        return leftDriveEncoder.getDistance() - rightDriveEncoder.getDistance();
+    }
     /**
      * Reset both encoders's tick, distance, etc. count to zero
      */
@@ -166,30 +173,30 @@ public class DriveTrain extends Subsystem {
         forward = 1;
     }
     
-    /*
-     * Gyroscope Functions
-     *
-     */
-    public double getGyroAngle(){
-        return gyro.getAngle();
-    }
-    public void resetGyro(){
-        gyro.reset();
-    }
-    /*
-     * getAccelX
-     * @return the Accelerometer's X Axis
-     */
-    public double getAccelX(){
-        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
-    }
-    /*
-     * getAccelY
-     * @return the Accelerometer's Y Axis
-     */
-    public double getAccelY(){
-        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kY);
-    }
+//    /*
+//     * Gyroscope Functions
+//     *
+//     */
+//    public double getGyroAngle(){
+//        return gyro.getAngle();
+//    }
+//    public void resetGyro(){
+//        gyro.reset();
+//    }
+//    /*
+//     * getAccelX
+//     * @return the Accelerometer's X Axis
+//     */
+//    public double getAccelX(){
+//        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
+//    }
+//    /*
+//     * getAccelY
+//     * @return the Accelerometer's Y Axis
+//     */
+//    public double getAccelY(){
+//        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kY);
+//    }
     
     /*
      * Required Command Based Functions
