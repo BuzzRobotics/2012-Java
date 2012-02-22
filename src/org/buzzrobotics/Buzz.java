@@ -20,7 +20,7 @@ import org.buzzrobotics.commands.Hybrid;
 import org.buzzrobotics.commands.DriveWithJoystick;
 import org.buzzrobotics.OI;
 import org.buzzrobotics.commands.*;
-import org.buzzrobotics.Dashboard;
+import org.buzzrobotics.utils.Dashboard;
 import org.buzzrobotics.autonomous.AutoMode1;
 import org.buzzrobotics.subsystems.DriveTrain;
 

@@ -5,11 +5,11 @@ import org.buzzrobotics.commands.CommandBase;
  * This is AMAZING. Drives straight using GYROSCOPE.
  * @author Kyle Deane
  */
-public class AutonDrive extends CommandBase{
+public class Drive_Encoder_Straight extends CommandBase{
 
     private double inches_to_travel;
     public double direction;
-    public AutonDrive(double inches) {
+    public Drive_Encoder_Straight(double inches) {
         requires(drivetrain);
         inches_to_travel = inches;
         if (inches > 0){

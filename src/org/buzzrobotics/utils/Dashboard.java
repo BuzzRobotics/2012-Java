@@ -1,4 +1,4 @@
-package org.buzzrobotics;
+package org.buzzrobotics.utils;
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.commands.CommandBase;

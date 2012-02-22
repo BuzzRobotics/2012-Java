@@ -1,13 +1,14 @@
 package org.buzzrobotics.commands;
 
 /**
- * Shifts the system DOWN.
- * @author Kyle Deane
+ *
+ * @author Peter Polis
  */
-public class Shift_Down extends CommandBase {
-    
-    public Shift_Down() {
-        requires(shifter);
+public class Conveyor_Move extends CommandBase {
+    public int state;
+        
+    public Conveyor_Move(int m_state) {
+        state = m_state;
     }
 
     // Called just before this Command runs the first time
@@ -16,7 +17,14 @@ public class Shift_Down extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shifter.down();
+        if(state == 1){
+            ballfeeder.driveUp();
+        }else if(state == -1){
+            ballfeeder.driveDown();
+    }else{
+            ballfeeder.stop();
+        }
+        System.out.println("MOVING BALL FEEDER.");
     }
 
     // Make this return true when this Command no longer needs to run execute()

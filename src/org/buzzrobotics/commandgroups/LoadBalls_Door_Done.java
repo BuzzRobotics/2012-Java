@@ -14,7 +14,7 @@ import org.buzzrobotics.commands.*;
 public class LoadBalls_Door_Done extends CommandGroup {
     
     public LoadBalls_Door_Done() {
-        addSequential(new MoveBallFeeder(0));
+        addSequential(new Conveyor_Move(0));
         addParallel(new Rollers_Off());
         addParallel(new FeederDoor_Close());
         //      addSequential(new Command2());

@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.RobotDrive;
  *
  * @author buzz5
  */
-public class TurnWithEncoder extends CommandBase {
+public class Drive_Encoder_Turn extends CommandBase {
     public int m_degrees;
-    public TurnWithEncoder(int degrees) {
+    public Drive_Encoder_Turn(int degrees) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
            m_degrees = degrees; 

@@ -117,8 +117,8 @@ public class OI {
         rbutton8.whenPressed(new AdjustCamera(0.7, .26));   // ( Tilt, Pan) Ball????
         
         
-        //rbutton10.whenPressed(new ToggleLight());
-        rbutton10.whenPressed(new flashyLights());        
+        rbutton10.whenPressed(new ToggleLight());
+        //rbutton10.whenPressed(new flashyLights());        
         rbutton11.whenPressed(new ShooterAngle_Set(2.07));  //2.07
         rbutton12.whenPressed(new ShooterAngle_Set(3.70));  //
 
@@ -133,13 +133,13 @@ public class OI {
 //        lbutton5.whenPressed(new Rollers_On(1));
 //        lbutton5.whenReleased(new Rollers_Off());
         
-        lbutton2.whenPressed(new MoveBallFeeder(1));
-        lbutton2.whenReleased(new MoveBallFeeder(0));
-        lbutton3.whenPressed(new MoveBallFeeder(-1));
-        lbutton3.whenReleased(new MoveBallFeeder(0));
+        lbutton2.whenPressed(new Conveyor_Move(1));
+        lbutton2.whenReleased(new Conveyor_Move(0));
+        lbutton3.whenPressed(new Conveyor_Move(-1));
+        lbutton3.whenReleased(new Conveyor_Move(0));
+        
         lbutton4.whenPressed(new Loader_Forward());
         lbutton4.whenReleased(new Loader_Stop());
-        
         lbutton5.whenPressed(new Loader_Reverse());
         lbutton5.whenReleased(new Loader_Stop());
         

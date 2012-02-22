@@ -5,7 +5,7 @@ package org.buzzrobotics.commands;
  * @param timeout 
  * @author Kyle Deane
  */
-public class Drive extends CommandBase {
+public class Drive_Time_Turn extends CommandBase {
     public double m_timeout;
     public double m_speed;
     public double m_turn;
@@ -17,7 +17,7 @@ public class Drive extends CommandBase {
      * 
      * @author Kyle Deane
      */
-    public Drive(double speed, double turn, double timeout) {
+    public Drive_Time_Turn(double speed, double turn, double timeout) {
         m_turn = turn;
         m_speed = speed;
         m_timeout = timeout;

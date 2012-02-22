@@ -21,10 +21,10 @@ public class AutoMode5 extends CommandGroup {
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
        // addSequential(new MoveBallFeeder(1));
-        addSequential(new Load());
+        addSequential(new Loader_Load());
         //addSequential(new MoveBallFeeder(0));
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());  
-        addSequential(new Drive(0.5, 0, 2));
+        addSequential(new Drive_Time_Turn(0.5, 0, 2));
     }
 }

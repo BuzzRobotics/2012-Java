@@ -17,48 +17,12 @@ public class Rollers extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     Jaguar rollers;
-    Relay rollerArm;
     public double rollerdirection = 0;
     public boolean rollerstatus;
     public boolean v;
     
     public Rollers(){
-        rollerArm = new Relay(RobotMap.rollerArmSolenoidSpike);
         rollers = new Jaguar(RobotMap.rollerPWM);
-}
-    /*
-     * Lower Roller Arm
-     */
-    public void lower(){
-        rollerstatus = true;
-        
-            rollerArm.set(Relay.Value.kReverse);
-        
-}
-    
-    /*
-     * Raise Roller Arm
-     */
-    public void raise(){
-        rollerstatus = false;
-            rollerArm.set(Relay.Value.kForward);
-        
-    }
-    
-    public void toggle(){
-         if (!rollerstatus){
-            rollerstatus = true;
-            rollerArm.set(Relay.Value.kReverse);
-        }else{
-            rollerArm.set(Relay.Value.kForward);
-            rollerstatus = false;
-        }
-    }
-    /*
-     * Turn Off Solenoid?
-     */
-    public void off(){
-        rollerArm.set(Relay.Value.kOff);
     }
     
     /*

@@ -1,17 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Shifts Up
  * @author Kyle Deane
  */
-public class PickupArm_Toggle extends CommandBase {
+public class Shifter_Up extends CommandBase {
     
-    public PickupArm_Toggle() {
-        requires(rollerarm);
+    public Shifter_Up() {
+        requires(shifter);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +16,7 @@ public class PickupArm_Toggle extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        rollerarm.toggle();
+        shifter.up();
     }
 
     // Make this return true when this Command no longer needs to run execute()

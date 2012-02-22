@@ -6,7 +6,7 @@ package org.buzzrobotics.commandgroups;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.buzzrobotics.commands.FeederDoor_Open;
-import org.buzzrobotics.commands.MoveBallFeeder;
+import org.buzzrobotics.commands.Conveyor_Move;
 import org.buzzrobotics.commands.Rollers_On;
 
 /**
@@ -16,7 +16,7 @@ import org.buzzrobotics.commands.Rollers_On;
 public class LoadBalls_Door extends CommandGroup {
     
     public LoadBalls_Door() {
-        addSequential(new MoveBallFeeder(-1));
+        addSequential(new Conveyor_Move(-1));
         addParallel(new Rollers_On(1));
         addParallel(new FeederDoor_Open());
         //      addSequential(new Command2());

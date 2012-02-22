@@ -17,7 +17,7 @@ public class AutoMode1 extends CommandGroup {
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
        // addSequential(new MoveBallFeeder(1));
-        addSequential(new Load());
+        addSequential(new Loader_Load());
         //addSequential(new MoveBallFeeder(0));
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());    

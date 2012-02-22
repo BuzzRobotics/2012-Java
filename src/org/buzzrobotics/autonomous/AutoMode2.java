@@ -20,30 +20,30 @@ public class AutoMode2 extends CommandGroup {
        
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
-        addSequential(new Load());
+        addSequential(new Loader_Load());
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());             //Shoot the other ball
-        addSequential(new AutonDrive(24));             //Drive over to the ramp
+        addSequential(new Drive_Encoder_Straight(24));             //Drive over to the ramp
         addSequential(new BridgeArm_Move(-1));           //Drop the pickup arm to lower the ramp
         addSequential(new Rollers_On(1));              //Turn on Rollers
-        addSequential(new MoveBallFeeder(1));
+        addSequential(new Conveyor_Move(1));
         addSequential(new Delay(3));             //Delay again   
         addSequential(new Rollers_Off());              //Turn off the rollers
-        addSequential(new MoveBallFeeder(0));
+        addSequential(new Conveyor_Move(0));
         addSequential(new BridgeArm_Move(1));           //Drop the pickup arm to raise the ramp
-        addSequential(new AutonDrive(-24));            //...while we drive back to the key
-        addSequential(new MoveBallFeeder(1));
+        addSequential(new Drive_Encoder_Straight(-24));            //...while we drive back to the key
+        addSequential(new Conveyor_Move(1));
         addSequential(new Delay(1));
-        addSequential(new MoveBallFeeder(0));
-        addSequential(new Load());
+        addSequential(new Conveyor_Move(0));
+        addSequential(new Loader_Load());
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());             //Fire
-        addSequential(new MoveBallFeeder(1));
+        addSequential(new Conveyor_Move(1));
         addSequential(new Delay(1));
-        addSequential(new MoveBallFeeder(0));
-        addSequential(new Load());
+        addSequential(new Conveyor_Move(0));
+        addSequential(new Loader_Load());
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());             //Fire again
-        addSequential(new Drive(0, 0, 10));            //Wait around for 10 seconds            //Wait out rest of automode
+        addSequential(new Drive_Time_Turn(0, 0, 10));            //Wait around for 10 seconds            //Wait out rest of automode
     }
 }
