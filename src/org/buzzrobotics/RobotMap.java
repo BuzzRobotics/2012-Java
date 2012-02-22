@@ -121,7 +121,7 @@ public class RobotMap {
          */
         public static final int
                 ShooterPot = 3,
-                ShooterAngleMotor = 8;
+                ShooterAngleMotor = 7;
       
         
         /*

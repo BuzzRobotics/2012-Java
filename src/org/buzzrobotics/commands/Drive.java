@@ -18,7 +18,7 @@ public class Drive extends CommandBase {
      * @author Kyle Deane
      */
     public Drive(double speed, double turn, double timeout) {
-        m_timeout = timeout;
+        m_turn = turn;
         m_speed = speed;
         m_timeout = timeout;
         requires(drivetrain);

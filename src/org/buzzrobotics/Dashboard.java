@@ -18,10 +18,14 @@ public class Dashboard {
       
         //SmartDashboard.putDouble("accel", CommandBase.rollerarm.getRollerDirection());
         
+        SmartDashboard.putDouble("GetAutonMode", CommandBase.oi.getAutonMode());
+        SmartDashboard.putDouble("Delay", CommandBase.oi.getDelay());
         SmartDashboard.putBoolean("floorlight", CommandBase.floorlight.status());
         SmartDashboard.putBoolean("light", CommandBase.light.status());
+        
         SmartDashboard.putDouble("rtX", CommandBase.oi.getRightX());
         SmartDashboard.putDouble("rtY", CommandBase.oi.getRightY());
+        SmartDashboard.putDouble("ShooterPot", CommandBase.shooterangle.returnPot());
         SmartDashboard.putBoolean("rollerarm  ", CommandBase.rollerarm.status());
         
         SmartDashboard.putBoolean("light", CommandBase.light.status());

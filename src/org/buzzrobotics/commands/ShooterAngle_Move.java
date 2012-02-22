@@ -6,31 +6,27 @@ package org.buzzrobotics.commands;
 
 /**
  *
- * @author Kyle Deane
+ * @author buzz5
  */
-public class BridgeArm_Move extends CommandBase {
-    public double m_Direction;
-    public BridgeArm_Move(double direction) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(bridgearm);
-        m_Direction = direction;
+public class ShooterAngle_Move extends CommandBase {
+     public double m_Direction;
+     public ShooterAngle_Move(double dir) {
+       m_Direction = dir;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //bridgearm.disable();
+        shooterangle.disable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       // bridgearm.move(m_Direction);
-        if (m_Direction == 1){
-            bridgearm.driveUp();
-        }else if (m_Direction == -1){
-            bridgearm.driveDown();
+        if (m_Direction > 0){
+           shooterangle.driveUp();
+        }else if (m_Direction < 0){
+            shooterangle.driveDown();
         }else{
-            bridgearm.stop();
+            shooterangle.stop();
         }
     }
 

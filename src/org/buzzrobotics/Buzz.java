@@ -99,7 +99,7 @@ public class Buzz extends IterativeRobot {
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
-      autonomousCommand = new Autonomous(1, 0);  //set -1 for getting values from Autonomous Box.
+      autonomousCommand = new Autonomous(-1, -1);  //set -1 for getting values from Autonomous Box.
       autonomousCommand.start();
        
        

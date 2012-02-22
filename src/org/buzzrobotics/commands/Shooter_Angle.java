@@ -26,7 +26,13 @@ public class Shooter_Angle extends CommandBase {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
 //        shooterangle.disable();
-        return true; //have it return false in ideal conditions.
+        return false; //have it return false in ideal conditions.
+       // if (bridgearm.getPosition() == (bridgearm.getSetpoint())){
+      /*  if (shooterangle.getPosition() == shooterangle.getSetpoint()){
+            return true;
+        }else{
+            return false;
+        }*/
     }
 
     // Called once after isFinished returns true

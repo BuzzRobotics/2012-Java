@@ -12,11 +12,19 @@ import org.buzzrobotics.subsystems.DriveTrain;
  *
  * @author buzz5
  * 
- *                          ~DO NOTHING!!!!!~
+ *                          ~SHOOT TWICE, DRIVE BACK!!!!!~
  * 
  */
 public class AutoMode5 extends CommandGroup {
     public AutoMode5() {
-       addSequential(new Light(true)); 
+        //addSequential(new ResetGyro());
+        addSequential(new Light(true));
+        addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
+       // addSequential(new MoveBallFeeder(1));
+        addSequential(new Load());
+        //addSequential(new MoveBallFeeder(0));
+        addSequential(new Delay(1));
+        addSequential(new Shooter_Fire());  
+        addSequential(new Drive(0.5, 0, 2));
     }
 }

@@ -108,6 +108,8 @@ public class OI {
         rbutton4.whenPressed(new BridgeArm_Move(1));
         rbutton4.whenReleased(new BridgeArm_Move(0));
         
+        //rbutton3.whenPressed(new BridgeArm_Set(3.24));
+        //rbutton4.whenPressed(new BridgeArm_Set(2.52));
         rbutton5.whenPressed(new Shifter_Toggle());
         rbutton6.whenPressed(new Brake_Toggle());
         //rbutton8.whileHeld(new BalanceBot());
@@ -116,9 +118,11 @@ public class OI {
         rbutton8.whenPressed(new AdjustCamera(0.7, .26));   // ( Tilt, Pan) Ball????
         
         rbutton9.whenPressed(new InterruptAutoLoad());
-        rbutton10.whenPressed(new ToggleLight());
-        rbutton11.whenPressed(new flashyLights());        
-        
+        //rbutton10.whenPressed(new ToggleLight());
+        rbutton10.whenPressed(new flashyLights());        
+        rbutton11.whenPressed(new ShooterAngle_Set(2.07));  //2.07
+        rbutton12.whenPressed(new ShooterAngle_Set(3.70));  //
+
         /*
          * Left
          */
@@ -153,9 +157,10 @@ public class OI {
         
         //lbutton8.whenPressed(new Load());
         
-        lbutton8.whenPressed(new Shooter_Angle(1));
-        lbutton9.whenPressed(new Shooter_Angle(3));
-        
+        lbutton8.whenPressed(new ShooterAngle_Move(1));
+        lbutton8.whenReleased(new ShooterAngle_Move(0));
+        lbutton9.whenPressed(new ShooterAngle_Move(-1));
+        lbutton9.whenReleased(new ShooterAngle_Move(0));
         //lbutton10.whenPressed(new Shooter_Angle(5));     
         
         //lbutton8.whenPressed(new MoveShooterAngle(1));

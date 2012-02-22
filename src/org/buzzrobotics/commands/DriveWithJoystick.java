@@ -1,5 +1,5 @@
 package org.buzzrobotics.commands;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * Drives with Joystick. Always called during Teleop and should never be ended.
  * VERY IMPORTANT!
@@ -33,10 +33,11 @@ public class DriveWithJoystick extends CommandBase {
         oJoyY = oi.getRightY();
         joyx = (joyz*oJoyX)*(joyz*oJoyX)*(joyz*oJoyX) + (1 - joyz)*oJoyX;
         joyy = (joyz*oJoyY)*(joyz*oJoyY)*(joyz*oJoyY) + (1 - joyz)*oJoyY;
-      
-            drivetrain.arcadeDrive(joyx,joyy);
-        
-//        if (oi.getRightTwist() > 0.8 || oi.getRightTwist() < -0.8){
+        SmartDashboard.putDouble("JoystickX", joyx);
+        SmartDashboard.putDouble("JoystickY", joyy);
+            drivetrain.arcadeDrive(oJoyX,oJoyY);
+            
+       //        if (oi.getRightTwist() > 0.8 || oi.getRightTwist() < -0.8){
 //            if (oi.getRightTwist() > 0.1){
 //                drivetrain.drive(oi.getRightTwist(), 1);
 //            }else if (oi.getRightTwist() < 0.1 ){

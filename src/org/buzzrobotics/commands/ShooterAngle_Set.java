@@ -6,35 +6,31 @@ package org.buzzrobotics.commands;
 
 /**
  *
- * @author Kyle Deane
+ * @author buzz5
  */
-public class BridgeArm_Set extends CommandBase {
-    public double m_setpoint;
-    public BridgeArm_Set(double setpoint) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(bridgearm);
-        m_setpoint = setpoint;
+public class ShooterAngle_Set extends CommandBase {
+     public double M_setpoint;
+     public ShooterAngle_Set(double setpoint) {
+
+       M_setpoint = setpoint;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        bridgearm.disable();
-        setTimeout(5);
+        shooterangle.disable();
+        setTimeout(2);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        bridgearm.setSetpoint(m_setpoint);
-        bridgearm.enable();
-        //System.out.println("BRIDGE ARM MOVING." + bridgearm.getPosition());
+        shooterangle.setSetpoint(M_setpoint);
+        shooterangle.enable();
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(isTimedOut()){
-            return true;
-        }else if (bridgearm.getPosition() == (bridgearm.getSetpoint())){
+        if (isTimedOut()){
             return true;
         }else{
             return false;
@@ -43,7 +39,6 @@ public class BridgeArm_Set extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        bridgearm.disable();
     }
 
     // Called when another command which requires one or more of the same
