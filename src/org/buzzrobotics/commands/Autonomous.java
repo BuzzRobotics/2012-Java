@@ -31,7 +31,7 @@ public class Autonomous extends CommandGroup {
                     addSequential(new AutoMode2());     //Drive to alliance bridge
                     break;
                 case 3:
-                    addSequential(new AutoMode3());     //Get balls from center bridge
+                    addSequential(new Hybrid());     //Get balls from center bridge
                     break;
                 case 4:
                     addSequential(new AutoMode4());     //Do nothing

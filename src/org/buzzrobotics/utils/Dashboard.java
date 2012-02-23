@@ -48,41 +48,6 @@ public class Dashboard {
                         SmartDashboard.putDouble("shiftercount", CommandBase.shifter.getCounter());
 
         
-        if (CommandBase.shifter.getCounter() > 5){
-            this.disp(2, "ZOMG YOU'RE GONNA BREAK ME! STOP SHIFTING! ;)");
-        }
     }
-    /*
-     * Displays information on the DriverStation LCD (On the diagnostics tab)
-     * @param line what line number to print to
-     * @param msg message to print
-     */
-    public static void disp(int line, String msg) {
-        DriverStationLCD.Line l;
-        switch (line){
-            case 1:
-                l = DriverStationLCD.Line.kUser2;
-                break;
-            case 2:
-                l = DriverStationLCD.Line.kUser3;
-                break;
-            case 3:
-                l = DriverStationLCD.Line.kUser4;
-                break;
-            case 4:
-                l = DriverStationLCD.Line.kUser5;
-                break;
-            case 5:
-                l = DriverStationLCD.Line.kUser6;
-                break;
-            case 6:
-                l = DriverStationLCD.Line.kMain6;
-                break;
-            default:
-                l = DriverStationLCD.Line.kUser2;
-                break;
-        }
-        DriverStationLCD.getInstance().println(l, 1, msg);
-        DriverStationLCD.getInstance().updateLCD();
-    }
+
 }

@@ -32,7 +32,7 @@ import org.buzzrobotics.subsystems.DriveTrain;
  * directory.
  */
 public class Buzz extends IterativeRobot {
-
+    public static boolean devmode = true;
     Command Hybrid;
 
     Command light;
@@ -44,7 +44,6 @@ public class Buzz extends IterativeRobot {
     Command ShooterAngle;
     Command autonomousCommand;
     Compressor RobotCompressor;
-    Command shoot2balls;
     
     public static Dashboard dashboard = new Dashboard();
  
@@ -57,12 +56,10 @@ public class Buzz extends IterativeRobot {
         RobotCompressor.start();
         
         // instantiate the command used for the autonomous period
-        Hybrid = new Hybrid();
+       // Hybrid = new Hybrid();
         DriveWithJoystick = new DriveWithJoystick();
-        shoot2balls = new AutoMode1();
         
         NetworkTable.initialize();
-        // Initialize all subsystems
         CommandBase.init();
         
         //Print that INIT has COMPLETED!
@@ -111,7 +108,7 @@ public class Buzz extends IterativeRobot {
     
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        dashboard.update();
+        if (devmode){dashboard.update();}
         System.out.println(CommandBase.oi.getAutonMode());
         //shoot2balls.start();
     }
@@ -134,12 +131,11 @@ public class Buzz extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        dashboard.update();
+        if (devmode){dashboard.update();}
         //System.out.print(this);
         //DriveWithJoystick.start();
 //        ShooterAngle = (Command) ShooterLimit.getSelected();
         //ShooterAngle.start();
-        dashboard.disp(2, "Teleop Working :)");
         
         
     }
@@ -148,12 +144,11 @@ public class Buzz extends IterativeRobot {
         //DriveWithJoystick.cancel();
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
-            dashboard.disp(2, "Attempting to Cancel Auton :(");
         }
         
     }
     public void disabledPeriodic() {
-        dashboard.update();
+        if (devmode){dashboard.update();}
         
     }
 }

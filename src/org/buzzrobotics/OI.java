@@ -1,11 +1,13 @@
 package org.buzzrobotics;
 
+import org.buzzrobotics.Buzz;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.NetworkButton;
 import edu.wpi.first.wpilibj.buttons.AnalogIOButton;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.InternalButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import org.buzzrobotics.commands.*;
@@ -13,7 +15,7 @@ import org.buzzrobotics.subsystems.Conveyor;
 import edu.wpi.first.wpilibj.DriverStation;
 import org.buzzrobotics.commandgroups.LoadBalls_Door;
 import org.buzzrobotics.commandgroups.LoadBalls_Door_Done;
-
+import org.buzzrobotics.utils.SystemsCheck;
 /*
  * Operator Interface
  * @author PETER POLIS aka P^2
@@ -94,11 +96,10 @@ public class OI {
         
         //LEFT Z - does nothing right now.
         
-        /*
-         * Right
-         */
-        //rbutton2.whenPressed(new BridgeArm_Set(2));
-        //rbutton3.whenPressed(new InterruptAutoLoad());
+/****************************
+ * Right
+ ****************************/
+        
         rbutton2.whenPressed(new Rollers_On(-1));
         rbutton2.whenReleased(new Rollers_Off());
         
@@ -107,70 +108,47 @@ public class OI {
         rbutton4.whenPressed(new BridgeArm_Move(1));
         rbutton4.whenReleased(new BridgeArm_Move(0));
         
-        //rbutton3.whenPressed(new BridgeArm_Set(3.24));
-        //rbutton4.whenPressed(new BridgeArm_Set(2.52));
         rbutton5.whenPressed(new Shifter_Toggle());
         rbutton6.whenPressed(new Brake_Toggle());
-        //rbutton8.whileHeld(new BalanceBot());
         
         rbutton7.whenPressed(new AdjustCamera(0.4,1));  // ( Tilt, Pan) Target???
         rbutton8.whenPressed(new AdjustCamera(0.7, .26));   // ( Tilt, Pan) Ball????
         
+            rbutton9.whenPressed(new SystemsCheck());
         
-        rbutton10.whenPressed(new ToggleLight());
-        //rbutton10.whenPressed(new flashyLights());        
-        rbutton11.whenPressed(new ShooterAngle_Set(2.07));  //2.07
-        rbutton12.whenPressed(new ShooterAngle_Set(3.70));  //
+        rbutton10.whenPressed(new ToggleLight());      
 
-        /*
-         * Left
-         */
+/****************************
+ * Left
+ ****************************/
         lbutton1.whenPressed(new Shooter_Fire());
-        
-        
-//        lbutton4.whenPressed(new Rollers_On(-1));
-//        lbutton4.whenReleased(new Rollers_Off());
-//        lbutton5.whenPressed(new Rollers_On(1));
-//        lbutton5.whenReleased(new Rollers_Off());
         
         lbutton2.whenPressed(new Conveyor_Move(1));
         lbutton2.whenReleased(new Conveyor_Move(0));
+        
         lbutton3.whenPressed(new Conveyor_Move(-1));
         lbutton3.whenReleased(new Conveyor_Move(0));
         
         lbutton4.whenPressed(new Loader_Forward());
         lbutton4.whenReleased(new Loader_Stop());
+        
         lbutton5.whenPressed(new Loader_Reverse());
         lbutton5.whenReleased(new Loader_Stop());
         
         lbutton6.whenPressed(new Rollers_On(-1));
         lbutton6.whenReleased(new Rollers_Off());
-        
-        
-        //lbutton7.whenPressed(new LoadBalls_Door());
-        //lbutton7.whenReleased(new LoadBalls_Door_Done());
+
         lbutton7.whenPressed(new FeederDoor_Toggle());
-        
-        lbutton10.whenPressed(new LoadBalls_Door());
-        lbutton10.whenReleased(new LoadBalls_Door_Done());
-        
-        //lbutton8.whenPressed(new Load());
         
         lbutton8.whenPressed(new ShooterAngle_Move(1));
         lbutton8.whenReleased(new ShooterAngle_Move(0));
+        
         lbutton9.whenPressed(new ShooterAngle_Move(-1));
         lbutton9.whenReleased(new ShooterAngle_Move(0));
-        //lbutton10.whenPressed(new Shooter_Angle(5));     
         
-        //lbutton8.whenPressed(new MoveShooterAngle(1));
-        //lbutton9.whenPressed(new MoveShooterAngle(-1));
+        lbutton10.whenPressed(new ShooterAngle_Set(2.07));
         
-        
-        
-        lbutton11.whenPressed(new Shooter_Out());
-        lbutton11.whenReleased(new Shooter_In());
-        
-       
+        lbutton11.whenPressed(new ShooterAngle_Set(3.70));  
         
     }
     /*
