@@ -33,8 +33,8 @@ public class OI {
 
     DriverStation driver = DriverStation.getInstance();
     
-    public double modebox = driver.getAnalogIn(1);
-    public double yaled = driver.getAnalogIn(2);
+    
+    //removed public double delay and mode from here. moved it to bottom.
     
     public int delay;
     public int mode;
@@ -238,6 +238,7 @@ public class OI {
     }
    
     public int getDelay(){
+        double yaled = driver.getAnalogIn(2);
         if (yaled == 0){
             delay = 0;
         }else if(yaled >= 0.5 && yaled <= 0.7){
@@ -259,6 +260,7 @@ public class OI {
     }
     
     public int getAutonMode(){
+        double modebox = driver.getAnalogIn(1);
         if (modebox == 0){
             mode = 0;
         }else if(modebox >= 0.5 && modebox <= 0.7){

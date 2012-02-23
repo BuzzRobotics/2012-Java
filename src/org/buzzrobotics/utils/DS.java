@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.DriverStationLCD;
  */
 public class DS {
     
-    DriverStation driverstation = DriverStation.getInstance();
+    public DriverStation driverstation = DriverStation.getInstance();
     
     public boolean isFMSAttached(){
         return driverstation.isFMSAttached();
