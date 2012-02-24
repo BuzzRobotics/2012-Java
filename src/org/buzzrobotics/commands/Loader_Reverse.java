@@ -1,18 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Drives the loader reverse. 
  * @author kyledeane
  */
 public class Loader_Reverse extends CommandBase {
     
     public Loader_Reverse() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time

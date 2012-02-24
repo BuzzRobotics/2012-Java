@@ -1,18 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Drives the loader Forward
  * @author kyledeane
  */
 public class Loader_Forward extends CommandBase {
     
     public Loader_Forward() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+
     }
 
     // Called just before this Command runs the first time

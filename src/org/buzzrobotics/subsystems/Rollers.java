@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
- * Roller Arm
+ * Rollers
  * @author Peter Polis
  */
 public class Rollers extends Subsystem {
@@ -56,7 +56,6 @@ public class Rollers extends Subsystem {
         return rollerstatus;
     }
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+    
     }
 }

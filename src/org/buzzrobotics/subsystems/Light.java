@@ -7,6 +7,7 @@ import org.buzzrobotics.RobotMap;
 
 /**
  * I Whip my Hair Back and Forth!
+ * Camera Light
  * @author Kyle Deane
  */
 public class Light extends Subsystem {
@@ -21,7 +22,7 @@ public class Light extends Subsystem {
     }
     
     /*
-     * @param I Whip My Hair Back and Forth
+     * On
      * @author Kyle Deane
      */
     public void on() {
@@ -30,7 +31,7 @@ public class Light extends Subsystem {
     }
     
     /*
-     * @param I Don't Whip My Hair Back and Forth
+     * Off
      * @author Kyle Deane
      */
     public void off() {
@@ -38,6 +39,10 @@ public class Light extends Subsystem {
         relay_light.set(Relay.Value.kOff);
     }
     
+    /*
+     * Toggles Light
+     * Smart Toggle :)
+     */
     public void toggle(){
          if (!lighton){
             lighton = true;
@@ -48,6 +53,10 @@ public class Light extends Subsystem {
             lighton = false;
         }
     }
+    
+    /* status
+     * @return current light status!
+     */
     public boolean status(){
         return lighton;
     }

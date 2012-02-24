@@ -13,15 +13,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SendablePIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
+ * DriveTrain
+ * Hope This Works :O
  * @author Kyle Deane
  */
 public class DriveTrain extends Subsystem {
     RobotDrive drive;
     Encoder rightDriveEncoder;
     Encoder leftDriveEncoder;
-//    Gyro gyro;
-//    ADXL345_I2C accelerometer;
-//    
+  
     private int forward;
     /*
      * Define Variables
@@ -53,11 +53,6 @@ public class DriveTrain extends Subsystem {
         rightDriveEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
         rightDriveEncoder.start();
         leftDriveEncoder.start();
-        
-//        accelerometer = new ADXL345_I2C(1, ADXL345_I2C.DataFormat_Range.k16G);
-        
-//        gyro = new Gyro(RobotMap.gyroPort);
-//        gyro.setSensitivity(0.007);
         
         PIDSource difference = new PIDSource(){
             public double pidGet(){
@@ -151,9 +146,14 @@ public class DriveTrain extends Subsystem {
         return leftDriveEncoder.getDistance();
     }
     
+    /*
+     * getEncoderDifference
+     * @return leftDriveEncoder - rightDriveEncoder
+     */
     public double getEncoderDifference(){
         return leftDriveEncoder.getDistance() - rightDriveEncoder.getDistance();
     }
+    
     /**
      * Reset both encoders's tick, distance, etc. count to zero
      */
@@ -172,35 +172,6 @@ public class DriveTrain extends Subsystem {
     public final void setBackwards(){
         forward = 1;
     }
-    
-//    /*
-//     * Gyroscope Functions
-//     *
-//     */
-//    public double getGyroAngle(){
-//        return gyro.getAngle();
-//    }
-//    public void resetGyro(){
-//        gyro.reset();
-//    }
-//    /*
-//     * getAccelX
-//     * @return the Accelerometer's X Axis
-//     */
-//    public double getAccelX(){
-//        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
-//    }
-//    /*
-//     * getAccelY
-//     * @return the Accelerometer's Y Axis
-//     */
-//    public double getAccelY(){
-//        return accelerometer.getAcceleration(ADXL345_I2C.Axes.kY);
-//    }
-    
-    /*
-     * Required Command Based Functions
-     */
     
     public void initDefaultCommand() {
          setDefaultCommand(new DriveWithJoystick());

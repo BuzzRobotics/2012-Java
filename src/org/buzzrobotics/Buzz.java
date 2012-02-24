@@ -7,22 +7,14 @@
 
 package org.buzzrobotics;
 
-
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import org.buzzrobotics.commands.CommandBase;
-import org.buzzrobotics.commands.Hybrid;
-import org.buzzrobotics.commands.DriveWithJoystick;
-import org.buzzrobotics.OI;
 import org.buzzrobotics.commands.*;
 import org.buzzrobotics.utils.Dashboard;
-import org.buzzrobotics.autonomous.AutoMode1;
-import org.buzzrobotics.subsystems.DriveTrain;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,15 +25,9 @@ import org.buzzrobotics.subsystems.DriveTrain;
  */
 public class Buzz extends IterativeRobot {
     public static boolean devmode = true;
-    Command Hybrid;
-
     Command light;
-   /* SendableChooser autoChooser;
-    SendableChooser ShooterLimit;
-    SendableChooser YaledChooser;*/
     
     Command DriveWithJoystick;
-    Command ShooterAngle;
     Command autonomousCommand;
     Compressor RobotCompressor;
     
@@ -55,8 +41,6 @@ public class Buzz extends IterativeRobot {
         RobotCompressor = new Compressor(RobotMap.pressureSwitchPWM,RobotMap.compressorPWM);
         RobotCompressor.start();
         
-        // instantiate the command used for the autonomous period
-       // Hybrid = new Hybrid();
         DriveWithJoystick = new DriveWithJoystick();
         
         NetworkTable.initialize();
@@ -64,35 +48,12 @@ public class Buzz extends IterativeRobot {
         
         //Print that INIT has COMPLETED!
         System.out.println("RobotInit() completed.\n");
-        
-        //Initialize SmartDashboard, and put currently running tasks in there!
-        //SmartDashboard.putData("SchedulerData", Scheduler.getInstance());
-        
-//        autoChooser = new SendableChooser();
-//        autoChooser.addDefault("Shoot 2 then Drive to Bridge, 5 Sec Delay", new AutoMode(5));
-//        autoChooser.addObject("Shoot 2 then Drive to Bridge, 3 Sec Delay", new AutoMode(3));
-//        autoChooser.addObject("Shoot 2 then Drive to Bridge, No Delay", new AutoMode(0));
-//        autoChooser.addObject("Hybrid", new Hybrid());
-//        autoChooser.addObject("Shoot, drive, then turn 90", new AutoMode2(0));
-//        
-//        autoChooser.addObject("Nothing", new Nothing());
-        //SmartDashboard.putData("autoChooser", autoChooser);
-        
-//        ShooterLimit = new SendableChooser();
-//        ShooterLimit.addDefault("5", new Shooter_Angle(5));
-//        ShooterLimit.addObject("4", new Shooter_Angle(4));
-//        ShooterLimit.addObject("3", new Shooter_Angle(3));
-//        ShooterLimit.addObject("2", new Shooter_Angle(2));
-//        ShooterLimit.addObject("1", new Shooter_Angle(1));
-//        SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
-        
-        //SmartDashboard.putData("ShooterLimit chooser", ShooterLimit);
-        
     }
     
     public void autonomousInit() {
-        //ReSTART Auton Command!
-        CommandBase.shifter.resetCounter();
+        
+       CommandBase.shifter.resetCounter();
+       //ReSTART Auton Command!
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
@@ -109,21 +70,19 @@ public class Buzz extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         if (devmode){dashboard.update();}
-        System.out.println(CommandBase.oi.getAutonMode());
-        //shoot2balls.start();
+        //System.out.println(CommandBase.oi.getAutonMode());
     }
 
     
     public void teleopInit() {
+        //turn light on !!!
         light = new Light(true);
-        light.start();        
+        light.start();      
+        
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
-        }
-        //shoot2balls.cancel();
+        };
         CommandBase.shifter.resetCounter();
-                //AutonomousCommand.cancel();
-                //ShooterAngle = (Command) ShooterLimit.getSelected();
     }
 
     /**
@@ -131,17 +90,10 @@ public class Buzz extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        if (devmode){dashboard.update();}
-        //System.out.print(this);
-        //DriveWithJoystick.start();
-//        ShooterAngle = (Command) ShooterLimit.getSelected();
-        //ShooterAngle.start();
-        
-        
+        if (devmode){dashboard.update();}    
     }
     
     public void disabledInit() {
-        //DriveWithJoystick.cancel();
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }

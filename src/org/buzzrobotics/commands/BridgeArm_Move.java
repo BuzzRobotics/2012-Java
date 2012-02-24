@@ -1,18 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Moves Bridge Arm in the Specified Direction
  * @author Kyle Deane
  */
 public class BridgeArm_Move extends CommandBase {
     public double m_Direction;
+    
     public BridgeArm_Move(double direction) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(bridgearm);
         m_Direction = direction;
     }

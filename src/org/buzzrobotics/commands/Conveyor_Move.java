@@ -1,8 +1,9 @@
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Moves the Conveyor
  * @author Peter Polis
+ * @author Kyle Deane
  */
 public class Conveyor_Move extends CommandBase {
     public int state;

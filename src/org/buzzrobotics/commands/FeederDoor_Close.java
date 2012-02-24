@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Opens Feeder Door
  * @author Kyle Deane
  */
 public class FeederDoor_Close extends CommandBase {

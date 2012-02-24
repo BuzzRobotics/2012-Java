@@ -1,11 +1,12 @@
 
-package org.buzzrobotics.commands;
+package org.buzzrobotics.autonomous;
 
 import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.Kinect;
 import edu.wpi.first.wpilibj.Skeleton;
 import edu.wpi.first.wpilibj.Timer;
 import org.buzzrobotics.RobotMap;
+import org.buzzrobotics.commands.*;
 
 /**
  * Hybrid code for Autonomous mode. Should automagically be called, if not, move this code to "Autonomous Periodic". 

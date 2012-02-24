@@ -7,7 +7,9 @@ import org.buzzrobotics.RobotMap;
 
 /**
  * Ball Feeder Subsystem.
+ * Also Controls Ball Feeder Door!
  * @author Peter Polis
+ * @author Kyle Deane
  */
 public class Conveyor extends Subsystem {
     DoubleSolenoid loaderDoor;
@@ -40,14 +42,27 @@ public class Conveyor extends Subsystem {
         ballFeederJaguar.set(0);
     }
     
+    /*
+     * Opens Ball Feeder Door
+     */
     public void openDoor(){
-        //loaderDoorStatus = true;
+        loaderDoorStatus = true;
         loaderDoor.set(DoubleSolenoid.Value.kForward);
     }
+    
+    /*
+     * Closes Ball Feeder Door
+     */
     public void closeDoor(){
-        //loaderDoorStatus = false;
+        loaderDoorStatus = false;
         loaderDoor.set(DoubleSolenoid.Value.kReverse);
     }
+    
+    /*
+     * Toggles Ball Feeder Door
+     * Smart Toggle :)
+     * 
+     */
     public void toggleDoor(){
          if (!loaderDoorStatus){
             loaderDoorStatus = true;
@@ -59,11 +74,14 @@ public class Conveyor extends Subsystem {
         }
         
     }
+    
+    /*
+     * Door Status
+     * @return boolean loaderdoorstatus
+     */
     public boolean doorStatus(){
         return loaderDoorStatus;
     }
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
 }

@@ -7,13 +7,12 @@ import org.buzzrobotics.OI;
 import org.buzzrobotics.subsystems.DriveTrain;
 import org.buzzrobotics.subsystems.Light;
 import org.buzzrobotics.subsystems.Shifter;
-import org.buzzrobotics.subsystems.irSensor;
 import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.ShooterAngle;
 import org.buzzrobotics.subsystems.Rollers;
 import org.buzzrobotics.subsystems.Camera;
 import org.buzzrobotics.subsystems.Conveyor;
-import org.buzzrobotics.subsystems.FloorLight;
+import org.buzzrobotics.subsystems.KeySensor;
 import org.buzzrobotics.subsystems.BridgeArm;
 import org.buzzrobotics.subsystems.Brake;
 
@@ -31,16 +30,15 @@ public abstract class CommandBase extends Command {
     public static DriveTrain drivetrain = new DriveTrain();
     public static Light light = new Light();
     public static Shifter shifter = new Shifter();
-    public static irSensor ir = new irSensor();
     public static Shooter shooter = new Shooter();
     public static ShooterAngle shooterangle = new ShooterAngle();
     public static Rollers rollerarm = new Rollers();
     public static Camera camera = new Camera();
     public static Conveyor ballfeeder = new Conveyor();
-    public static FloorLight floorlight = new FloorLight();
+    public static KeySensor keysensor = new KeySensor();
     public static BridgeArm bridgearm = new BridgeArm();
     public static Brake brake = new Brake();
-    //public static ShooterAngle shooterangle = new ShooterAngle();
+    
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
         // will), constructing it during the construction of CommandBase (from
@@ -49,9 +47,7 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
         oi = new OI();
 
-        // Show what command your subsystem is running on the SmartDashboard
-        SmartDashboard.putData(drivetrain);
-        SmartDashboard.putData(light);     
+        // Show what command your subsystem is running on the SmartDashboard  
     }
 
     public CommandBase(String name) {

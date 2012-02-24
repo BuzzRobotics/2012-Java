@@ -111,7 +111,7 @@ public class OI {
         
             rbutton9.whenPressed(new SystemsCheck());
         
-        rbutton10.whenPressed(new ToggleLight());      
+        rbutton10.whenPressed(new Light_Toggle());      
 
 /****************************
  * Left

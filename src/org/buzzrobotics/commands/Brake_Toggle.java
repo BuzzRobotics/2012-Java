@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
+ * Toggles Brake
  * @author Kyle Deane
  */
 public class Brake_Toggle extends CommandBase {

@@ -1,18 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author kyledeane
+ * Stops Loader
+ * @author Kyle Deane
  */
 public class Loader_Stop extends CommandBase {
     
     public Loader_Stop() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+
     }
 
     // Called just before this Command runs the first time

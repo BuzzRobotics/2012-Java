@@ -1,43 +1,26 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-
 /**
- *
- * @author buzz5
+ * Reset drive encoder distance :0
+ * @author Kyle Deane
  */
-public class flashyLights extends CommandBase {
+public class Drive_Encoder_Reset extends CommandBase {
     
-    
-    public flashyLights() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public Drive_Encoder_Reset() {
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(5);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        floorlight.on();
-        Timer.delay(.08);
-        floorlight.off();
-        Timer.delay(.08);
-        floorlight.light2on();
-        Timer.delay(.08);
-        floorlight.light2off();
-        Timer.delay(.08);
+        drivetrain.resetEncoders();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return true;
     }
 
     // Called once after isFinished returns true

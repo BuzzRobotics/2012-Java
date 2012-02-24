@@ -1,20 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 
 /**
- *
- * @author buzz5
+ * Turns until one encoder is (X) greater than the other. :)
+ * @author Kyle Deane
  */
 public class Drive_Encoder_Turn extends CommandBase {
     public int m_degrees;
     public Drive_Encoder_Turn(int degrees) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
            m_degrees = degrees; 
     }
 
@@ -25,14 +19,10 @@ public class Drive_Encoder_Turn extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if(m_degrees <= 180){
-            drivetrain.drive(0, 0.2);
+            drivetrain.drive(0.5, 1);
         }else{
-            drivetrain.drive(0, -0.2);
+            drivetrain.drive(0.5, -1);
         }    
-        
-            
-            
-            //System.out.println("Degrees: " + drivetrain.getGyroAngle() + ". Goal!: " + m_degrees);
     }
 
     // Make this return true when this Command no longer needs to run execute()

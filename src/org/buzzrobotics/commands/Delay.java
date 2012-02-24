@@ -4,7 +4,7 @@ package org.buzzrobotics.commands;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- * (Attempted to) Implement a nice delay pattern here. It obviously didn't work well. :)
+ * Added our own DELAY pattern :)
  * @author Peter Polis
  * @author Kyle Deane
  */

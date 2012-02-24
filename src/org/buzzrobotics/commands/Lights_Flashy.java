@@ -1,37 +1,43 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.buzzrobotics.commands;
 
-/**
- * @Param on TRUE OR FALSE
- * True is ON and FALSE is off.
- * Turns On Floor Light
- * ????? What is this for?
- * @author Peter Polis
- * @author Kyle Deane
- */
+import edu.wpi.first.wpilibj.Timer;
 
-public class FloorLight extends CommandBase {
-    public boolean light_on = false;
-    public FloorLight(boolean on) {
-        light_on = on;
+/**
+ *
+ * @author buzz5
+ */
+public class Lights_Flashy extends CommandBase {
+    
+    
+    public Lights_Flashy() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        setTimeout(5);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (light_on){
-            floorlight.on();
-        }else{
-            floorlight.off();
-        }
-        
+        keysensor.on1();
+        Timer.delay(.08);
+        keysensor.off1();
+        Timer.delay(.08);
+        keysensor.on2();
+        Timer.delay(.08);
+        keysensor.off2();
+        Timer.delay(.08);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

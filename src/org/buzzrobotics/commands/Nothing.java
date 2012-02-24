@@ -11,10 +11,6 @@ import edu.wpi.first.wpilibj.Timer;
 public class Nothing extends CommandBase {
     int m_autoPeriodicLoops;
     public Nothing() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(drivetrain);
-        requires(light);
     }
 
     // Called just before this Command runs the first time
@@ -24,7 +20,7 @@ public class Nothing extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
-            light.on();
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

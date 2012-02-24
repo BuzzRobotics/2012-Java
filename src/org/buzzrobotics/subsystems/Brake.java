@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -10,12 +6,13 @@ import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.CommandBase;
 
 /**
- *
+ * Brake Subsystem
  * @author Kyle Deane
  */
 public class Brake extends Subsystem {
     DoubleSolenoid robotBrake = new DoubleSolenoid(RobotMap.brakeDeploy, RobotMap.brakeRetract);
     public boolean brakestatus = false;
+    
     
     public void Brake(){
         //robotBrake = new DoubleSolenoid(RobotMap.brakeDeploy, RobotMap.brakeRetract);
@@ -25,25 +22,28 @@ public class Brake extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    /*
+     * Deploys Brake!
+     * Stops Robot :O
+     */
     public void deploy(){
         brakestatus = true;
-        //robotBrake.set(DoubleSolenoid.Value.kReverse);
-        //CommandBase.shooter.out();
         System.out.println("Braking.");
         robotBrake.set(DoubleSolenoid.Value.kReverse);
     }
     
+    /*
+     * Retracts Brake
+     */
     public void retract(){
         brakestatus = false;
         robotBrake.set(DoubleSolenoid.Value.kForward);
     }
     
-//    public void off(){
-//        brakestatus = false;
-//        robotBrake.set(DoubleSolenoid.Value.kOff);
-//    }
+
     /*
      * Toggle Brake
+     * Smart Toggle: uses information for previous settings (if something else DEPLOYED it you won't have to hit it twice)
      */
     public void toggle(){
          if (!brakestatus){
@@ -54,10 +54,10 @@ public class Brake extends Subsystem {
             robotBrake.set(DoubleSolenoid.Value.kReverse);
         }
     }
-    /*
-     * Brake Status
-+
-*/
+   /*
+    * status
+    * @return boolean brakestatus
+    */
     public boolean status(){
         return brakestatus;
     }

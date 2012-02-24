@@ -18,7 +18,6 @@ public class Dashboard {
         
         SmartDashboard.putDouble("GetAutonMode", CommandBase.oi.getAutonMode());
         SmartDashboard.putDouble("Delay", CommandBase.oi.getDelay());
-        SmartDashboard.putBoolean("floorlight", CommandBase.floorlight.status());
         SmartDashboard.putBoolean("light", CommandBase.light.status());
         
         SmartDashboard.putDouble("rtX", CommandBase.oi.getRightX());
@@ -33,8 +32,8 @@ public class Dashboard {
         SmartDashboard.putDouble("encleft", CommandBase.drivetrain.getLeftEncoder());
         SmartDashboard.putDouble("encright", CommandBase.drivetrain.getRightEncoder());
         
-        SmartDashboard.putBoolean("fir1", CommandBase.ir.getFloor1IRSensor());
-        SmartDashboard.putBoolean("fir2", CommandBase.ir.getFloor2IRSensor());
+        SmartDashboard.putBoolean("fir1", CommandBase.keysensor.getFloor1IRSensor());
+        SmartDashboard.putBoolean("fir2", CommandBase.keysensor.getFloor2IRSensor());
         
         SmartDashboard.putBoolean("brake", CommandBase.brake.status());
         SmartDashboard.putBoolean("loaderdoor", CommandBase.ballfeeder.doorStatus());

@@ -1,20 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.buzzrobotics.commands;
 
 /**
- *
- * @author buzz5
+ * Loads Loader. Drives it for 1.5 seconds. :)
+ * @author Kyle Deane
  */
 public class Loader_Load extends CommandBase {
     
         public double shooterTimeOut = 1.5;
     
     public Loader_Load() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        
     }
 
     // Called just before this Command runs the first time

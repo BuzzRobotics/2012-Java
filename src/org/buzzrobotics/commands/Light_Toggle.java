@@ -4,8 +4,8 @@ package org.buzzrobotics.commands;
  * Toggles Light. If it's currently on, turn it off. If it's off, turn it on.
  * @author Kyle Deane
  */
-public class ToggleLight extends CommandBase {
-    public ToggleLight() {
+public class Light_Toggle extends CommandBase {
+    public Light_Toggle() {
         requires(light);
     }
 

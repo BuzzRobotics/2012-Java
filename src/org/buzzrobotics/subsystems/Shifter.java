@@ -1,7 +1,3 @@
-/*
- * Shifter Subsystem
- * Controls Shifter solenoids.
- */
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -26,16 +22,30 @@ public class Shifter extends Subsystem {
         // Set the default command for a subsystem here.
     }
     
+    /*
+     * Up
+     * Sets shifter to high geer (forward)
+     */
     public void up() {
         counter = counter + 1;
         shiftersw = true;
         robotSolenoidShifter.set(DoubleSolenoid.Value.kForward);
     }
+    
+    /*
+     * Down
+     * Sets shifter to low geer (reverse)
+     */
     public void down() {
        counter = counter + 1;
        shiftersw = false;
        robotSolenoidShifter.set(DoubleSolenoid.Value.kReverse);
     }
+    
+    /*
+     * Shifter Toggle
+     * Smart Toggle :)
+     */
     public void toggle(){
         counter = counter + 1;
         if (!shiftersw){
@@ -46,12 +56,24 @@ public class Shifter extends Subsystem {
             shiftersw = false;
         }
     }
+    
+    /*
+     * status
+     * @return boolean shifter status
+     */
     public boolean status(){
         return shiftersw;
     }
+    /*
+     * Reset Counter
+     */
     public void resetCounter(){
         counter = 0;
     }
+    /*
+     * getCounter
+     * @return double number of times the shifter shifted.
+     */
     public double getCounter(){
         return counter;
     }

@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.CommandBase;
-import org.buzzrobotics.commands.Shooter_Angle;
 
 /**
  * Shooter Angle
@@ -26,14 +25,10 @@ public class BridgeArm extends Subsystem {
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-       // setDefaultCommand(new Shooter_Angle(3));
+
     }
     
     protected double returnPIDInput() {
-        // Return your input value for the PID loop
-        // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
         return BridgeArmPot.getVoltage();
     }
     
