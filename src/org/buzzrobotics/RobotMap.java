@@ -88,18 +88,6 @@ public class RobotMap {
         public final static int lightrelay = 1;
         
         /*
-         * Optical Sensors
-         * 6 - 9 : Old style SINGLE optical sensors.
-         */
-        public static final int
-                feeder_opticalSensorPWM = 6,
-                top_opticalSensorPWM = 7,
-                middle_opticalSensorPWM = 8,
-                bottom_opticalSensorPWM = 9;
-        
-         public static final int loadSensorPWM = 10;
-        
-        /*
          * Floor Optical Sensors
          * Ports Mapped
          */
@@ -122,28 +110,14 @@ public class RobotMap {
         public static final int
                 ShooterPot = 3,
                 ShooterAngleMotor = 7;
-      
         
         /*
-         * Gyroscope Port
-         * On Analog Input
-         * Accelerometer goes on i2c on digital SideCar. :D
-         */
-        public static final int gyroPort = 1;
-        
-        /*
-         * Roller Arm
-         * Controlled by a Solenoid
-         * On Solenoid Module.
-         */
-        public final static int rollerArmSolenoidSpike = 3;
-        
-        /*
-         * the retract is just bolted shut, just used to vent the other end.
+         * Brake :)
          */
         public static final int
                 brakeDeploy = 5,
                 brakeRetract = 6;
+        
         /*
          * Ball Loader Door
          */
@@ -151,8 +125,11 @@ public class RobotMap {
                 loaderDoorDeploy = 7,
                 loaderDoorRetract = 8;
         
+        /*
+         * Ball Pickup Rollers :)
+         */
         public static int rollerPWM = 4;
-        //public static int rollerArmPotPort = 4;
+        
         
         /*
          * Camera Servo Ports
