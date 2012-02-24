@@ -1,6 +1,7 @@
 package org.buzzrobotics.utils;
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboardData;
 import org.buzzrobotics.commands.CommandBase;
 
  /*
@@ -8,7 +9,6 @@ import org.buzzrobotics.commands.CommandBase;
  */
 public class Dashboard {
     public void update(){
-
         SmartDashboard.putDouble("pot", CommandBase.shooterangle.returnPot());
         
         SmartDashboard.putDouble("bridgearmpot", CommandBase.bridgearm.returnPot());

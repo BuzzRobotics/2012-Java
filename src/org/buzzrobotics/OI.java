@@ -18,9 +18,9 @@ import org.buzzrobotics.commandgroups.LoadBalls_Door_Done;
 import org.buzzrobotics.utils.SystemsCheck;
 /*
  * Operator Interface
+ * @author Kyle Deane
  * @author PETER POLIS aka P^2
  * @author Zach Boyer
- * @author Kyle Deane
  * @author Buzz Robotics 2012 Programming Team
  */
 public class OI {
@@ -75,7 +75,7 @@ public class OI {
    InternalButton rightHatDown = new InternalButton();
    InternalButton rightHatLeft = new InternalButton();
    InternalButton rightHatRight = new InternalButton();
-    
+   InternalButton devModeSwitch = new InternalButton();
     /**
      * Bind the press of each button to a specific command or command group.
      * 
@@ -88,11 +88,6 @@ public class OI {
     public OI() {
         
        System.out.println(driver.getAlliance());
-        if (getRightHatY() == 1.0){rightHatUp.setPressed(true);}else{rightHatUp.setPressed(false);}
-        if (getRightHatY() == -1.0){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
-        if (getRightHatX() == 1.0){rightHatRight.setPressed(true);}else{rightHatRight.setPressed(false);}
-        if (getRightHatX() == -1.0){rightHatLeft.setPressed(true);}else{rightHatLeft.setPressed(false);}
-        
         
         //LEFT Z - does nothing right now.
         
@@ -160,7 +155,16 @@ public class OI {
     public Joystick getRightStick() {
         return rightJoy;
     }
-    
+    /*
+     * might need to comment out if it doesnt work :O
+     */
+    public void refreshButtons(){
+        if (getRightHatY() == 1.0){rightHatUp.setPressed(true);}else{rightHatUp.setPressed(false);}
+        if (getRightHatY() == -1.0){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
+        if (getRightHatX() == 1.0){rightHatRight.setPressed(true);}else{rightHatRight.setPressed(false);}
+        if (getRightHatX() == -1.0){rightHatLeft.setPressed(true);}else{rightHatLeft.setPressed(false);}
+        if (getDevmode()){devModeSwitch.setPressed(true);}else{devModeSwitch.setPressed(false);}
+    }
     /*
      * getLeftStick
      * Retruns full value of left Joystick
@@ -236,7 +240,16 @@ public class OI {
     public double getRightZ() {
         return rightJoy.getRawAxis(4);
     }
-   
+    
+    public boolean getDevmode(){
+        boolean devmode = driver.getDigitalIn(1);
+        return devmode;
+    }
+    
+    /*
+     * getDelay
+     * @return the delay number based on Cypress Analog Input
+     */
     public int getDelay(){
         double yaled = driver.getAnalogIn(2);
         if (yaled == 0){
@@ -254,11 +267,13 @@ public class OI {
         }else{
             delay = 0;
         }
-        System.out.println(delay);
         return delay;
         
     }
-    
+    /*
+     * getAutonMode
+     * @return autonomous mode based on analog input resistor values. :)
+     */
     public int getAutonMode(){
         double modebox = driver.getAnalogIn(1);
         if (modebox == 0){

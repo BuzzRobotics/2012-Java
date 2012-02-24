@@ -33,10 +33,9 @@ public class DriveWithJoystick extends CommandBase {
         oJoyY = oi.getRightY();
         joyx = (joyz*oJoyX)*(joyz*oJoyX)*(joyz*oJoyX) + (1 - joyz)*oJoyX;
         joyy = (joyz*oJoyY)*(joyz*oJoyY)*(joyz*oJoyY) + (1 - joyz)*oJoyY;
-        SmartDashboard.putDouble("JoystickX", joyx);
-        SmartDashboard.putDouble("JoystickY", joyy);
+        oi.refreshButtons();
             drivetrain.arcadeDrive(oJoyX,oJoyY);
-            
+        //y = (.75*x)^3+(1-.75)*x <- beautiful algorthm
        //        if (oi.getRightTwist() > 0.8 || oi.getRightTwist() < -0.8){
 //            if (oi.getRightTwist() > 0.1){
 //                drivetrain.drive(oi.getRightTwist(), 1);
