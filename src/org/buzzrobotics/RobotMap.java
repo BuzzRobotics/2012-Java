@@ -47,6 +47,18 @@ public class RobotMap {
             encRightDrive2 = 3,
             encLeftDrive1 = 4,
             encLeftDrive2 = 5;
+        
+         /*
+         * SuperShifter Ports
+         * Used on Solenoid Board
+         * solenoidShifterDeployPort - High Gear
+         * solenoidShifterRetractPort - Low Gear
+         */
+         public static final int
+            solenoidShifterDeploy = 1,   //High Gear
+            solenoidShifterRetract = 2;    //Low Gear  
+         
+         
         /*
          * Compressor Ports
          * compresserPWM - Compressor Spike RELAY port. Digital Sidecar Relay PORT 8
@@ -58,15 +70,7 @@ public class RobotMap {
             compressorPWM = 8,      //Compressor Spike RELAY port
             pressureSwitchPWM = 1;  //DIGITAL I/O - Used to tell when to stop Compressor
          
-         /*
-         * SuperShifter Ports
-         * Used on Solenoid Board
-         * solenoidShifterDeployPort - High Gear
-         * solenoidShifterRetractPort - Low Gear
-         */
-         public static final int
-            solenoidShifterDeploy = 1,   //High Gear
-            solenoidShifterRetract = 2;    //Low Gear  
+        
          
          /*
          * Solenoid Shooter
@@ -77,42 +81,22 @@ public class RobotMap {
          * Solenoid Slice
          */
          public static final int
-            solenoidShooterExtend = 3,   //High Gear
-            solenoidShooterRetract = 4;    //Low Gear  
+            solenoidShooterExtend = 3,
+            solenoidShooterRetract = 4;
          
-        /*
-         * Light Relay (Goes on RELAY port of DS)
-         * @param I whip my hair back and forth!
-         * @param Relay cable slot for the lights on BreadBoard
-         */
-        public final static int lightrelay = 1;
-        
-        /*
-         * Floor Optical Sensors
-         * Ports Mapped
-         */
-        public static final int
-                floor1_opticalSensor = 12,
-                floor2_opticalSensor = 13;
-        /*
-         * Floor Light Relay
-         * Triggered when all 3 foor sensors are lit.
-         */
-         public static int FloorLightRelayPort = 2;
-         public static int FloorLight2RelayPort = 4;
-
-
         
         /*
          * ShooterAngle Stuff
-         * Analog Slice port 1
+         * POT - Analog Slice port 1
+         * MOTOR - Digital Sidecar PWM
          */
         public static final int
                 ShooterPot = 3,
                 ShooterAngleMotor = 7;
         
         /*
-         * Brake :)
+         * Brake Solenoid
+         * On Solenoid Module
          */
         public static final int
                 brakeDeploy = 5,
@@ -120,24 +104,23 @@ public class RobotMap {
         
         /*
          * Ball Loader Door
+         * On Solenoid Module
          */
         public static final int
                 loaderDoorDeploy = 7,
                 loaderDoorRetract = 8;
         
-        /*
+         /*
          * Ball Pickup Rollers :)
          */
         public static int rollerPWM = 4;
-        
-        
+       
         /*
-         * Camera Servo Ports
-         * Used on PWM of Digital Sidecar
+         * Ball Feeder Motor
+         * (Ball Conveyor)
          */
-        public static final int
-                camerax = 9,
-                cameray = 10;
+        public static final int ballFeederPWM = 6;
+        
         /*
          * LoadMotorPWM
          * (Loads Ball onto shooter)
@@ -155,7 +138,34 @@ public class RobotMap {
                 BridgeArmPot = 4,
                 BridgeArmMotor = 3; 
         
-        public static final int ballFeederPWM = 6;
+        /*
+         * Camera Servo Ports
+         * Used on PWM of Digital Sidecar
+         * (SERVOS)
+         */
+        public static final int
+                camerax = 9,
+                cameray = 10;
        
+         /*
+         * Floor Optical Sensors
+         * On Digital IO on digital sidecar.
+         */
+        public static final int
+                floor1_opticalSensor = 12,
+                floor2_opticalSensor = 13;
         
+        /*
+         * Floor Light Relay
+         * Triggered when all 3 foor sensors are lit.
+         */
+         public static final int 
+                 FloorLightRelayPort = 2,
+                 FloorLight2RelayPort = 4;
+         
+         /*
+         * Camera Light
+         * On Relay port 1 of Digital Sidecar
+         */
+        public final static int lightrelay = 1;
 }

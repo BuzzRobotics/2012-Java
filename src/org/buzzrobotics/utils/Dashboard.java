@@ -1,13 +1,16 @@
 package org.buzzrobotics.utils;
 import edu.wpi.first.wpilibj.DriverStationLCD;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboardNamedData;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboardData;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.buzzrobotics.commands.CommandBase;
 
  /*
  * @author Kyle Deane
  */
-public class Dashboard {
+public class Dashboard {    
     public void update(){
         SmartDashboard.putDouble("pot", CommandBase.shooterangle.returnPot());
         

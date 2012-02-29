@@ -71,45 +71,41 @@ public class OI {
            rbutton10 = new JoystickButton(rightJoy, 10),
            rbutton11 = new JoystickButton(rightJoy, 11),
            rbutton12 = new JoystickButton(rightJoy, 12);
+   
    InternalButton rightHatUp = new InternalButton();
    InternalButton rightHatDown = new InternalButton();
    InternalButton rightHatLeft = new InternalButton();
    InternalButton rightHatRight = new InternalButton();
    InternalButton devModeSwitch = new InternalButton();
-    /**
+   
+    /** 
      * Bind the press of each button to a specific command or command group.
      * 
-     * Right Button 1 (Pressed): Shift Up
-     * Right Button 1 (Released): Shift Down
-     * Right Button 4: Light On
-     * Right Button 5: Light Off
-     * @author Kyle Deane
+     * @author Buzz Robotics
      */
     public OI() {
-        
-       System.out.println(driver.getAlliance());
-        
-        //LEFT Z - does nothing right now.
-        
 /****************************
- * Right
- ****************************/
+* Right
+****************************/
         
         rbutton2.whenPressed(new Rollers_On(-1));
         rbutton2.whenReleased(new Rollers_Off());
         
         rbutton3.whenPressed(new BridgeArm_Move(-1));
         rbutton3.whenReleased(new BridgeArm_Move(0));
+        
         rbutton4.whenPressed(new BridgeArm_Move(1));
         rbutton4.whenReleased(new BridgeArm_Move(0));
         
         rbutton5.whenPressed(new Shifter_Toggle());
+        
         rbutton6.whenPressed(new Brake_Toggle());
         
         rbutton7.whenPressed(new AdjustCamera(0.4,1));  // ( Tilt, Pan) Target???
+        
         rbutton8.whenPressed(new AdjustCamera(0.7, .26));   // ( Tilt, Pan) Ball????
         
-            rbutton9.whenPressed(new SystemsCheck());
+        rbutton9.whenPressed(new SystemsCheck());
         
         rbutton10.whenPressed(new Light_Toggle());      
 
