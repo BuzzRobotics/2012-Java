@@ -41,7 +41,7 @@ public class Drive_Time_Turn extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        System.out.println("isTimedOut = true");
+
     }
 
     // Called when another command which requires one or more of the same

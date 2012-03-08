@@ -25,7 +25,6 @@ public class Conveyor_Move extends CommandBase {
     }else{
             ballfeeder.stop();
         }
-        System.out.println("MOVING BALL FEEDER.");
     }
 
     // Make this return true when this Command no longer needs to run execute()

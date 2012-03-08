@@ -15,8 +15,6 @@ public class Dashboard {
         SmartDashboard.putDouble("Shooter Angle Pot", CommandBase.shooterangle.returnPot());
         SmartDashboard.putDouble("Bridge Arm Pot", CommandBase.bridgearm.returnPot());
         SmartDashboard.putBoolean("Shoter", CommandBase.shooter.status());
-
-        //SmartDashboard.putDouble("accel", CommandBase.rollerarm.getRollerDirection());
         
         SmartDashboard.putDouble("Autonomous Mode", CommandBase.oi.getAutonMode());
         SmartDashboard.putDouble("Autonomous Dely", CommandBase.oi.getDelay());
@@ -25,8 +23,6 @@ public class Dashboard {
         
         SmartDashboard.putDouble("R Joystick X", CommandBase.oi.getRightX());
         SmartDashboard.putDouble("R joystick Y", CommandBase.oi.getRightY());
-        
-        
         
         SmartDashboard.putDouble("Encoder - Average", CommandBase.drivetrain.getAvgDistance());
         SmartDashboard.putDouble("Encoder - Left", CommandBase.drivetrain.getLeftEncoder());
@@ -45,10 +41,5 @@ public class Dashboard {
         SmartDashboard.putDouble("Joystick Twist", CommandBase.oi.getRightTwist());
 
         SmartDashboard.putDouble("Sonar", CommandBase.keysensor.getSonarSensor());
-
-                        
-
-        
     }
-
 }

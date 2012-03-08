@@ -25,8 +25,6 @@ public class ShooterAngle extends PIDSubsystem {
         super("ShooterAngle", Kp, Ki, Kd);
         ShooterAngleMotor = new Jaguar(RobotMap.ShooterAngleMotor);
         ShooterPot = new AnalogChannel(RobotMap.ShooterPot);
-        SmartDashboard.putDouble("ShooterPot: ", ShooterPot.getVoltage());
-       
         
         
         // Use these to get going:

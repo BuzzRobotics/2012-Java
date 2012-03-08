@@ -25,7 +25,6 @@ public class BridgeArm extends PIDSubsystem {
         super("BridgeArm", Kp, Ki, Kd);
         BridgeArmMotor = new Jaguar(RobotMap.BridgeArmMotor);
         BridgeArmPot = new AnalogChannel(RobotMap.BridgeArmPot);
-        SmartDashboard.putDouble("ShooterPot: ", BridgeArmPot.getVoltage());
        
         
         

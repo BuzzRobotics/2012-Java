@@ -30,7 +30,6 @@ public class Brake extends Subsystem {
      */
     public void deploy(){
         brakestatus = true;
-        System.out.println("Braking.");
         robotBrake.set(DoubleSolenoid.Value.kReverse);
         brakeLight.set(Relay.Value.kForward);
     }
@@ -48,16 +47,21 @@ public class Brake extends Subsystem {
     /*
      * Toggle Brake
      * Smart Toggle: uses information for previous settings (if something else DEPLOYED it you won't have to hit it twice)
+     * 
+     * 
+     * BRAKE LIGHT OR KEYSENSOR LIGHT? WHICH IS IT!!!!!!!!!!!!!!!
      */
     public void toggle(){
          if (!brakestatus){
             brakestatus = true;
             robotBrake.set(DoubleSolenoid.Value.kForward);
+            //brakeLight.set(Relay.Value.kOff);
             CommandBase.keysensor.on2();
         }else{
             brakestatus = false;
             robotBrake.set(DoubleSolenoid.Value.kReverse);
             CommandBase.keysensor.off2();
+            //brakeLight.set(Relay.Value.kForward);
         }
     }
    /*
