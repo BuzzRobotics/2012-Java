@@ -19,6 +19,7 @@ public class AutoMode4 extends CommandGroup {
     public AutoMode4() {
         addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
+        if (CommandBase.oi.getDevmode()){
         addSequential(new Drive_Encoder_Straight(100));             //Drive over to the ramp
         addSequential(new Drive_Encoder_Turn(270));
         addSequential(new Drive_Encoder_Straight(100));
@@ -46,7 +47,7 @@ public class AutoMode4 extends CommandGroup {
         addSequential(new Loader_Load());
         addSequential(new Shooter_Fire());              //FIRE 3
         addSequential(new Drive_Time_Turn(0, 0, 10));            //Wait around for 10 seconds            //Wait for automode to end
-
+        }
         
         // Add Commands here:
         // e.g. addSequential(new Command1());

@@ -12,43 +12,41 @@ import org.buzzrobotics.commands.CommandBase;
  */
 public class Dashboard {    
     public void update(){
-        SmartDashboard.putDouble("pot", CommandBase.shooterangle.returnPot());
-        
-        SmartDashboard.putDouble("bridgearmpot", CommandBase.bridgearm.returnPot());
-      //  System.out.println(CommandBase.bridgearm.returnPot());
+        SmartDashboard.putDouble("Shooter Angle Pot", CommandBase.shooterangle.returnPot());
+        SmartDashboard.putDouble("Bridge Arm Pot", CommandBase.bridgearm.returnPot());
+        SmartDashboard.putBoolean("Shoter", CommandBase.shooter.status());
 
         //SmartDashboard.putDouble("accel", CommandBase.rollerarm.getRollerDirection());
         
-        SmartDashboard.putDouble("GetAutonMode", CommandBase.oi.getAutonMode());
-        SmartDashboard.putDouble("Delay", CommandBase.oi.getDelay());
-        SmartDashboard.putBoolean("light", CommandBase.light.status());
+        SmartDashboard.putDouble("Autonomous Mode", CommandBase.oi.getAutonMode());
+        SmartDashboard.putDouble("Autonomous Dely", CommandBase.oi.getDelay());
         
-        SmartDashboard.putDouble("rtX", CommandBase.oi.getRightX());
-        SmartDashboard.putDouble("rtY", CommandBase.oi.getRightY());
-        SmartDashboard.putDouble("ShooterPot", CommandBase.shooterangle.returnPot());
-        SmartDashboard.putBoolean("rollerarm  ", CommandBase.rollerarm.status());
+        SmartDashboard.putBoolean("Camera Light", CommandBase.light.status());
         
-        SmartDashboard.putBoolean("light", CommandBase.light.status());
-        //SmartDashboard.putBoolean("shooter", CommandBase.shooter.status());
+        SmartDashboard.putDouble("R Joystick X", CommandBase.oi.getRightX());
+        SmartDashboard.putDouble("R joystick Y", CommandBase.oi.getRightY());
         
-        SmartDashboard.putDouble("encavg", CommandBase.drivetrain.getAvgDistance());
-        SmartDashboard.putDouble("encleft", CommandBase.drivetrain.getLeftEncoder());
-        SmartDashboard.putDouble("encright", CommandBase.drivetrain.getRightEncoder());
         
-        SmartDashboard.putBoolean("fir1", CommandBase.keysensor.getFloor1IRSensor());
-        SmartDashboard.putBoolean("fir2", CommandBase.keysensor.getFloor2IRSensor());
         
-        SmartDashboard.putBoolean("brake", CommandBase.brake.status());
-        SmartDashboard.putBoolean("loaderdoor", CommandBase.ballfeeder.doorStatus());
-        SmartDashboard.putBoolean("shifter", CommandBase.shifter.status());
+        SmartDashboard.putDouble("Encoder - Average", CommandBase.drivetrain.getAvgDistance());
+        SmartDashboard.putDouble("Encoder - Left", CommandBase.drivetrain.getLeftEncoder());
+        SmartDashboard.putDouble("Encoder - Right", CommandBase.drivetrain.getRightEncoder());
         
-            SmartDashboard.putDouble("HatY", CommandBase.oi.getRightHatY());
-            SmartDashboard.putDouble("HatX", CommandBase.oi.getRightHatX());
-            SmartDashboard.putDouble("Twist", CommandBase.oi.getRightTwist());
+        SmartDashboard.putBoolean("IR 1", CommandBase.keysensor.getFloor1IRSensor());
+        SmartDashboard.putBoolean("IR 2", CommandBase.keysensor.getFloor2IRSensor());
+        
+        SmartDashboard.putBoolean("Brake", CommandBase.brake.status());
+        
+        SmartDashboard.putBoolean("Loader Door", CommandBase.ballfeeder.doorStatus());
+        
+        SmartDashboard.putBoolean("Shifter", CommandBase.shifter.status());
+        SmartDashboard.putDouble("Shifter Count", CommandBase.shifter.getCounter());
+    
+        SmartDashboard.putDouble("Joystick Twist", CommandBase.oi.getRightTwist());
 
-            SmartDashboard.putDouble("Sonar ", CommandBase.keysensor.getSonarSensor());
+        SmartDashboard.putDouble("Sonar", CommandBase.keysensor.getSonarSensor());
 
-                        SmartDashboard.putDouble("shiftercount", CommandBase.shifter.getCounter());
+                        
 
         
     }

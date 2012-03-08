@@ -17,6 +17,8 @@ import org.buzzrobotics.subsystems.DriveTrain;
  * 
  */
 public class AutoMode2 extends CommandGroup {
+
+            
     public AutoMode2() {
        
         addSequential(new Light(true));
@@ -24,6 +26,7 @@ public class AutoMode2 extends CommandGroup {
         addSequential(new Loader_Load());
         addSequential(new WaitCommand(1));
         addSequential(new Shooter_Fire());             //Shoot the other ball
+        if (CommandBase.oi.getDevmode()){
         addSequential(new Drive_Encoder_Straight(24));             //Drive over to the ramp
         addSequential(new BridgeArm_Move(-1));           //Drop the pickup arm to lower the ramp
         addSequential(new Rollers_On(1));              //Turn on Rollers
@@ -46,5 +49,6 @@ public class AutoMode2 extends CommandGroup {
         addSequential(new WaitCommand(1));
         addSequential(new Shooter_Fire());             //Fire again
         addSequential(new Drive_Time_Turn(0, 0, 10));            //Wait around for 10 seconds            //Wait out rest of automode
-    }
+        }
+        }
 }

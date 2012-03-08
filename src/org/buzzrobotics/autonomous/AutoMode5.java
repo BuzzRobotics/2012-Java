@@ -25,6 +25,8 @@ public class AutoMode5 extends CommandGroup {
         //addSequential(new MoveBallFeeder(0));
         addSequential(new Delay(1));
         addSequential(new Shooter_Fire());  
+        if (CommandBase.oi.getDevmode()){
         addSequential(new Drive_Time_Turn(0.5, 0, 2));
+        }
     }
 }

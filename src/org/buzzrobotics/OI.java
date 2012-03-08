@@ -246,9 +246,7 @@ public class OI {
     }
     
     public boolean getDevmode(){
-        //boolean devmode = driver.getDigitalIn(1);
-        //return devmode;
-        return false;
+        return driver.getDigitalIn(1);
     }
     
     /*
