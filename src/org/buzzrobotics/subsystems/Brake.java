@@ -1,6 +1,7 @@
 package org.buzzrobotics.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.CommandBase;
@@ -10,6 +11,7 @@ import org.buzzrobotics.commands.CommandBase;
  * @author Kyle Deane
  */
 public class Brake extends Subsystem {
+    Relay brakeLight = new Relay(RobotMap.brakelight);
     DoubleSolenoid robotBrake = new DoubleSolenoid(RobotMap.brakeDeploy, RobotMap.brakeRetract);
     public boolean brakestatus = false;
     
@@ -30,6 +32,7 @@ public class Brake extends Subsystem {
         brakestatus = true;
         System.out.println("Braking.");
         robotBrake.set(DoubleSolenoid.Value.kReverse);
+        brakeLight.set(Relay.Value.kForward);
     }
     
     /*
@@ -38,6 +41,7 @@ public class Brake extends Subsystem {
     public void retract(){
         brakestatus = false;
         robotBrake.set(DoubleSolenoid.Value.kForward);
+        brakeLight.set(Relay.Value.kOff);
     }
     
 
@@ -49,9 +53,11 @@ public class Brake extends Subsystem {
          if (!brakestatus){
             brakestatus = true;
             robotBrake.set(DoubleSolenoid.Value.kForward);
+            CommandBase.keysensor.on2();
         }else{
             brakestatus = false;
             robotBrake.set(DoubleSolenoid.Value.kReverse);
+            CommandBase.keysensor.off2();
         }
     }
    /*

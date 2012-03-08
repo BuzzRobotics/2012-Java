@@ -6,6 +6,7 @@ package org.buzzrobotics.commands;
 import org.buzzrobotics.autonomous.Hybrid;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.buzzrobotics.autonomous.*;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  * Autonomous Mode Selector
@@ -18,9 +19,9 @@ public class Autonomous extends CommandGroup {
          * Delay
          */
         if (delay == -1){
-            addSequential(new Delay(CommandBase.oi.getDelay()));
+            addSequential(new WaitCommand(CommandBase.oi.getDelay()));
         }else if (delay != 0){
-            addSequential(new Delay(delay));
+            addSequential(new WaitCommand(delay));
         }
         /*
          * Select the Autonomous Mode

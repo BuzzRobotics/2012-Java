@@ -46,6 +46,7 @@ public class Dashboard {
             SmartDashboard.putDouble("HatX", CommandBase.oi.getRightHatX());
             SmartDashboard.putDouble("Twist", CommandBase.oi.getRightTwist());
 
+            SmartDashboard.putDouble("Sonar ", CommandBase.keysensor.getSonarSensor());
 
                         SmartDashboard.putDouble("shiftercount", CommandBase.shifter.getCounter());
 

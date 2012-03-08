@@ -1,17 +1,14 @@
 package org.buzzrobotics.commands;
 
-/**
- * Adjusts Camera according to the x and y parameters.
- * @author buzz5
+/*
+ * Adjusts camera X
+ * @author Kyle Deane
  */
-public class AdjustCamera extends CommandBase {
-    public double m_x = 1;
-    public double m_y = 1;
-    public AdjustCamera(double x, double y) {
-        // Use requires() here to declare subsystem dependencies
+public class Camera_AdjustX extends CommandBase {
+    public double m_x = .5;
+    public Camera_AdjustX(double x) {
         requires(camera);
         m_x = x;
-        m_y = y;
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +17,7 @@ public class AdjustCamera extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        camera.setCamera(m_x, m_y);
+        camera.setCameraX(m_x);
     }
 
     // Make this return true when this Command no longer needs to run execute()

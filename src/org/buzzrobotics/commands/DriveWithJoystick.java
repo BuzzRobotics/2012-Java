@@ -27,13 +27,17 @@ public class DriveWithJoystick extends CommandBase {
         joyz = oi.getRightZ();
  
         oi.refreshButtons();
-        drivetrain.arcadeDrive(oi.getRightY(),oi.getRightY());
+        drivetrain.arcadeDrive(oi.getRightX(),oi.getRightY());
         //y = (.75*x)^3+(1-.75)*x <- beautiful algorthm
 
         
-        if(keysensor.getFloor1IRSensor()){keysensor.on1();}else{keysensor.off1();}
-        
-        if(keysensor.getFloor2IRSensor()){keysensor.on2();}else{keysensor.on2();}
+        if(keysensor.getFloor1IRSensor() && keysensor.getFloor2IRSensor()){
+            keysensor.on1();
+        }else if (keysensor.getSonarSensor() >= 2.5){
+            keysensor.on1();
+        }else{     
+            keysensor.off1();
+        }        
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -3,7 +3,7 @@ package org.buzzrobotics.subsystems;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.buzzrobotics.RobotMap;
-import org.buzzrobotics.commands.AdjustCamera;
+import org.buzzrobotics.commands.Camera_AdjustXY;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.camera.AxisCamera;

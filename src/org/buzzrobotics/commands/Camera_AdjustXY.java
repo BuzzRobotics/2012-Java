@@ -1,13 +1,16 @@
 package org.buzzrobotics.commands;
 
 /**
- * Adjusts Camera's Y axis. (On Motor Mount)
- * @author Kyle Deane
+ * Adjusts Camera according to the x and y parameters.
+ * @author buzz5
  */
-public class AdjustCameraY extends CommandBase {
+public class Camera_AdjustXY extends CommandBase {
+    public double m_x = 1;
     public double m_y = 1;
-    public AdjustCameraY(double y) {
+    public Camera_AdjustXY(double x, double y) {
+        // Use requires() here to declare subsystem dependencies
         requires(camera);
+        m_x = x;
         m_y = y;
     }
 
@@ -17,7 +20,7 @@ public class AdjustCameraY extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        camera.setCameraY(m_y);
+        camera.setCamera(m_x, m_y);
     }
 
     // Make this return true when this Command no longer needs to run execute()

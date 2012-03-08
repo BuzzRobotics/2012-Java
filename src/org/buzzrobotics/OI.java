@@ -88,6 +88,8 @@ public class OI {
 * Right
 ****************************/
         
+        rbutton1.whenPressed(new Brake_Toggle());
+        
         rbutton2.whenPressed(new Rollers_On(-1));
         rbutton2.whenReleased(new Rollers_Off());
         
@@ -99,15 +101,21 @@ public class OI {
         
         rbutton5.whenPressed(new Shifter_Toggle());
         
-        rbutton6.whenPressed(new Brake_Toggle());
+        rbutton6.whenPressed(new Drive_Encoder_Reset());
         
-        rbutton7.whenPressed(new AdjustCamera(0.4,1));  // ( Tilt, Pan) Target???
+        rbutton7.whenPressed(new Camera_AdjustXY(0.4,1));  // ( Tilt, Pan) Target???
         
-        rbutton8.whenPressed(new AdjustCamera(0.7, .26));   // ( Tilt, Pan) Ball????
+        rbutton8.whenPressed(new Camera_AdjustXY(0.7, .26));   // ( Tilt, Pan) Ball????
         
         rbutton9.whenPressed(new SystemsCheck());
         
-        rbutton10.whenPressed(new Light_Toggle());      
+        rbutton10.whenPressed(new Light_Toggle());   
+       // rbutton10.whenPressed(new flashyLights());        
+        rbutton11.whenPressed(new Rollers_On(-1));
+        rbutton11.whenReleased(new Rollers_Off());
+        
+        rbutton12.whenPressed(new Rollers_On(1));
+        rbutton12.whenReleased(new Rollers_Off());
 
 /****************************
  * Left
@@ -137,9 +145,9 @@ public class OI {
         lbutton9.whenPressed(new ShooterAngle_Move(-1));
         lbutton9.whenReleased(new ShooterAngle_Move(0));
         
-        lbutton10.whenPressed(new ShooterAngle_Set(2.07));
+        lbutton10.whenPressed(new ShooterAngle_Set(1.11)); //NO BRAKES, FENDER, 2 POINT SHOT
         
-        lbutton11.whenPressed(new ShooterAngle_Set(3.70));  
+        lbutton11.whenPressed(new ShooterAngle_Set(1.84));  //BRAKES ON, 3 POINT, 14 INCHES AWAY
         
     }
     /*
@@ -159,7 +167,7 @@ public class OI {
         if (getRightHatY() == -1.0){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
         if (getRightHatX() == 1.0){rightHatRight.setPressed(true);}else{rightHatRight.setPressed(false);}
         if (getRightHatX() == -1.0){rightHatLeft.setPressed(true);}else{rightHatLeft.setPressed(false);}
-        if (getDevmode()){devModeSwitch.setPressed(true);}else{devModeSwitch.setPressed(false);}
+        //if (getDevmode()){devModeSwitch.setPressed(true);}else{devModeSwitch.setPressed(false);}
     }
     /*
      * getLeftStick
@@ -238,8 +246,9 @@ public class OI {
     }
     
     public boolean getDevmode(){
-        boolean devmode = driver.getDigitalIn(1);
-        return devmode;
+        //boolean devmode = driver.getDigitalIn(1);
+        //return devmode;
+        return false;
     }
     
     /*

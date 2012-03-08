@@ -77,11 +77,11 @@ public class SystemsCheck extends CommandGroup {
     }
     private void checkCamera() {
         DS.disp(3, "Cam: 0.4,1");
-         addSequential(new AdjustCamera(0.4,1));
+         addSequential(new Camera_AdjustXY(0.4,1));
          addSequential(new Light(true));
          addSequential(new WaitCommand(1));
          DS.disp(3, "Cam: 0.7,.26");
-         addSequential(new AdjustCamera(0.7, .26));
+         addSequential(new Camera_AdjustXY(0.7, .26));
          addSequential(new Light(false));
         
     }

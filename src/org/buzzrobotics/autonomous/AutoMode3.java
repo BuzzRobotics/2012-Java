@@ -4,6 +4,7 @@
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import org.buzzrobotics.commands.*;
 import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.DriveTrain;
@@ -22,13 +23,13 @@ public class AutoMode3 extends CommandGroup {
         addSequential(new BridgeArm_Move(-1));           //Drop the pickup arm to lower the ramp
         addSequential(new Rollers_On(1));              //Turn on Rollers
         addSequential(new Conveyor_Move(1));
-        addSequential(new Delay(3));             //Delay again   
+        addSequential(new WaitCommand(3));             //Delay again   
         addSequential(new Rollers_Off());              //Turn off the rollers
         addSequential(new Conveyor_Move(0));
         addSequential(new BridgeArm_Move(1));           //Drop the pickup arm to lower the ramp
         addSequential(new Drive_Encoder_Straight(-24));            //...while we drive back to the key
         addSequential(new Conveyor_Move(1));
-        addSequential(new Delay(1));
+        addSequential(new WaitCommand(1));
         addSequential(new Conveyor_Move(0));
         addSequential(new Loader_Load());
         addSequential(new Delay(1));

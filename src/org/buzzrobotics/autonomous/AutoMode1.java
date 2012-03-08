@@ -1,6 +1,7 @@
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import org.buzzrobotics.commands.*;
 
 /**
@@ -19,9 +20,9 @@ public class AutoMode1 extends CommandGroup {
        // addSequential(new MoveBallFeeder(1));
         addSequential(new Loader_Load());
         //addSequential(new MoveBallFeeder(0));
-        addSequential(new Delay(1));
+        addSequential(new WaitCommand(1));
         addSequential(new Shooter_Fire());    
-        addParallel(new Lights_Flashy());//Shoot the other ball
+      //  addParallel(new Lights_Flashy());//Shoot the other ball
         
 //        addSequential(new AutonDrive(24));            //UNCOMMENT LATER
 //        addParallel(new BridgeArm_Move(1));
