@@ -50,18 +50,20 @@ public class Brake extends Subsystem {
      * 
      * 
      * BRAKE LIGHT OR KEYSENSOR LIGHT? WHICH IS IT!!!!!!!!!!!!!!!
+     * 
+     * Chill, I got this... - P
      */
     public void toggle(){
          if (!brakestatus){
             brakestatus = true;
             robotBrake.set(DoubleSolenoid.Value.kForward);
-            //brakeLight.set(Relay.Value.kOff);
-            CommandBase.keysensor.on2();
+            brakeLight.set(Relay.Value.kOff);
+            //CommandBase.keysensor.on2();
         }else{
             brakestatus = false;
             robotBrake.set(DoubleSolenoid.Value.kReverse);
-            CommandBase.keysensor.off2();
-            //brakeLight.set(Relay.Value.kForward);
+            //CommandBase.keysensor.off2();
+            brakeLight.set(Relay.Value.kForward);
         }
     }
    /*

@@ -70,7 +70,8 @@ public class OI {
            rbutton9 = new JoystickButton(rightJoy, 9),
            rbutton10 = new JoystickButton(rightJoy, 10),
            rbutton11 = new JoystickButton(rightJoy, 11),
-           rbutton12 = new JoystickButton(rightJoy, 12);
+           rbutton12 = new JoystickButton(rightJoy, 12),
+           rbutton17 = new JoystickButton(rightJoy, 17); 
    
    InternalButton rightHatUp = new InternalButton();
    InternalButton rightHatDown = new InternalButton();
@@ -90,8 +91,8 @@ public class OI {
         
         rbutton1.whenPressed(new Brake_Toggle());
         
-        rbutton2.whenPressed(new Rollers_On(-1));
-        rbutton2.whenReleased(new Rollers_Off());
+        //rbutton2.whenPressed(new Rollers_On(-1));
+        //rbutton2.whenReleased(new Rollers_Off());
         
         rbutton3.whenPressed(new BridgeArm_Move(-1));
         rbutton3.whenReleased(new BridgeArm_Move(0));
@@ -111,11 +112,12 @@ public class OI {
         
         rbutton10.whenPressed(new Light_Toggle());   
        // rbutton10.whenPressed(new flashyLights());        
-        rbutton11.whenPressed(new Rollers_On(-1));
-        rbutton11.whenReleased(new Rollers_Off());
-        
-        rbutton12.whenPressed(new Rollers_On(1));
-        rbutton12.whenReleased(new Rollers_Off());
+        rbutton11.whenPressed(new FeederDoor_Toggle());
+        //rbutton11.whenReleased(new Rollers_Off());
+        rbutton17.whenPressed(new Shifter_Up());
+        rbutton17.whenReleased(new Shifter_Down());
+//        rbutton12.whenPressed(new Rollers_On(1));
+//        rbutton12.whenReleased(new Rollers_Off());
 
 /****************************
  * Left
@@ -134,10 +136,10 @@ public class OI {
         lbutton5.whenPressed(new Loader_Reverse());
         lbutton5.whenReleased(new Loader_Stop());
         
-        lbutton6.whenPressed(new Rollers_On(-1));
-        lbutton6.whenReleased(new Rollers_Off());
+        lbutton6.whenPressed(new rollersToggleWithZ());
+        lbutton7.whenReleased(new Rollers_Off());
 
-        lbutton7.whenPressed(new FeederDoor_Toggle());
+        //lbutton7.whenPressed(new FeederDoor_Toggle());
         
         lbutton8.whenPressed(new ShooterAngle_Move(1));
         lbutton8.whenReleased(new ShooterAngle_Move(0));

@@ -17,6 +17,7 @@ public class KeySensor extends Subsystem {
     public boolean lighton;
     Relay floor_light;
     Relay floor_light2;
+    Relay sonarLight;
     AnalogChannel sonarSensor;
     private DigitalInput floor2 = new DigitalInput(RobotMap.floor2_opticalSensor);
     private DigitalInput floor1 = new DigitalInput(RobotMap.floor1_opticalSensor);
@@ -26,9 +27,10 @@ public class KeySensor extends Subsystem {
         floor_light = new Relay(RobotMap.FloorLightRelayPort);
         floor_light2 = new Relay(RobotMap.FloorLight2RelayPort);
         sonarSensor = new AnalogChannel(RobotMap.sonarPort);
+        sonarLight = new Relay(7);      //Put this in the Robotmap later...
     }
     public double getSonarSensor(){
-        return sonarSensor.getVoltage();
+        return sonarSensor.getAverageVoltage();
     }
     
     /*
@@ -68,6 +70,14 @@ public class KeySensor extends Subsystem {
         return lighton;
     }
     
+    public void sonarLightOn(){
+        sonarLight.set(Relay.Value.kForward);
+    }
+    
+    public void sonarLightOff(){
+        sonarLight.set(Relay.Value.kOff);
+    }
+
     /*
      * Returns an inverse of the floor sensor 1
      * @return false if nothings present
