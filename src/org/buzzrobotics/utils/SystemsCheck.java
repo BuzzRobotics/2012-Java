@@ -52,14 +52,7 @@ public class SystemsCheck extends CommandGroup {
         addSequential(new Rollers_Off());
     }
     private void checkShooterAngle(){
-        DS.disp(3, "SA: 2.07");
-        addSequential(new ShooterAngle_Set(2.07));
-        addSequential(new WaitCommand(1));
-        DS.disp(3, "SA: 3.70");
-        addSequential(new ShooterAngle_Set(3.70));
-        addSequential(new WaitCommand(2));
-        DS.disp(3, "SA: 2.07");
-        addSequential(new ShooterAngle_Set(2.07));
+
     }
     private void checkConveyor() {
         DS.disp(3, "Convey: Forward");

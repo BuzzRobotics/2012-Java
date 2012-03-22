@@ -73,10 +73,10 @@ public class OI {
            rbutton11 = new JoystickButton(rightJoy, 11),
            rbutton12 = new JoystickButton(rightJoy, 12);
    
-   InternalButton rightHatUp = new InternalButton();
-   InternalButton rightHatDown = new InternalButton();
-   InternalButton rightHatLeft = new InternalButton();
-   InternalButton rightHatRight = new InternalButton();
+//   InternalButton rightHatUp = new InternalButton();
+//   InternalButton rightHatDown = new InternalButton();
+//   InternalButton rightHatLeft = new InternalButton();
+//   InternalButton rightHatRight = new InternalButton();
    InternalButton devModeSwitch = new InternalButton();
    
     /** 
@@ -143,15 +143,9 @@ public class OI {
         lbutton7.whenPressed(new Loader_Reverse());
         lbutton7.whenReleased(new Loader_Stop());
         
-        lbutton8.whenPressed(new ShooterAngle_Move(1));
-        lbutton8.whenReleased(new ShooterAngle_Move(0));
+        //lbutton10.whenPressed(new ShooterAngle_Set(1.11)); //NO BRAKES, FENDER, 2 POINT SHOT
         
-        lbutton9.whenPressed(new ShooterAngle_Move(-1));
-        lbutton9.whenReleased(new ShooterAngle_Move(0));
-        
-        lbutton10.whenPressed(new ShooterAngle_Set(1.11)); //NO BRAKES, FENDER, 2 POINT SHOT
-        
-        lbutton11.whenPressed(new ShooterAngle_Set(1.84));  //BRAKES ON, 3 POINT, 14 INCHES AWAY
+        //lbutton11.whenPressed(new ShooterAngle_Set(1.84));  //BRAKES ON, 3 POINT, 14 INCHES AWAY
         lbutton12.whenPressed(new Shooter_Fire());
     }
     /*                                                                                        
@@ -166,13 +160,13 @@ public class OI {
     /*
      * might need to comment out if it doesnt work :O
      */
-    public void refreshButtons(){
-        if (getRightHatY() == 1.0){rightHatUp.setPressed(true);}else{rightHatUp.setPressed(false);}
-        if (getRightHatY() == -1.0){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
-        if (getRightHatX() == 1.0){rightHatRight.setPressed(true);}else{rightHatRight.setPressed(false);}
-        if (getRightHatX() == -1.0){rightHatLeft.setPressed(true);}else{rightHatLeft.setPressed(false);}
-        //if (getDevmode()){devModeSwitch.setPressed(true);}else{devModeSwitch.setPressed(false);}
-    }
+//    public void refreshButtons(){
+//        if (getRightHatY() == 1.0){rightHatUp.setPressed(true);}else{rightHatUp.setPressed(false);}
+//        if (getRightHatY() == -1.0){rightHatDown.setPressed(true);}else{rightHatDown.setPressed(false);}
+//        if (getRightHatX() == 1.0){rightHatRight.setPressed(true);}else{rightHatRight.setPressed(false);}
+//        if (getRightHatX() == -1.0){rightHatLeft.setPressed(true);}else{rightHatLeft.setPressed(false);}
+//        //if (getDevmode()){devModeSwitch.setPressed(true);}else{devModeSwitch.setPressed(false);}
+//    }
     /*
      * getLeftStick
      * Retruns full value of left Joystick

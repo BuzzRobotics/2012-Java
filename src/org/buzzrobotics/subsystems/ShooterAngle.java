@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.CommandBase;
+import org.buzzrobotics.commands.ShooterAngle_Set;
 
 /**
  * Shooter Angle
@@ -21,12 +22,16 @@ public class ShooterAngle extends PIDSubsystem {
     
     AnalogChannel ShooterPot;
     SpeedController ShooterAngleMotor;
+    
     public ShooterAngle() {
         super("ShooterAngle", Kp, Ki, Kd);
         ShooterAngleMotor = new Jaguar(RobotMap.ShooterAngleMotor);
         ShooterPot = new AnalogChannel(RobotMap.ShooterPot);
-        
-        
+         // setSetpointRange(LOWER_BOUND, UPPER_BOUND);
+        double startpos = returnPot();
+        setSetpoint(startpos);
+        enable(); //possibly might need to be removed. i can set it to enable on the first run.
+      
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
@@ -36,6 +41,7 @@ public class ShooterAngle extends PIDSubsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
       //  setDefaultCommand(new Shooter_Angle(3));
+        setDefaultCommand(new ShooterAngle_Set());
     }
     
     protected double returnPIDInput() {
@@ -52,13 +58,24 @@ public class ShooterAngle extends PIDSubsystem {
     public double returnPot(){
        return ShooterPot.getVoltage();
     }
-    public void driveUp(){
-        ShooterAngleMotor.set(1);
+    public void jogUp() {
+        setSetpointRelative(-.01);
     }
-    public void driveDown(){
-        ShooterAngleMotor.set(-1);
+    public void jogDown() {
+        setSetpointRelative(.01);
     }
-    public void stop(){
-        ShooterAngleMotor.set(0);
+    
+     public void shot1() {
+        setSetpoint(1.84);
+     }
+     
+     public void shot2() {
+         setSetpoint(1.11);
+     }
+     
+     public boolean atSetpoint() {
+        return Math.abs(getPosition() - getSetpoint()) < .1;
     }
 }
+     
+

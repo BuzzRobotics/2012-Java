@@ -88,9 +88,10 @@ public class Buzz extends IterativeRobot {
     /**
      * This function is called periodically during operator control
      */
+    public double status = 0;
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        if (devmode){dashboard.update();}    
+        dashboard.update();  
     }
     
     public void disabledInit() {

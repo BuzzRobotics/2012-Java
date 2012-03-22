@@ -26,7 +26,7 @@ public class DriveWithJoystick extends CommandBase {
     protected void execute() {
         joyz = oi.getRightZ();
  
-        oi.refreshButtons();
+      
         drivetrain.arcadeDrive(oi.getRightX(),oi.getRightY());
         //y = (.75*x)^3+(1-.75)*x <- beautiful algorthm
 
