@@ -51,7 +51,8 @@ public class OI {
            lbutton8 = new JoystickButton(leftJoy, 8),
            lbutton9 = new JoystickButton(leftJoy, 9),
            lbutton10 = new JoystickButton(leftJoy, 10),
-           lbutton11 = new JoystickButton(leftJoy, 11);
+           lbutton11 = new JoystickButton(leftJoy, 11),
+           lbutton12 = new JoystickButton(leftJoy, 12);
    
     /*
      * Joystick 2 Button Definitions
@@ -70,8 +71,7 @@ public class OI {
            rbutton9 = new JoystickButton(rightJoy, 9),
            rbutton10 = new JoystickButton(rightJoy, 10),
            rbutton11 = new JoystickButton(rightJoy, 11),
-           rbutton12 = new JoystickButton(rightJoy, 12),
-           rbutton17 = new JoystickButton(rightJoy, 17); 
+           rbutton12 = new JoystickButton(rightJoy, 12);
    
    InternalButton rightHatUp = new InternalButton();
    InternalButton rightHatDown = new InternalButton();
@@ -114,32 +114,34 @@ public class OI {
        // rbutton10.whenPressed(new flashyLights());        
         rbutton11.whenPressed(new FeederDoor_Toggle());
         //rbutton11.whenReleased(new Rollers_Off());
-        rbutton17.whenPressed(new Shifter_Up());
-        rbutton17.whenReleased(new Shifter_Down());
 //        rbutton12.whenPressed(new Rollers_On(1));
 //        rbutton12.whenReleased(new Rollers_Off());
 
 /****************************
  * Left
  ****************************/
-        lbutton1.whenPressed(new Shooter_Fire());
         
-        lbutton2.whenPressed(new Conveyor_Move(1));
-        lbutton2.whenReleased(new Conveyor_Move(0));
         
-        lbutton3.whenPressed(new Conveyor_Move(-1));
-        lbutton3.whenReleased(new Conveyor_Move(0));
+        lbutton1.whenPressed(new FeederDoor_Open());
+        lbutton1.whenReleased(new FeederDoor_Close());
         
-        lbutton4.whenPressed(new Loader_Forward());
-        lbutton4.whenReleased(new Loader_Stop());
+        lbutton2.whenPressed(new Rollers_On(-1));
+        lbutton2.whenReleased(new Rollers_Off());
         
-        lbutton5.whenPressed(new Loader_Reverse());
-        lbutton5.whenReleased(new Loader_Stop());
+        lbutton3.whenPressed(new Rollers_On(1));
+        lbutton3.whenReleased(new Rollers_Off());
         
-        lbutton6.whenPressed(new rollersToggleWithZ());
-        lbutton7.whenReleased(new Rollers_Off());
-
-        //lbutton7.whenPressed(new FeederDoor_Toggle());
+        lbutton4.whenPressed(new Conveyor_Move(1));
+        lbutton4.whenReleased(new Conveyor_Move(0));
+        
+        lbutton5.whenPressed(new Conveyor_Move(-1));
+        lbutton5.whenReleased(new Conveyor_Move(0));
+        
+        lbutton6.whenPressed(new Loader_Forward());
+        lbutton6.whenReleased(new Loader_Stop());
+        
+        lbutton7.whenPressed(new Loader_Reverse());
+        lbutton7.whenReleased(new Loader_Stop());
         
         lbutton8.whenPressed(new ShooterAngle_Move(1));
         lbutton8.whenReleased(new ShooterAngle_Move(0));
@@ -150,9 +152,9 @@ public class OI {
         lbutton10.whenPressed(new ShooterAngle_Set(1.11)); //NO BRAKES, FENDER, 2 POINT SHOT
         
         lbutton11.whenPressed(new ShooterAngle_Set(1.84));  //BRAKES ON, 3 POINT, 14 INCHES AWAY
-        
+        lbutton12.whenPressed(new Shooter_Fire());
     }
-    /*
+    /*                                                                                        
      * getRightStick
      * Returns full value of joystick
      * @return rightJoy
