@@ -59,11 +59,16 @@ public class ShooterAngle extends PIDSubsystem {
        return ShooterPot.getVoltage();
     }
     public void jogUp() {
-        setSetpointRelative(-.01);
+        setSetpointRelative(-.1);
     }
     public void jogDown() {
-        setSetpointRelative(.01);
+        setSetpointRelative(.1);
     }
+    
+    
+    
+    
+    
     
      public void shot1() {
         setSetpoint(1.84);

@@ -11,7 +11,7 @@ package org.buzzrobotics.commands;
 public class ShooterAngle_Set extends CommandBase {
      public double startpoint;
      public ShooterAngle_Set() {
-
+           requires(shooterangle);
        
     }
 
@@ -25,6 +25,7 @@ public class ShooterAngle_Set extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        System.out.println("Setpoint: " + shooterangle.getSetpoint() + "  Joystick Pos: " + oi.getLeftX());
             if (oi.getLeftX() >= .9){
                 shooterangle.shot1();
             }
