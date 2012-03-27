@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendablePIDController;
 import org.buzzrobotics.RobotMap;
 import org.buzzrobotics.commands.CommandBase;
 import org.buzzrobotics.commands.ShooterAngle_Set;
@@ -16,10 +17,9 @@ import org.buzzrobotics.commands.ShooterAngle_Set;
  */
 public class ShooterAngle extends PIDSubsystem {
 
-    private static final double Kp = 6;
+    private static final double Kp = 5;
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
-    
     AnalogChannel ShooterPot;
     SpeedController ShooterAngleMotor;
     
@@ -27,7 +27,7 @@ public class ShooterAngle extends PIDSubsystem {
         super("ShooterAngle", Kp, Ki, Kd);
         ShooterAngleMotor = new Jaguar(RobotMap.ShooterAngleMotor);
         ShooterPot = new AnalogChannel(RobotMap.ShooterPot);
-         // setSetpointRange(LOWER_BOUND, UPPER_BOUND);
+        setSetpointRange(1.09, 3.79);
         double startpos = returnPot();
         setSetpoint(startpos);
         enable(); //possibly might need to be removed. i can set it to enable on the first run.
