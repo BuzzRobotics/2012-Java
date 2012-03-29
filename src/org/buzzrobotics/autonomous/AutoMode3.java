@@ -17,7 +17,6 @@ import org.buzzrobotics.subsystems.DriveTrain;
  */
 public class AutoMode3 extends CommandGroup {
     public AutoMode3() {
-        addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         if (CommandBase.oi.getDevmode()){
         addSequential(new Drive_Encoder_Straight(24));             //Drive over to the ramp

@@ -19,8 +19,6 @@ public class Dashboard {
         SmartDashboard.putDouble("Autonomous Mode", CommandBase.oi.getAutonMode());
         SmartDashboard.putDouble("Autonomous Dely", CommandBase.oi.getDelay());
         
-        SmartDashboard.putBoolean("Camera Light", CommandBase.light.status());
-        
         SmartDashboard.putDouble("R Joystick X", CommandBase.oi.getRightX());
         SmartDashboard.putDouble("R joystick Y", CommandBase.oi.getRightY());
         

@@ -101,7 +101,7 @@ public class RobotMap {
         public static final int
                 brakeDeploy = 5,
                 brakeRetract = 6,
-                brakelight = 5;
+                brakelight = 1;
         
         /*
          * Ball Loader Door
@@ -168,7 +168,7 @@ public class RobotMap {
          * Camera Light
          * On Relay port 1 of Digital Sidecar
          */
-        public final static int lightrelay = 1;
+        public final static int lightrelay = 5;
         
         public final static int sonarPort = 1;
 }

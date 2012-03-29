@@ -74,10 +74,7 @@ public class Buzz extends IterativeRobot {
     }
 
     
-    public void teleopInit() {
-        //turn light on !!!
-        light = new Light(true);
-        light.start();      
+    public void teleopInit() {    
         
         if (autonomousCommand != null) {
             autonomousCommand.cancel();

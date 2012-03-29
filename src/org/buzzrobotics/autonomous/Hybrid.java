@@ -31,7 +31,6 @@ public class Hybrid extends CommandBase {
     
     public Hybrid() {
         requires(drivetrain);
-        requires(light);
         requires(shifter);
         kinect = Kinect.getInstance();
         
@@ -74,7 +73,7 @@ public class Hybrid extends CommandBase {
                 headAngle = AngleXY(kinect.getSkeleton().GetShoulderCenter(), kinect.getSkeleton().GetHead(), false);
                 buttons[0] = headAngle > HEAD_LEFT;
                 if (buttons[0]){
-                    light.on();
+              
                 }
                 buttons[1] = headAngle < HEAD_RIGHT;
                 if (buttons[1]){

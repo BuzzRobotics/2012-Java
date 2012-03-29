@@ -57,13 +57,13 @@ public class Brake extends Subsystem {
          if (!brakestatus){
             brakestatus = true;
             robotBrake.set(DoubleSolenoid.Value.kForward);
-            brakeLight.set(Relay.Value.kOff);
+            brakeLight.set(Relay.Value.kForward);
             //CommandBase.keysensor.on2();
         }else{
             brakestatus = false;
             robotBrake.set(DoubleSolenoid.Value.kReverse);
             //CommandBase.keysensor.off2();
-            brakeLight.set(Relay.Value.kForward);
+            brakeLight.set(Relay.Value.kOff);
         }
     }
    /*

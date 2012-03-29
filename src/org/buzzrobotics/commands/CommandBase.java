@@ -5,12 +5,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.buzzrobotics.OI;
 import org.buzzrobotics.subsystems.DriveTrain;
-import org.buzzrobotics.subsystems.Light;
 import org.buzzrobotics.subsystems.Shifter;
 import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.ShooterAngle;
 import org.buzzrobotics.subsystems.Rollers;
-import org.buzzrobotics.subsystems.Camera;
 import org.buzzrobotics.subsystems.Conveyor;
 import org.buzzrobotics.subsystems.KeySensor;
 import org.buzzrobotics.subsystems.BridgeArm;
@@ -28,12 +26,10 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     //public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
     public static DriveTrain drivetrain = new DriveTrain();
-    public static Light light = new Light();
     public static Shifter shifter = new Shifter();
     public static Shooter shooter = new Shooter();
     public static ShooterAngle shooterangle = new ShooterAngle();
     public static Rollers rollerarm = new Rollers();
-    public static Camera camera = new Camera();
     public static Conveyor ballfeeder = new Conveyor();
     public static KeySensor keysensor = new KeySensor();
     public static BridgeArm bridgearm = new BridgeArm();

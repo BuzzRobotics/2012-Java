@@ -27,9 +27,6 @@ public class SystemsCheck extends CommandGroup {
         DS.disp(2, "SystemsCheck: Door");
         checkConveyorDoor();
         addSequential(new WaitCommand(1));
-        DS.disp(2, "SystemsCheck: Camera");
-        checkCamera();
-        addSequential(new WaitCommand(1));
         DS.disp(2, "SystemsCheck: ShooterAngle");
         checkShooterAngle();
         addSequential(new WaitCommand(1));
@@ -67,16 +64,6 @@ public class SystemsCheck extends CommandGroup {
         addSequential(new WaitCommand(1));
         DS.disp(3, "Door: Close");
         addSequential(new FeederDoor_Close());
-    }
-    private void checkCamera() {
-        DS.disp(3, "Cam: 0.4,1");
-         addSequential(new Camera_AdjustXY(0.4,1));
-         addSequential(new Light(true));
-         addSequential(new WaitCommand(1));
-         DS.disp(3, "Cam: 0.7,.26");
-         addSequential(new Camera_AdjustXY(0.7, .26));
-         addSequential(new Light(false));
-        
     }
     private void checkShooter() {
         DS.disp(3, "Shooter:Out");

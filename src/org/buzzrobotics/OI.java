@@ -104,13 +104,10 @@ public class OI {
         
         rbutton6.whenPressed(new Drive_Encoder_Reset());
         
-        rbutton7.whenPressed(new Camera_AdjustXY(0.4,1));  // ( Tilt, Pan) Target???
+     
         
-        rbutton8.whenPressed(new Camera_AdjustXY(0.7, .26));   // ( Tilt, Pan) Ball????
-        
-        rbutton9.whenPressed(new SystemsCheck());
-        
-        rbutton10.whenPressed(new Light_Toggle());   
+        //rbutton9.whenPressed(new SystemsCheck());
+          
        // rbutton10.whenPressed(new flashyLights());        
         rbutton11.whenPressed(new FeederDoor_Toggle());
         //rbutton11.whenReleased(new Rollers_Off());
@@ -125,17 +122,17 @@ public class OI {
         lbutton1.whenPressed(new FeederDoor_Open());
         lbutton1.whenReleased(new FeederDoor_Close());
         
-        lbutton2.whenPressed(new Rollers_On(-1));
-        lbutton2.whenReleased(new Rollers_Off());
-        
-        lbutton3.whenPressed(new Rollers_On(1));
+        lbutton3.whenPressed(new Rollers_On(-1));
         lbutton3.whenReleased(new Rollers_Off());
         
-        lbutton4.whenPressed(new Conveyor_Move(1));
-        lbutton4.whenReleased(new Conveyor_Move(0));
+        lbutton2.whenPressed(new Rollers_On(1));
+        lbutton2.whenReleased(new Rollers_Off());
         
-        lbutton5.whenPressed(new Conveyor_Move(-1));
+        lbutton5.whenPressed(new Conveyor_Move(1));
         lbutton5.whenReleased(new Conveyor_Move(0));
+        
+        lbutton4.whenPressed(new Conveyor_Move(-1));
+        lbutton4.whenReleased(new Conveyor_Move(0));
         
         lbutton6.whenPressed(new Loader_Forward());
         lbutton6.whenReleased(new Loader_Stop());

@@ -20,8 +20,6 @@ public class AutoMode2 extends CommandGroup {
 
             
     public AutoMode2() {
-       
-        addSequential(new Light(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
         addSequential(new Loader_Load());
         addSequential(new WaitCommand(1));

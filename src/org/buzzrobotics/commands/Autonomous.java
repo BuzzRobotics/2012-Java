@@ -36,7 +36,6 @@ public class Autonomous extends CommandGroup {
 
         switch(mode){
             case 0:        
-                addSequential(new Lights_Flashy());
                 break;
             case 1:
                 addSequential(new AutoMode1());     //Shoot 2 balls
