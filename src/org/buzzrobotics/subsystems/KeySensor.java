@@ -31,6 +31,7 @@ public class KeySensor extends Subsystem {
     }
     public double getSonarSensor(){
         return sonarSensor.getAverageVoltage();
+        
     }
     
     /*

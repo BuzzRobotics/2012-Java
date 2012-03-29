@@ -71,11 +71,14 @@ public class ShooterAngle extends PIDSubsystem {
     
     
      public void shot1() {
-        setSetpoint(1.84);
+        setSetpoint(3.64);  //1.09
      }
      
      public void shot2() {
-         setSetpoint(1.11);
+         setSetpoint(1.8);
+     }
+     public void shot3() {
+         setSetpoint(1.09);  //3.64
      }
      
      public boolean atSetpoint() {

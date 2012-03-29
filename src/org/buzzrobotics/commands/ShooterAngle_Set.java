@@ -27,20 +27,20 @@ public class ShooterAngle_Set extends CommandBase {
     protected void execute() {
         System.out.println("Setpoint: " + shooterangle.getSetpoint() + "  Joystick Pos: " + oi.getLeftX());
             if (oi.getLeftX() >= .9){
-                shooterangle.shot1();
+                shooterangle.shot3();
             }
             if (oi.getLeftX() >= .25 && oi.getLeftX() <= .75){
                 shooterangle.shot2();
             }
             if (oi.getLeftX() >= -0.25 && oi.getLeftX() <= .25){
-                shooterangle.shot2();
+                shooterangle.shot1();
             }
             if (oi.getLeftX() <= -0.75){
                 if (oi.getLeftY() >= 0.8){
-                    shooterangle.jogUp();
+                    shooterangle.jogDown();
                 }
                 if (oi.getLeftY() <= -0.8){
-                    shooterangle.jogDown();
+                    shooterangle.jogUp();
                 }
             }
     }

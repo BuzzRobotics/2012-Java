@@ -138,16 +138,6 @@ public class RobotMap {
         public static final int
                 BridgeArmPot = 4,
                 BridgeArmMotor = 3; 
-        
-        /*
-         * Camera Servo Ports
-         * Used on PWM of Digital Sidecar
-         * (SERVOS)
-         */
-        public static final int
-                camerax = 9,
-                cameray = 10;
-       
          /*
          * Floor Optical Sensors
          * On Digital IO on digital sidecar.
@@ -162,13 +152,12 @@ public class RobotMap {
          */
          public static final int 
                  FloorLightRelayPort = 2,
-                 FloorLight2RelayPort = 4;
+                 FloorLight2RelayPort = 3;
          
          /*
          * Camera Light
          * On Relay port 1 of Digital Sidecar
          */
-        public final static int lightrelay = 5;
         
         public final static int sonarPort = 1;
 }
