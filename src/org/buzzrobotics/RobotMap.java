@@ -144,9 +144,8 @@ public class RobotMap {
          */
         public static final int
                 floor1_opticalSensor = 12,
-                floor2_opticalSensor = 13,
-                wallsensor = 11;
-                
+                floor2_opticalSensor = 13;
+        
         /*
          * Floor Light Relay
          * Triggered when all 3 foor sensors are lit.

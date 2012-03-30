@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import org.buzzrobotics.RobotMap;
-import org.buzzrobotics.commands.IRSensorFeed;
 
 /**
  * Floor Light Sensor
@@ -14,7 +13,7 @@ import org.buzzrobotics.commands.IRSensorFeed;
  * @author Peter Polis
  * 
  *///smahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-public class IRSensors extends Subsystem {
+public class KeySensor extends Subsystem {
     public boolean lighton;
     Relay floor_light;
     Relay floor_light2;
@@ -22,9 +21,9 @@ public class IRSensors extends Subsystem {
     AnalogChannel sonarSensor;
     private DigitalInput floor2 = new DigitalInput(RobotMap.floor2_opticalSensor);
     private DigitalInput floor1 = new DigitalInput(RobotMap.floor1_opticalSensor);
-    private DigitalInput wall = new DigitalInput(RobotMap.wallsensor);
     
-    public IRSensors(){
+    
+    public KeySensor(){
         floor_light = new Relay(RobotMap.FloorLightRelayPort);
         floor_light2 = new Relay(RobotMap.FloorLight2RelayPort);
         sonarSensor = new AnalogChannel(RobotMap.sonarPort);
@@ -84,7 +83,7 @@ public class IRSensors extends Subsystem {
      * Returns an inverse of the floor sensor 1
      * @return false if nothings present
      * @return true if its triggered
-     */ 
+     */
     public boolean getFloor1IRSensor(){
         boolean floor1stat = floor1.get();
         return !floor1stat;
@@ -100,11 +99,7 @@ public class IRSensors extends Subsystem {
         return !floor2stat;
     }
     
-    public boolean getWallSensor(){
-        boolean walls = wall.get();
-        return !walls;
-    }
     public void initDefaultCommand() {
-        setDefaultCommand(new IRSensorFeed());
+       
     }
 }

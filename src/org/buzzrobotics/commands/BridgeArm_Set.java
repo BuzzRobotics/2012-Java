@@ -35,12 +35,7 @@ public class BridgeArm_Set extends CommandBase {
 //        }else{
 //            return false;
 //        }
-//        if (bridgearm.getPosition() + 0.1 >= bridgearm.getSetpoint() && bridgearm.getPosition() - 0.1 <= bridgearm.getSetpoint()){
-//            return true;
-//        }else{
-//            return false;
-//        }
-        if (bridgearm.atSetpoint()){
+        if (bridgearm.getPosition() + 0.1 >= bridgearm.getSetpoint() && bridgearm.getPosition() - 0.1 <= bridgearm.getSetpoint()){
             return true;
         }else{
             return false;

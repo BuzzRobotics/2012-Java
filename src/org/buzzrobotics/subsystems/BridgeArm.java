@@ -35,9 +35,14 @@ public class BridgeArm extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+      //  setDefaultCommand(new Shooter_Angle(3));
     }
     
     protected double returnPIDInput() {
+        // Return your input value for the PID loop
+        // e.g. a sensor, like a potentiometer:
+        // yourPot.getAverageVoltage() / kYourMaxVoltage;
         return BridgeArmPot.getVoltage();
     }
     
@@ -48,23 +53,13 @@ public class BridgeArm extends PIDSubsystem {
     public double returnPot(){
        return BridgeArmPot.getVoltage();
     }
-    
     public void driveUp(){
         BridgeArmMotor.set(1);
     }
-    
     public void driveDown(){
         BridgeArmMotor.set(-1);
     }
-    
     public void stop(){
         BridgeArmMotor.set(0);
-    }
-    /*
-     * atSetpoint
-     * Returns whether or not the setpoint is reached.
-     */
-    public boolean atSetpoint() {
-        return Math.abs(getPosition() - getSetpoint()) < .1;
     }
 }

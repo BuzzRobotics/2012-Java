@@ -26,10 +26,8 @@ public class Dashboard {
         SmartDashboard.putDouble("Encoder - Left", CommandBase.drivetrain.getLeftEncoder());
         SmartDashboard.putDouble("Encoder - Right", CommandBase.drivetrain.getRightEncoder());
         
-        SmartDashboard.putBoolean("IR 1", CommandBase.irsensors.getFloor1IRSensor());
-        SmartDashboard.putBoolean("IR 2", CommandBase.irsensors.getFloor2IRSensor());
-        SmartDashboard.putBoolean("Wall Sensor", CommandBase.irsensors.getWallSensor());
-        
+        SmartDashboard.putBoolean("IR 1", CommandBase.keysensor.getFloor1IRSensor());
+        SmartDashboard.putBoolean("IR 2", CommandBase.keysensor.getFloor2IRSensor());
         
         SmartDashboard.putBoolean("Brake", CommandBase.brake.status());
         
@@ -39,5 +37,7 @@ public class Dashboard {
         SmartDashboard.putDouble("Shifter Count", CommandBase.shifter.getCounter());
     
         SmartDashboard.putDouble("Joystick Twist", CommandBase.oi.getRightTwist());
+
+        SmartDashboard.putDouble("Sonar", CommandBase.keysensor.getSonarSensor());
     }
 }
