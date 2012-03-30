@@ -17,12 +17,9 @@ public class Brake extends Subsystem {
     
     
     public void Brake(){
-        //robotBrake = new DoubleSolenoid(RobotMap.brakeDeploy, RobotMap.brakeRetract);
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
     /*
      * Deploys Brake!
@@ -58,13 +55,18 @@ public class Brake extends Subsystem {
             brakestatus = true;
             robotBrake.set(DoubleSolenoid.Value.kForward);
             brakeLight.set(Relay.Value.kForward);
-            //CommandBase.keysensor.on2();
         }else{
             brakestatus = false;
             robotBrake.set(DoubleSolenoid.Value.kReverse);
-            //CommandBase.keysensor.off2();
             brakeLight.set(Relay.Value.kOff);
         }
+    }
+    
+    public void lightOn(){
+        brakeLight.set(Relay.Value.kForward);
+    }
+    public void lightOff(){
+        brakeLight.set(Relay.Value.kOff);
     }
    /*
     * status
