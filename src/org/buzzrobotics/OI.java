@@ -104,8 +104,8 @@ public class OI {
         
         rbutton6.whenPressed(new Drive_Encoder_Reset());
         
-        rbutton7.whenPressed(new lights(true));
-        rbutton7.whenReleased(new lights(false));
+        rbutton7.whenPressed(new lights(true, true, true));
+        rbutton7.whenReleased(new lights(false, false, false));
      
         
         //rbutton9.whenPressed(new SystemsCheck());

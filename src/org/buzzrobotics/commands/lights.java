@@ -9,11 +9,15 @@ package org.buzzrobotics.commands;
  * @author Kyle Deane
  */
 public class lights extends CommandBase {
-    public boolean m_on;
-    public lights(boolean on) {
+    public boolean m_on1;
+    public boolean m_on2;
+    public boolean m_on3;
+    public lights(boolean on1, boolean on2, boolean on3) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        m_on = on;
+        m_on1 = on1;
+        m_on2 = on2;
+        m_on3 = on3;
     }
 
     // Called just before this Command runs the first time
@@ -22,14 +26,22 @@ public class lights extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (m_on){
-        keysensor.on2();
-        keysensor.on1();
-        brake.lighton();
+        if (m_on1){
+        sensors.on1();
         }else{
-        keysensor.off2();
-        keysensor.off1();
-        brake.lightoff();  
+        sensors.off1();
+        }
+        
+        if (m_on2){
+            sensors.on2();
+        }else{
+            sensors.off2();
+        }
+        
+        if (m_on3){
+            brake.lighton();
+        }else{
+            brake.lightoff();
         }
     }
 

@@ -29,9 +29,7 @@ public class Drive_Encoder_Straight extends CommandBase{
 
     // Called repeatedly when this Command is scheduled to run
     public void execute(){
-        
-        
-        System.out.println("DRIVING." + drivetrain.getAvgDistance());
+        System.out.println("DRIVING." + drivetrain.getAvgDistance() + "  InchesToTravel: " + inches_to_travel);     
     }
 
     // Make this return true when this Command no longer needs to run execute()

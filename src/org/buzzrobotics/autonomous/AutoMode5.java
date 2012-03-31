@@ -13,12 +13,12 @@ import org.buzzrobotics.subsystems.DriveTrain;
  *
  * @author buzz5
  * 
- *                          ~SHOOT TWICE, DRIVE BACK!!!!!~
+ *                          ~SHOOT TWICE, Lower Arm, drive to bridge
  * 
  */
 public class AutoMode5 extends CommandGroup {
     public AutoMode5() {
-        addSequential(new lights(true));
+        addSequential(new lights(true, true, true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
        // addSequential(new MoveBallFeeder(1));
         addSequential(new Loader_Load());
@@ -27,7 +27,7 @@ public class AutoMode5 extends CommandGroup {
         addParallel(new Shooter_Fire());  
         addSequential(new BridgeArm_Set(2.53)); //down
         addParallel(new Drive_Encoder_Straight(120));
-        addSequential(new lights(false));
+        addSequential(new lights(false, false, false));
         //}
     }
 }

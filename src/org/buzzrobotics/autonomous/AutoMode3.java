@@ -13,7 +13,7 @@ import org.buzzrobotics.subsystems.DriveTrain;
  *
  * @author buzz5
  * 
- *                                  ~Gets Balls Out~
+ *                                 ~Feeds balls into other robot during autonomous Mode
  */
 public class AutoMode3 extends CommandGroup {
     public AutoMode3() {

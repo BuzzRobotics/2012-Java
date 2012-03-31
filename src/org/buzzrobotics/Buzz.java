@@ -25,7 +25,6 @@ import org.buzzrobotics.utils.Dashboard;
  */
 public class Buzz extends IterativeRobot {
     public static boolean devmode = true;
-    Command light;
     
     Command DriveWithJoystick;
     Command autonomousCommand;
@@ -69,13 +68,11 @@ public class Buzz extends IterativeRobot {
     
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        if (devmode){dashboard.update();}
-        //System.out.println(CommandBase.oi.getAutonMode());
+        dashboard.update();
     }
 
     
     public void teleopInit() {    
-        
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         };
@@ -94,12 +91,10 @@ public class Buzz extends IterativeRobot {
     public void disabledInit() {
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
-        }
-        
+        }  
     }
     public void disabledPeriodic() {
-        if (devmode){dashboard.update();}
-        
+        dashboard.update();   
     }
 }
 

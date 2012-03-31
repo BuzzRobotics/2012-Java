@@ -31,16 +31,16 @@ public class DriveWithJoystick extends CommandBase {
         //y = (.75*x)^3+(1-.75)*x <- beautiful algorthm
 
         
-        if(!keysensor.getFloor1IRSensor() || !keysensor.getFloor2IRSensor()){
-            keysensor.on1();
-        }else if (keysensor.getFloor1IRSensor() && keysensor.getFloor2IRSensor()){
-            keysensor.off1();
+        if(!sensors.getFloor1IRSensor() || !sensors.getFloor2IRSensor()){
+            sensors.on1();
+        }else if (sensors.getFloor1IRSensor() && sensors.getFloor2IRSensor()){
+            sensors.off1();
         }
         
-        if(!keysensor.getWallSensor()){     
-            keysensor.on2();
+        if(!sensors.getWallSensor()){     
+            sensors.on2();
         }else{
-            keysensor.off2();
+            sensors.off2();
         }        
     }
 
