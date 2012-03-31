@@ -15,12 +15,14 @@ import org.buzzrobotics.commands.*;
 public class AutoMode1 extends CommandGroup {
     
     public AutoMode1() {
+        addSequential(new lights(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
        // addSequential(new MoveBallFeeder(1));
         addSequential(new Loader_Load());
         //addSequential(new MoveBallFeeder(0));
         addSequential(new WaitCommand(1));
-        addSequential(new Shooter_Fire());    
+        addSequential(new Shooter_Fire());  
+        addSequential(new lights(false));
       //  addParallel(new Lights_Flashy());//Shoot the other ball
         
 //        addSequential(new AutonDrive(24));            //UNCOMMENT LATER

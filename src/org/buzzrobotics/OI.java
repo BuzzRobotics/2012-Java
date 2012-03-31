@@ -104,6 +104,8 @@ public class OI {
         
         rbutton6.whenPressed(new Drive_Encoder_Reset());
         
+        rbutton7.whenPressed(new lights(true));
+        rbutton7.whenReleased(new lights(false));
      
         
         //rbutton9.whenPressed(new SystemsCheck());
@@ -255,13 +257,13 @@ public class OI {
         }else if(yaled >= 0.5 && yaled <= 0.7){
             delay = 1;
         }else if(yaled >= 1.2 && yaled <= 1.4){
-            delay = 4;
+            delay = 2;
         }else if(yaled >= 1.8 && yaled <= 2.1){
-            delay = 6;
+            delay = 3;
         }else if(yaled >= 2.5 && yaled <= 2.8){
-            delay = 8;
+            delay = 4;
         }else if(yaled >= 3.0 && yaled <= 4.0){
-            delay = 10;
+            delay = 7;
         }else{
             delay = 0;
         }

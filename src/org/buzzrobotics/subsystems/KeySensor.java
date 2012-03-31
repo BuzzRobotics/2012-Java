@@ -21,7 +21,7 @@ public class KeySensor extends Subsystem {
     AnalogChannel sonarSensor;
     private DigitalInput floor2 = new DigitalInput(RobotMap.floor2_opticalSensor);
     private DigitalInput floor1 = new DigitalInput(RobotMap.floor1_opticalSensor);
-    
+    private DigitalInput wall = new DigitalInput(RobotMap.wall);
     
     public KeySensor(){
         floor_light = new Relay(RobotMap.FloorLightRelayPort);
@@ -99,6 +99,9 @@ public class KeySensor extends Subsystem {
         return !floor2stat;
     }
     
+    public boolean getWallSensor(){
+        return wall.get();
+    }
     public void initDefaultCommand() {
        
     }

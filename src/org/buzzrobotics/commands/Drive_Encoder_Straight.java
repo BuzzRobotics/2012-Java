@@ -21,19 +21,23 @@ public class Drive_Encoder_Straight extends CommandBase{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        drivetrain.initController(); // Enables "drive straight" controller
         drivetrain.resetEncoders();
+        drivetrain.setForward();
+        drivetrain.driveStraight();
+        drivetrain.initController(); // Enables "drive straight" controller
     }
 
     // Called repeatedly when this Command is scheduled to run
     public void execute(){
-        drivetrain.driveStraight();
+        
+        
         System.out.println("DRIVING." + drivetrain.getAvgDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(drivetrain.getLeftEncoder()) > Math.abs(inches_to_travel); // Check if we have traveled the right distance by encoder measure
+       
+        return Math.abs(drivetrain.getAvgDistance()) > Math.abs(inches_to_travel); // Check if we have traveled the right distance by encoder measure
     }
 
     // Called once after isFinished returns true

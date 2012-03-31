@@ -47,7 +47,7 @@ public class BridgeArm extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-        BridgeArmMotor.set(-output);
+        BridgeArmMotor.set(output);
     }
     
     public double returnPot(){

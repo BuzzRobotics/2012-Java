@@ -144,7 +144,8 @@ public class RobotMap {
          */
         public static final int
                 floor1_opticalSensor = 12,
-                floor2_opticalSensor = 13;
+                floor2_opticalSensor = 13,
+                wall = 11;
         
         /*
          * Floor Light Relay
@@ -160,4 +161,5 @@ public class RobotMap {
          */
         
         public final static int sonarPort = 1;
+        
 }

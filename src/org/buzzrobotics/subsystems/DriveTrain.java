@@ -22,7 +22,7 @@ public class DriveTrain extends Subsystem {
     Encoder rightDriveEncoder;
     Encoder leftDriveEncoder;
   
-    private int forward;
+    private double forward;
     /*
      * Define Variables
      */
@@ -56,7 +56,7 @@ public class DriveTrain extends Subsystem {
         
         PIDSource difference = new PIDSource(){
             public double pidGet(){
-                return leftDriveEncoder.getDistance() - rightDriveEncoder.getDistance();
+                return leftDriveEncoder.getDistance() + rightDriveEncoder.getDistance();
             }
         };
                 
@@ -64,7 +64,7 @@ public class DriveTrain extends Subsystem {
            
             
             public void pidWrite(double output) {
-                arcadeDrive(forward, -output);
+                drive(forward, output);
             }
         }, 0.005);
     }
@@ -126,7 +126,7 @@ public class DriveTrain extends Subsystem {
      */
     public double getAvgDistance() {
 
-        return (rightDriveEncoder.getDistance() + leftDriveEncoder.getDistance()) / 2.0;
+        return (Math.abs(rightDriveEncoder.getDistance()) + Math.abs(leftDriveEncoder.getDistance())) / 2.0;
 
     }
     
@@ -165,12 +165,12 @@ public class DriveTrain extends Subsystem {
     
     /* Defines direction for autonomus as forwards */
     public final void setForward(){
-        forward = -1;
+        forward = 0.5;
     }
 
     /* Defines direction for autonomus as backwards */
     public final void setBackwards(){
-        forward = 1;
+        forward = -0.5;
     }
     
     public void initDefaultCommand() {

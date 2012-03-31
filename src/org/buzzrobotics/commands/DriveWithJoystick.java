@@ -24,29 +24,24 @@ public class DriveWithJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        joyz = oi.getRightZ();
+       // joyz = oi.getRightZ();
  
       
         drivetrain.arcadeDrive(oi.getRightX(),oi.getRightY());
         //y = (.75*x)^3+(1-.75)*x <- beautiful algorthm
 
         
-        if(keysensor.getFloor1IRSensor()){
+        if(!keysensor.getFloor1IRSensor() || !keysensor.getFloor2IRSensor()){
             keysensor.on1();
-        }else{
+        }else if (keysensor.getFloor1IRSensor() && keysensor.getFloor2IRSensor()){
             keysensor.off1();
         }
-        if(keysensor.getFloor2IRSensor()){     
+        
+        if(!keysensor.getWallSensor()){     
             keysensor.on2();
         }else{
             keysensor.off2();
         }        
-        
-        if((keysensor.getSonarSensor() <= 0.13) && (keysensor.getSonarSensor() >= 0.11)){
-            keysensor.sonarLightOn();
-        }else{
-            keysensor.sonarLightOff();
-        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

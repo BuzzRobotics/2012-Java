@@ -1,34 +1,36 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.buzzrobotics.commands;
 
 /**
- * Turns rollers on.
- * @author Peter Polis
+ *
+ * @author Kyle Deane
  */
-public class rollersToggleWithZ extends CommandBase {
-    public double leftZ;
-    public int m_direction;
-    public rollersToggleWithZ() {
+public class lights extends CommandBase {
+    public boolean m_on;
+    public lights(boolean on) {
         // Use requires() here to declare subsystem dependencies
-        requires(rollerarm);
-        //m_direction = direction;
+        // eg. requires(chassis);
+        m_on = on;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        leftZ = oi.getLeftZ();  
-        if(leftZ >= 0){
-            m_direction = 1;
-        }else{
-            m_direction = -1;
-        }
-        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
-        rollerarm.turnOnRollers(m_direction);
-
+        if (m_on){
+        keysensor.on2();
+        keysensor.on1();
+        brake.lighton();
+        }else{
+        keysensor.off2();
+        keysensor.off1();
+        brake.lightoff();  
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

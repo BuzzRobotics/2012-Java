@@ -4,6 +4,7 @@
 package org.buzzrobotics.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import org.buzzrobotics.commands.*;
 import org.buzzrobotics.subsystems.Shooter;
 import org.buzzrobotics.subsystems.DriveTrain;
@@ -17,15 +18,16 @@ import org.buzzrobotics.subsystems.DriveTrain;
  */
 public class AutoMode5 extends CommandGroup {
     public AutoMode5() {
-        //addSequential(new ResetGyro());
+        addSequential(new lights(true));
         addSequential(new Shooter_Fire());             //Shoot one of the two balls we have
        // addSequential(new MoveBallFeeder(1));
         addSequential(new Loader_Load());
         //addSequential(new MoveBallFeeder(0));
-        addSequential(new Delay(1));
-        addSequential(new Shooter_Fire());  
-        if (CommandBase.oi.getDevmode()){
-        addSequential(new Drive_Time_Turn(0.5, 0, 2));
-        }
+        addSequential(new WaitCommand(1));
+        addParallel(new Shooter_Fire());  
+        addSequential(new BridgeArm_Set(2.53)); //down
+        addParallel(new Drive_Encoder_Straight(120));
+        addSequential(new lights(false));
+        //}
     }
 }

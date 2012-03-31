@@ -50,7 +50,7 @@ public class Autonomous extends CommandGroup {
                 addSequential(new AutoMode4());     //Do nothing
                 break;
             case 5:
-                addSequential(new Hybrid());      //Broken
+                addSequential(new AutoMode5());      //Broken
                 break;
             default:
                 break;

@@ -66,6 +66,12 @@ public class Brake extends Subsystem {
             brakeLight.set(Relay.Value.kOff);
         }
     }
+    public void lighton(){
+        brakeLight.set(Relay.Value.kForward);
+    }
+    public void lightoff(){
+        brakeLight.set(Relay.Value.kOff);
+    }
    /*
     * status
     * @return boolean brakestatus
