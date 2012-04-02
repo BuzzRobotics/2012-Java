@@ -26,7 +26,8 @@ public class AutoMode5 extends CommandGroup {
         addSequential(new WaitCommand(1));
         addParallel(new Shooter_Fire());  
         addSequential(new BridgeArm_Set(2.53)); //down
-        addParallel(new Drive_Encoder_Straight(120));
+        addParallel(new Drive_Encoder_Straight(60f));
+       
         addSequential(new lights(false, false, false));
         //}
     }

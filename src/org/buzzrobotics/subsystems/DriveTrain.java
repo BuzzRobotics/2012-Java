@@ -23,7 +23,7 @@ public class DriveTrain extends Subsystem {
     Encoder leftDriveEncoder;
   
     private double forward;
-    /*
+    /* 
      * Define Variables
      */
     final int WHEEL_RADIUS = 4;
@@ -34,9 +34,9 @@ public class DriveTrain extends Subsystem {
     /*
      * Define PID Variables
      */
-    double Kp = 0.035;
-    double Ki = 0.0005;
-    double Kd = 1.0;
+    double Kp = 1;
+    double Ki = 0;
+    double Kd = 0;
     
     SendablePIDController controller;
     
@@ -64,11 +64,11 @@ public class DriveTrain extends Subsystem {
            
             
             public void pidWrite(double output) {
-                drive(forward, output);
+                drive(-Math.abs(forward), -output);
             }
         }, 0.005);
     }
-    
+                                        
     /**
      * Implements the Arcade capability of the drivetrain.
      * 
@@ -126,7 +126,7 @@ public class DriveTrain extends Subsystem {
      */
     public double getAvgDistance() {
 
-        return (Math.abs(rightDriveEncoder.getDistance()) + Math.abs(leftDriveEncoder.getDistance())) / 2.0;
+        return (leftDriveEncoder.getDistance() - rightDriveEncoder.getDistance()) / 2.0;
 
     }
     

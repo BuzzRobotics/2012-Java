@@ -9,7 +9,7 @@ import org.buzzrobotics.subsystems.DriveTrain;
 /**
  *
  * @author buzz5
- * 
+ * Take in balls from another Robot :)
  * 
  * 
  */
@@ -24,6 +24,7 @@ public class AutoMode4 extends CommandGroup {
        addSequential(new WaitCommand(1));
        addSequential(new Rollers_On(-1));
         addSequential(new Conveyor_Move(-1));
+        addParallel(new Loader_Load());
         addSequential(new WaitCommand(4));
         addSequential(new Conveyor_Move(0));
         addSequential(new Rollers_Off());
