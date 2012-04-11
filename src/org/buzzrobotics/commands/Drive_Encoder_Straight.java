@@ -17,6 +17,7 @@ public class Drive_Encoder_Straight extends CommandBase{
         }else if (inches < 0){
             drivetrain.setBackwards();
         }
+        setInterruptible(true); //Might cause issues
     }
 
     // Called just before this Command runs the first time
@@ -47,5 +48,6 @@ public class Drive_Encoder_Straight extends CommandBase{
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }
