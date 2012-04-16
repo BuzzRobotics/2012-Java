@@ -13,6 +13,7 @@ import org.buzzrobotics.subsystems.Conveyor;
 import org.buzzrobotics.subsystems.Sensors;
 import org.buzzrobotics.subsystems.BridgeArm;
 import org.buzzrobotics.subsystems.Brake;
+import org.buzzrobotics.subsystems.BallFunnel;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -34,6 +35,7 @@ public abstract class CommandBase extends Command {
     public static Sensors sensors = new Sensors();
     public static BridgeArm bridgearm = new BridgeArm();
     public static Brake brake = new Brake();
+    public static BallFunnel funnel = new BallFunnel();
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

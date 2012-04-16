@@ -106,11 +106,7 @@ public class OI {
         
         rbutton7.whenPressed(new lights(true, true, true));
         rbutton7.whenReleased(new lights(false, false, false));
-     
-        
-        //rbutton9.whenPressed(new SystemsCheck());
-          
-       // rbutton10.whenPressed(new flashyLights());        
+         
         rbutton11.whenPressed(new FeederDoor_Toggle());
         //  rbutton11.whenReleased(new Rollers_Off());
 //        rbutton12.whenPressed(new Rollers_On(1));
@@ -142,6 +138,8 @@ public class OI {
         lbutton7.whenPressed(new Loader_Reverse());
         lbutton7.whenReleased(new Loader_Stop());
         
+        lbutton8.whenPressed(new Funnel_Set(true));
+        lbutton8.whenReleased(new Funnel_Set(false));
         //lbutton10.whenPressed(new ShooterAngle_Set(1.11)); //NO BRAKES, FENDER, 2 POINT SHOT
         
         //lbutton11.whenPressed(new ShooterAngle_Set(1.84));  //BRAKES ON, 3 POINT, 14 INCHES AWAY

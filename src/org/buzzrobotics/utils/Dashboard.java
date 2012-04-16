@@ -39,5 +39,7 @@ public class Dashboard {
         SmartDashboard.putDouble("Joystick Twist", CommandBase.oi.getRightTwist());
 
         SmartDashboard.putDouble("Sonar", CommandBase.sensors.getSonarSensor());
+        SmartDashboard.putDouble("Funnel-Current", CommandBase.funnel.position());
+        SmartDashboard.putInt("Funnel-Set", CommandBase.funnel.status());
     }
 }

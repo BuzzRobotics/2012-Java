@@ -159,6 +159,7 @@ public class RobotMap {
          * Camera Light
          * On Relay port 1 of Digital Sidecar
          */
+        public final static int FunnelServo = 9;
         
         public final static int sonarPort = 1;
         
